@@ -1,0 +1,23 @@
+{
+  "name": "pasta_club",
+  "version": "0.0.1",
+  "description": "Full Stack Web App to gather pasta lovers for local dinner events.",
+  "main": "server.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GrlCodeUNC/PastaClub.git"
+  },
+  "author": "GrlCodeUNC",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GrlCodeUNC/PastaClub/issues"
+  },
+  "homepage": "https://github.com/GrlCodeUNC/PastaClub#readme"
+}
