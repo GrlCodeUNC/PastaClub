@@ -4,7 +4,7 @@ var env = require("dotenv");
 env.config();
 
 var sequelize;
-console.log(process.env);
+
 
 if(process.env.JAWSDB_URL){
     sequelize = new Sequelize(process.env.JAWSDB_URL);
