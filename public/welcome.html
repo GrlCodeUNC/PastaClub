@@ -13,7 +13,9 @@
 
 	  <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
 
-	  <script type="text/javascript" src="assets/js/welcome.js"></script>
+	  <link type="text/javascript" src="assets/js/welcome.js">
+
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	  
 </head>
 <body>
@@ -52,20 +54,20 @@
 		<div id="signUpbtns">
 			<a href="/signup" class="waves-effect orange lighten-1 btn">Sign Up</a>
 			<!-- Modal Trigger -->
-			 <a class="waves-effect orange lighten-1 btn modal-trigger" href="#modal1">Login</a>
+			 <a class="waves-effect orange lighten-1 btn modal-trigger" data-target="modal1">Login</a>
 		</div> 
 
+		
 		  <!-- Modal Structure -->
-		  <div id="modal1" class="modal">
-		    <div class="modal-content">
+		<div id="modal1" class="modal">
+		   <div class="modal-content">
 		      <h4>Login!</h4>
 		      <p>A bunch of text</p>
-		    </div>
-		    <div class="modal-footer">
+		   </div>
+		   <div class="modal-footer">
 		      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-		    </div>
-		  </div>
-
+		   </div>
+		</div>	
 	</div>
 
 	<div class="row">
