@@ -23,9 +23,11 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "dotenv": "^4.0.0",
+    "env": "0.0.2",
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
     "mysql": "^2.15.0",
-    "sequelize": "^4.31.2"
+    "mysql2": "^1.5.1",
+    "sequelize": "^4.32.1"
   }
 }
