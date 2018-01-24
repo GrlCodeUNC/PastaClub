@@ -6,8 +6,10 @@ var Sequelize = require("sequelize");
 // sequelize (lowercase) references our connection to the DB.
 var sequelize = require("../config/connection.js");
 
-// Creates a "User" model that matches up with DB
-var User = sequelize.define("user", {
+console.log("user model here");
+
+// Creates a "Users" model that matches up with DB
+var Users = sequelize.define("user", {
   
   // User email
   user_email: {
@@ -34,8 +36,10 @@ var User = sequelize.define("user", {
   }
 }, { timestamps: true });
 
+console.log("user table here");
+
 // Syncs with DB
-User.sync();
+Users.sync();
 
 // Makes the User Model available for other files (will also create a table)
-module.exports = User;
+module.exports = Users;
