@@ -1,0 +1,82 @@
+body {
+	background-image: url("assets/images/pastaBackground.jpg");
+	max-width: 100%;
+	max-width: 100%;
+}
+
+.logo {
+	margin-top: 100px;
+}
+
+.floatingNoodle1 {
+	position: relative;
+    left: 100px;
+}
+
+.floatingNoodle2 {
+	position: relative;
+    left: 500px;
+}
+
+.floatingNoodle3 {
+	position: relative;
+    left: 200px;
+}
+
+.floatingNoodle4 {
+	position: relative;
+    right: 200px;
+}
+
+.arya {
+	font-family: 'Arya', sans-serif;
+	color: #041259;
+}
+
+#welcomeAbout {
+	color: #041259;
+}
+
+#signUpbtns {
+	margin-top: 80px;
+}
+
+#about {
+	margin-top: -65px;
+}
+
+/*Sign up page*/
+
+.email {
+	float: center;
+}
+
+.main {
+	margin-top: 100px;
+}
+
+.name {
+	margin-right: 80px;
+}
+
+/*Attendees Page*/
+
+.title {
+	margin: 80px;
+}
+
+.description {
+	margin: 80px;
+}
+
+.rsvp {
+	margin: 80px;
+}
+
+.attendees {
+	margin: 80px;
+}
+
+.items {
+	margin: 80px;
+}
