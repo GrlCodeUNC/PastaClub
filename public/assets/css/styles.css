@@ -24,6 +24,11 @@ body {
     right: 200px;
 }
 
+.floatingNoodle5 {
+	position: relative;
+    left: 200px;
+}
+
 .arya {
 	font-family: 'Arya', sans-serif;
 	color: #041259;
