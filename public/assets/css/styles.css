@@ -115,3 +115,25 @@
 	margin: 80px;
 }
 
+.hostingDash {
+  background: #041259;
+  height: 200px;
+  margin-top: 200;
+  color: #ffffff;
+}
+
+.attendingDash {
+  background: #ff4d03;
+  height: 200px;
+  margin-top: 200;
+  color: #ffffff;
+}
+
+
+
+.flow-text {
+	color: #041259;
+	font-size: 30px;
+	font-family: 'Arya', sans-serif;
+}
+
