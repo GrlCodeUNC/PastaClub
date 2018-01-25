@@ -16,6 +16,8 @@
 
   <link href="https://fonts.googleapis.com/css?family=Arya" rel="stylesheet">
 
+  <script src="https://code.jquery.com/jquery.js"></script>
+
  </head>         
 	
 </body>
@@ -27,14 +29,14 @@
 </div>
 
 <div class="main container">
+  <form action="" method="POST" role="form">
 
   <div class="name row center">
     <form class="col s12">
       <div class="row">
         <div class="input-field col s6">
           <i class="material-icons prefix">account_circle</i>
-          <input id="icon_prefix" type="text" class="validate">
-          <label for="icon_prefix">First and Last Name</label>
+          <input id="name" type="text" class="validate" placeholder="First and Last Name">
         </div>
 
   <div class="email row center">
@@ -42,10 +44,9 @@
       <div class="row">
         <div class="input-field col s6">
           <i class="material-icons prefix">email</i>
-          <input id="icon_prefix" type="text" class="validate">
+          <input id="email" type="text" class="validate" placeholder="Email">
 <!--           <input id="email" type="email" class="validate"> -->
           <!-- <label for="email" data-error="wrong" data-success="right">Email</label> -->
-          <label for="icon_prefix">Email</label>
         </div>
       </div>
     </form>
@@ -56,17 +57,19 @@
       <div class="row">
         <div class="input-field col s6">
           <i class="material-icons prefix">vpn_key</i>
-          <input id="icon_prefix" type="text" class="validate">
-          <label for="icon_prefix">Create Password</label>
+          <input id="password" type="text" class="validate" placeholder="Create a Password">
         </div>
 
       </div>
     </form>
   </div>
 
-  <a class="waves-effect orange lighten-1 btn">Sign Up</a>
+  <a class="waves-effect orange lighten-1 btn" id="signup-btn">Sign Up</a>
 
 </div>
 </div>
+
+<script src="js/signup.js" type="text/javascript"></script>
+
 
 </html>
