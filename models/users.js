@@ -14,9 +14,9 @@ var Users = sequelize.define("user", {
   // User email
   user_email: {
     type: Sequelize.STRING,
+    allowNull: false,
     validate: {
       isEmail: true,
-      notNull: true,
       notEmpty: true
     }
   },
@@ -24,7 +24,7 @@ var Users = sequelize.define("user", {
   user_name: {
     type: Sequelize.STRING,
     validate: {
-      is: ["^[a-z]+$",'i']
+      // is: ["^[a-z]+$",'i']
     }
   },
   // User Password
