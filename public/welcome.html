@@ -11,7 +11,13 @@
 
 	  <link href="https://fonts.googleapis.com/css?family=Arya" rel="stylesheet">
 
+
+	  <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 	  <link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
+
 	  
 </head>
 <body>
@@ -31,6 +37,12 @@
 			</div>
 		</div>
 
+		<div class="row">
+			<div class="floatingNoodle5">
+				<img width="40" src="assets/images/onePastaspinning.gif" alt="pasta gif">
+			</div>
+		</div>
+
 		<div id="about">
 			<div class="arya">
 				<h4>Make Friends. Eat Pasta.</h4>
@@ -42,9 +54,23 @@
 		</div>
 
 		<div id="signUpbtns">
-			<a class="waves-effect orange lighten-1 btn">Sign Up</a>
-			<a class="waves-effect orange lighten-1 btn">Login</a>
+			<a href="/signup" class="waves-effect orange lighten-1 btn">Sign Up</a>
+			<!-- Modal Trigger -->
+			 <a class="waves-effect orange lighten-1 btn modal-trigger" data-target="modal1">Login</a>
 		</div> 
+
+		
+		  <!-- Modal Structure -->
+		<div id="modal1" class="modal">
+		   <div class="modal-content">
+		      <h4>Login!</h4>
+		      <p>A bunch of text</p>
+		   </div>
+		   <div class="modal-footer">
+		      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+		   </div>
+		</div>
+		
 	</div>
 
 	<div class="row">
@@ -58,6 +84,8 @@
 			<img width="40" src="assets/images/onePastaspinning.gif" alt="pasta gif">
 		</div>
 	</div>
+
+	<script src="js/welcome.js"></script>
 	
 </body>
 </html>
