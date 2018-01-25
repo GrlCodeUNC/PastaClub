@@ -1,8 +1,3 @@
-body {
-	background-image: url("assets/images/pastaBackground.jpg");
-	max-width: 100%;
-	max-width: 100%;
-}
 
 .floatingNoodle1 {
 	position: relative;
@@ -45,4 +40,29 @@ body {
 #about {
 	margin-top: -65px;
 }
+
+#dashLogo {
+	position: relative;
+	left: 20px;
+	top: 20px;
+}
+
+#featured {
+	position: relative;
+	top: 30px;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.parallax-container {
+      height: 500px;
+    }
+
+
+.section {
+	margin-top: 40px;
+}
+
+
 
