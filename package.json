@@ -26,6 +26,7 @@
     "env": "0.0.2",
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
+    "materialize-css": "^0.100.2",
     "mysql": "^2.15.0",
     "mysql2": "^1.5.1",
     "sequelize": "^4.32.1"
