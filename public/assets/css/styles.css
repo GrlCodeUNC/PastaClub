@@ -48,7 +48,13 @@
 #dashLogo {
 	position: relative;
 	left: 20px;
-	top: 20px;
+	top: 40px;
+}
+
+#userPic {
+	position: relative;
+	left: -20px;
+	top: 40px;
 }
 
 #featured {
@@ -113,5 +119,35 @@
 
 .items {
 	margin: 80px;
+}
+
+#hostingDash {
+  background: #041259;
+  height: 200px;
+  margin-top: 100;
+  color: #ffffff;
+}
+
+#attendingDash {
+  background: #ff4d03;
+  height: 200px;
+  margin-top: 100;
+  color: #ffffff;
+}
+
+h5 {
+  font-family: 'Arya', sans-serif;
+}
+
+
+
+.flow-text {
+	color: #041259;
+	font-size: 30px;
+	font-family: 'Arya', sans-serif;
+}
+
+#createEvent {
+	color: #041259;
 }
 
