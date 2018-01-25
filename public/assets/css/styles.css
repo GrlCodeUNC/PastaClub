@@ -48,6 +48,7 @@
 }
 
 #featured {
+	width: 880px;
 	position: relative;
 	top: 30px;
 	display: block;
@@ -63,6 +64,16 @@
 .section {
 	margin-top: 40px;
 }
+
+#upcoming {
+  position: absolute;
+  height: 100px;
+  width: 200px;
+  padding: 10px;
+  float: left;
+  background: #eee;
+}
+
 
 
 
