@@ -1,4 +1,8 @@
 
+.logo {
+	margin-top: 100px;
+}
+
 .floatingNoodle1 {
 	position: relative;
     left: 100px;
@@ -52,8 +56,8 @@
 	position: relative;
 	top: 30px;
 	display: block;
-    margin-left: auto;
-    margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .parallax-container {
@@ -75,5 +79,39 @@
 }
 
 
+/*Sign up page*/
 
+.email {
+	float: center;
+}
+
+.main {
+	margin-top: 100px;
+}
+
+.name {
+	margin-right: 80px;
+}
+
+/*Attendees Page*/
+
+.title {
+	margin: 80px;
+}
+
+.description {
+	margin: 80px;
+}
+
+.rsvp {
+	margin: 80px;
+}
+
+.attendees {
+	margin: 80px;
+}
+
+.items {
+	margin: 80px;
+}
 
