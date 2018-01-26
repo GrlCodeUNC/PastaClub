@@ -91,4 +91,27 @@ module.exports = function(app) {
 
   });
 
+  // Grab event data from the database for the userID
+
+  app.get("/api/dashboard/:userid", function(req, res) {
+
+  	console.log("dashboard api code started");
+  	console.log("getting information for user id = " + req.params.userid);
+
+  	// grab userid from client
+  	var userID = req.params.userid;
+
+  	// get hosting events list
+  	
+
+
+  	// get attending events list
+
+
+  	// next 3 events available
+
+
+
+  });
+
  };
