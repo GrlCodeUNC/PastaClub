@@ -16,9 +16,9 @@ module.exports = function(app) {
 //   });
 
   // users dashboard is loaded
-//   app.get("/", function(req, res) {
-//     res.sendFile(path.join(__dirname, "../public/dashboard.html"));
-//   });
+  app.get("/dashboard", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/dashboard.html"));
+  });
 
 // user wants to attend a meetup
   app.get("/attending", function(req, res) {
