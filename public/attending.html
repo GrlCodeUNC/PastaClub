@@ -1,63 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Pasta Club</title>
-
-	<!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-  <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
-
-  <link href="https://fonts.googleapis.com/css?family=Arya" rel="stylesheet">
-
- </head>         
-	
+    <meta charset="UTF-8">
+    <title>Pasta Club</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Arya" rel="stylesheet">
+    <style>
+    body {
+        background-image: url("assets/images/pastaBackgroundDash-opacity-01-01.png");
+    }
+    </style>
+</head>
 </body>
 
 <div class="main container center">
-
-<div class="logo">
-  <img width="400" src="assets/images/pastaClublogo.png" alt="Pasta Club Logo">
+    <div class="logo">
+        <img width="400" src="assets/images/pastaClublogo.png" alt="Pasta Club Logo">
+    </div>
 </div>
 
+<div class="second container center">
+
+    <div class="date container #ffffff white">
+        <div id="date"><h6>Date of Event</h6></div>
+        <div id="dateUserInput"><p> </p></div>
+    </div>
+
+    <div class="time container #ffffff white">
+        <div id="time"><h6>Time of Event</h6></div>
+        <div id="timeUserInput"><p> </p></div>
+    </div>
+
+    <div class="location container #ffffff white">
+        <div id="location"><h6>Location of Event</h6></div>
+        <div id="locationUserInput"><p> </p></div>
+    </div>
+
+    <div class="host container #ffffff white">
+        <div id="host"><h6>The Host</h6></div>
+        <div id="hostUserInput"><p> </p></div>
+    </div>
+
+    <div class="title container #ffffff white">
+        <div id="title"><h6>Title of Event</h6></div>
+        <div id="titleUserInput"><p> </p></div>
+    </div>
+
+    <div class="description container #ffffff white">
+        <div id="description"><h6>Description</h6></div>
+        <div id="descriptionUserInput"><p> </p></div>
+    </div>
+
+    <div class="attendees container #ffffff white">
+        <div id="attendees"><h6>List of Attendees</h6></div>
+        <div id="attendeesUserInput"><p> </p></div>
+    </div>
+
+    <div class="items container #ffffff white">
+        <div id="items"><h6>Items List</h6></div>
+        <div id="itemsUserInput"><p> </p></div>
+    </div>
+
+    <div class="rsvp container center">
+        <a class="waves-effect orange lighten-1 btn">RSVP</a>
+    </div>
+
 </div>
 
-<div class="title container">
-
-	<div id="title">Title of Event: </div>
-
-</div>
-
-<div class="description container">
-
-  <div id="description">Description: </div>
-
-</div>
-
-<div class="attendees container">
-
-  <div id="attendees">List of Attendees: </div>
-
-</div>
-
-<div class="items container">
-
-  <div id="items">Items List: </div>
-
-</div>
-
-<div class="rsvp container center">
-
-  <a class="waves-effect orange lighten-1 btn">RSVP</a>
-
-</div>
-
-<!-- date, time, location hosting -->
+</body>
 
 </html>
