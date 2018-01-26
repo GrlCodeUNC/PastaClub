@@ -48,7 +48,13 @@
 #dashLogo {
 	position: relative;
 	left: 20px;
-	top: 20px;
+	top: 40px;
+}
+
+#userPic {
+	position: relative;
+	left: -20px;
+	top: 40px;
 }
 
 #featured {
@@ -82,7 +88,7 @@
 /*Sign up page*/
 
 .email {
-	float: center;
+	clear: both;
 }
 
 .main {
@@ -154,4 +160,66 @@
 	margin: auto;*/
 	margin-left: 350px;
 }
+
+#hostingDash {
+  background: #041259;
+  height: 200px;
+  margin-top: 100;
+  color: #ffffff;
+}
+
+#attendingDash {
+  background: #ff4d03;
+  height: 200px;
+  margin-top: 100;
+  color: #ffffff;
+}
+
+h5 {
+  font-family: 'Arya', sans-serif;
+}
+
+
+
+.flow-text {
+	color: #041259;
+	font-size: 30px;
+	font-family: 'Arya', sans-serif;
+}
+
+#createEvent {
+	color: #041259;
+}
+
+.material-icons {
+	color: #041259
+}
+
+ /* label color */
+   .input-field label {
+     color: #000;
+   }
+   /* label focus color */
+   .input-field input[type=text]:focus + label {
+     color: #ff4d03;
+   }
+   /* label underline focus color */
+   .input-field input[type=text]:focus {
+     border-bottom: 1px solid #ff4d03;
+     box-shadow: 0 1px 0 0 #000;
+   }
+   /* valid color */
+   .input-field input[type=text].valid {
+     border-bottom: 1px solid #000;
+     box-shadow: 0 1px 0 0 #000;
+   }
+   /* invalid color */
+   .input-field input[type=text].invalid {
+     border-bottom: 1px solid #000;
+     box-shadow: 0 1px 0 0 #000;
+   }
+   /* icon prefix focus color */
+   .input-field .prefix.active {
+     color: #041259;
+   }
 
