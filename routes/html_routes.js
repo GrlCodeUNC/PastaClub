@@ -11,9 +11,9 @@ module.exports = function(app) {
   });
 
   // users are able to signup for app
-  app.get("/signup", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/signup.html"));
-  });
+//   app.get("/signup", function(req, res) {
+//     res.sendFile(path.join(__dirname, "../public/signup.html"));
+//   });
 
   // users dashboard is loaded
 //   app.get("/", function(req, res) {

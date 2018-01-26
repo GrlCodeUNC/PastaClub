@@ -1,11 +1,26 @@
-$.get("/login", function(data){
+// get the id to be able to add it to the dashboard/get function below
+// document 
+
+$.get("/api/dashboard/" + id, function(data){
+
   console.log(data);
-  $("#").empty();
+
+  var fullName = data.user_name.split(" "),
+      firstName = fullName[0];
+
+  var userID = data.id;
+
+  $("#plate").empty();
 
   if(!data) {
-    $("#").append("<p> Your Plate </p>");
+    $("#plate").append("<p> Your Plate </p>");
+    $("#hostingDash").append("<p> Sorry for our mess")
   }
   else {
-    $("#").append("<p>" + data.name + "</p>");
+    $("#plate").append("<p>" + firstName + "'s Plate</p>");
   } 
+
+
 });
+
+
