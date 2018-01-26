@@ -95,23 +95,63 @@
 
 /*Attendees Page*/
 
+.date {
+	margin: 10px;
+	padding-bottom: 80px;
+	padding-top: 10px;
+}
+
+.time {
+	margin: 10px;
+	padding-bottom: 80px;
+	padding-top: 10px;
+}
+
+.location {
+	margin: 10px;
+	padding-bottom: 80px;
+	padding-top: 10px;
+}
+
+.host {
+	margin: 10px;
+	padding-bottom: 80px;
+	padding-top: 10px;
+}
+
 .title {
-	margin: 80px;
+	margin: 10px;
+	padding-bottom: 80px;
+	padding-top: 10px;
 }
 
 .description {
-	margin: 80px;
+	margin: 10px;
+	padding-bottom: 80px;
+	padding-top: 10px;
 }
 
 .rsvp {
-	margin: 80px;
+	margin: 10px;
+	padding-bottom: 80px;
+	padding-top: 10px;
 }
 
 .attendees {
-	margin: 80px;
+	margin: 10px;
+	padding-bottom: 80px;
+	padding-top: 10px;
 }
 
 .items {
-	margin: 80px;
+	margin: 10px;
+	padding-bottom: 80px;
+	padding-top: 10px;
+}
+
+.second {
+/*	display: block;
+	margin: auto;*/
+	margin-left: 350px;
 }
 
