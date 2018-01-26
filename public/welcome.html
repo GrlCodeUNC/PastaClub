@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Welcome</title>
 		<!-- Compiled and minified CSS -->
-	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+	  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css'>
 
 	  <!-- Compiled and minified JavaScript -->
 	  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
@@ -13,8 +13,6 @@
 
 
 	  <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
-
-	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 	  <link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
 
@@ -55,21 +53,25 @@
 
 		<div id="signUpbtns">
 			<a href="/signup" class="waves-effect orange lighten-1 btn">Sign Up</a>
-			<!-- Modal Trigger -->
-			 <a class="waves-effect orange lighten-1 btn modal-trigger" data-target="modal1">Login</a>
+
+			  <!-- Modal Trigger -->
+    		<a class="waves-effect orange lighten-1 btn modal-trigger" href="#modal1">Login</a>
 		</div> 
 
 		
-		  <!-- Modal Structure -->
-		<div id="modal1" class="modal">
-		   <div class="modal-content">
-		      <h4>Login!</h4>
-		      <p>A bunch of text</p>
-		   </div>
-		   <div class="modal-footer">
-		      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-		   </div>
+  		</div>
 		</div>
+		<!-- Modal Structure -->
+		<div id="modal1" class="modal">
+  			<div class="modal-content">
+   				 <h4>Modal Header</h4>
+    				<p>A bunch of text</p>
+  			</div>
+  			<div class="modal-footer">
+   			 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Login</a>
+  			</div>
+		</div>
+
 		
 	</div>
 
@@ -85,7 +87,11 @@
 		</div>
 	</div>
 
-	<script src="js/welcome.js"></script>
+	 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js'></script>
+
+	<script src="assets/js/welcome.js"></script>
 	
 </body>
 </html>
