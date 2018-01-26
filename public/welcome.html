@@ -3,6 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Welcome</title>
+
+	  <meta name="google-signin-client_id" content="508293590442-rrplmivvjjoj3kbs3gj2u7se2ampcm3j.apps.googleusercontent.com">
+
 		<!-- Compiled and minified CSS -->
 	  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css'>
 
@@ -20,7 +23,7 @@
 </head>
 <body>
 
-	<div class="row center">
+	<div class="row center logo">
 		<img width="400" src="./assets/images/pastaClublogo.png" alt="Pasta Club Logo">
 
 		<div class="row">
@@ -56,6 +59,8 @@
 
 			  <!-- Modal Trigger -->
     		<a class="waves-effect orange lighten-1 btn modal-trigger" href="#modal1">Login</a>
+
+    		<div id="my-signin2"></div>
 		</div> 
 
 		
@@ -64,8 +69,19 @@
 		<!-- Modal Structure -->
 		<div id="modal1" class="modal">
   			<div class="modal-content">
-   				 <h4>Modal Header</h4>
-    				<p>A bunch of text</p>
+  				<h4>Let's go!</h4>
+  				<div class="row">
+        			<div class="input-field col s12">
+          				<input id="email" type="email" class="validate">
+          				<label for="email">Email</label>
+        			</div>
+      			</div>
+  				<div class="row">
+       				 <div class="input-field col s12">
+         				 <input id="password" type="password" class="validate">
+          				<label for="password">Password</label>
+        			</div>
+      			</div>	
   			</div>
   			<div class="modal-footer">
    			 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Login</a>
@@ -92,6 +108,8 @@
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js'></script>
 
 	<script src="assets/js/welcome.js"></script>
+
+	<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 	
 </body>
 </html>

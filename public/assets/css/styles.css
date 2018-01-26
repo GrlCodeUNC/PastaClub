@@ -152,7 +152,7 @@ h5 {
 }
 
 .material-icons {
-	color: #041259
+	color: #ffffff;
 }
 
  /* label color */
@@ -182,4 +182,25 @@ h5 {
    .input-field .prefix.active {
      color: #041259;
    }
+
+.modal {
+   	background: #ff4d03;
+}
+
+.active {
+	color: #ffffff;
+}
+
+#signUpForm {
+	background: #ff4d03;
+	margin-top: 20px;
+}
+
+#signup-btn {
+	margin-top: -10px;
+	margin-bottom: 20px;
+}
+
+
+
 
