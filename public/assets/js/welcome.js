@@ -6,6 +6,7 @@ var CLIENT_ID = "508293590442-rrplmivvjjoj3kbs3gj2u7se2ampcm3j.apps.googleuserco
 var API_KEY = "AIzaSyAammCuBWBn776LjE3FIdPiLh5_bLQmc7o";
 
 
+
 function onSuccess(googleUser) {
   console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
 }
@@ -25,6 +26,7 @@ function renderButton() {
     'onfailure': onFailure
   });
 };
+
 
 
 // var authorizeButton = document.getElementById("signin-button");
