@@ -414,5 +414,58 @@ module.exports = function(app) {
   });  // end of app.get for single event / meetup info
 
 
+  // Add single event / meetup info from the client to the events db
+	// this should come from the client ... 
+	// JSON object w/ token id, event title, event start/end, description
+	// address, city, state, zip, host id
+	app.post("/api/newevent", function(req, res) {
+
+		console.log("create new event api code started");
+		console.log("checking information from the client = " + req.body);
+
+		// use data from the client req.body JSON object
+		// dummy data to test create event below
+		var newEvent = {
+			title: "Pasta Time",
+			start: "2018-02-09 17:45:00",
+			end: "2018-02-09 19:59:00",
+			descr: "Pasta Time for all!  We will have a variety of pasta to choose from ... come dig in!",
+			street: "90210 Beverly Hills",
+			city: "Raleigh Town",
+			state: "NC",
+			zip: 27610,
+			userId: 3
+		};
+
+		// call sequelize create function to add event to the database
+		Events.create({
+
+			// add new info from client to the 
+			events_title: newEvent.title,
+			events_start: newEvent.start,
+			events_end: newEvent.end,
+			events_desc: newEvent.descr,
+			events_loc_street_add: newEvent.street,
+			events_loc_city: newEvent.city,
+			events_loc_state: newEvent.state,
+			events_loc_zip: newEvent.zip
+
+		}).then(function(result) {
+	
+			console.log("create api new event added a new event to the table");
+			console.log(result);
+
+			// check result to see if new event was added successfullly
+			
+				// if success send back data for event to the client for single event page view???
+
+
+				// if failure ... send error to the client for resolution
+
+				return result;
+
+		});
+
+
 
 };
