@@ -1,6 +1,7 @@
 // get the id to be able to add it to the dashboard/get function below
 // document 
 $(document).ready(function(){
+
       $('.modal-trigger').leanModal();
 
       $.get("/api/dashboard/" + id, function(data){
@@ -87,6 +88,7 @@ $("#createEvent").on("click", function(event) {
       alert("Adding new event...");
     });
 
+
       $("#eventName").val("");
   	  $("#month").val("");
   	  $("#day").val("");
@@ -94,7 +96,7 @@ $("#createEvent").on("click", function(event) {
   	  $("#startTime").val("");
   	  $("#endTime").val("");
 
-	;
+
 });
 
 
