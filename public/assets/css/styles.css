@@ -141,7 +141,7 @@
 .rsvp {
 	margin: 10px;
 	padding-top: 40px;
-	padding-bottom: 10px;
+	padding-bottom: 12px;
 }
 
 .attendees {
@@ -224,7 +224,7 @@ h5 {
      color: #041259;
    }
 .modal {
-   	background: #ff4d03;
+   	background: #959cbc;
 }
 
 .active {
@@ -242,19 +242,21 @@ h5 {
 }
 
 table {
-    font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
+    font color: #ffffff;
 }
 
 td, th {
-    border: 1px solid #ff4d03;
+    border: 1px solid #041259;
     text-align: left;
     padding: 8px;
+    font color: #ffffff;
 }
 
 tr:nth-child(even) {
-    background-color: #ff4d03;
+    background-color: #041259;
+    font color: #ffffff;
 }
 
 #plate {
@@ -270,7 +272,7 @@ tr:nth-child(even) {
 #eventDate {
   background: #041259;
   height: auto;
-  margin-top: 100;
+  margin-top: -20px;
   color: #ffffff;
   font-family: 'Arya', sans-serif;
 }
@@ -278,7 +280,7 @@ tr:nth-child(even) {
 #eventDetails {
   background: #959cbc;
   height: auto;
-  margin-top: 100;
+  margin-top: -20px;
   color: #ffffff;
   font-family: 'Arya', sans-serif;
 }
@@ -287,9 +289,7 @@ tr:nth-child(even) {
 	background-color: #959cbc;
 }
 
-
-
-
-
-
+.nav-wrapper {
+	background: #ffa72e;
+}
 

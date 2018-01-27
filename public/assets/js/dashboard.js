@@ -1,6 +1,7 @@
 // get the id to be able to add it to the dashboard/get function below
 // document 
 $(document).ready(function(){
+
       $('.modal-trigger').leanModal();
 
       $.get("/api/dashboard/" + id, function(data){
@@ -56,6 +57,7 @@ $.get("/api/dashboard/" + id, function(data){
 
 //when user clicks createEvent btn
 $("#createEvent").on("click", function(event) {
+
     event.preventDefault();
 
     //make a newEvent obj
@@ -74,7 +76,7 @@ $("#createEvent").on("click", function(event) {
         End: $("endTime").val().trim(),
         // Location from location input
         Location: $("location").val().trim(),
-    
+
 }; 
 
 // send an AJAX POST-request with jQuery
@@ -86,6 +88,19 @@ $("#createEvent").on("click", function(event) {
       // tell the user we're adding a character with an alert window
       alert("Adding new event...");
     });
+
+
+      $("#eventName").val("");
+  	  $("#month").val("");
+  	  $("#day").val("");
+  	  $("#hostName").val("");
+  	  $("#startTime").val("");
+  	  $("#endTime").val("");
+
+
+});
+
+
 
       $("#eventName").val("");
         $("#month").val("");
