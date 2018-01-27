@@ -236,6 +236,28 @@ h5 {
 	margin-bottom: 20px;
 }
 
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #ff4d03;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #ff4d03;
+}
+
+#plate {
+	background: #ff4d03;
+	font-size: 60px;
+	width: 100%;
+}
+
 
 
 
