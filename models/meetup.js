@@ -16,17 +16,37 @@ var Meetup = sequelize.define("meetup", {
   
   // On Waitlist
   on_waitlist: {
-    type: Sequelize.BOOLEAN                     ,
+    type: Sequelize.BOOLEAN,
+    notNull: true,
+    defaultValue: false,
     validate: {
-      notNull: true
+      // what is needed to validate here?
+    }
+  },
+
+  // Comments from the user about info for the event
+  comment_body: {
+    type: Sequelize.STRING,
+    validate: {
+      // do we need to validate here?
+    }
+  },
+
+  // Event item / what the user is bringing
+  event_item: {
+    type: Sequelize.STRING,
+    validate: {
+      // do we need to validate here?
     }
   }
   
 }, { timestamps: true });
 
 // adds a EventID to the MeetUp table
+  // can be referenced by 'eventId' as field name
 Meetup.belongsTo(Events);
 // adds a UserID to the MeetUp table
+  // can be referenced by 'userId' as field name
 Meetup.belongsTo(Users);
 
 // Syncs with DB

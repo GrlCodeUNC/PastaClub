@@ -71,10 +71,32 @@
                         <h5>Location</h5>
                     </div>
                     <div class="rsvp">
-                         <a class="waves-effect orange lighten-1 btn">RSVP</a>
+                    <a class="waves-effect orange lighten-1 btn modal-trigger" href="#modal1">RSVP</a>
+
+                    <div id="modal1" class="modal">
+              <div class="modal-content">
+<!--                   <h4>Create Event</h4>
+ -->                <div class="row">
+                    <div class="input-field col s12">
+                          <input id="bringing" type="text" class="validate">
+                          <label for="bringing">Item(s) you're bringing:</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                        <div class="input-field col s12">
+                          <input id="comments" type="text" class="validate">
+                          <label for="comments">Additional Comments:</label>
+                    </div>
+                  </div>     
+              </div>
+              <div class="modal-footer">
+                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Submit RSVP</a>
+              </div>
+        </div>
                     </div>       
                 </div>
             </div>
+
          <!--    <div class="row"> 
                 <div class="section s6">
                     <div id="hostUserInput">
@@ -280,6 +302,15 @@
     </div>
 
 </div> -->
+
+  <!--js scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.js"></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js'></script>
+
+    <script src="assets/js/singleEvent.js"></script>
 
 </body>
 

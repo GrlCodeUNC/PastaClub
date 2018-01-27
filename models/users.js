@@ -6,7 +6,7 @@ var Sequelize = require("sequelize");
 // sequelize (lowercase) references our connection to the DB.
 var sequelize = require("../config/connection.js");
 
-console.log("user model here");
+// console.log("user model here");
 
 // Creates a "Users" model that matches up with DB
 var Users = sequelize.define("user", {
@@ -27,8 +27,8 @@ var Users = sequelize.define("user", {
       // is: ["^[a-z]+$",'i']
     }
   },
-  // User Password
-  user_pswd: {
+  // User Google ID Token
+  user_google_token: {
     type: Sequelize.STRING,
     validate: {
       // need to figure out if we want to add anything here or now for validation

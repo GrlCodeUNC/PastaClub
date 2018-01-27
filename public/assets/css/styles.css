@@ -37,8 +37,14 @@
 	color: #041259;
 }
 
-#signUpbtns {
+.signUpbtns {
 	margin-top: 80px;
+}
+
+#my-signin2 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #about {
@@ -217,7 +223,6 @@ h5 {
    .input-field .prefix.active {
      color: #041259;
    }
-
 .modal {
    	background: #ff4d03;
 }
