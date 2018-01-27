@@ -1,13 +1,12 @@
-// $(document).ready(function(){
-//     $('.modal-trigger').leanModal();
-//   });
+$(document).ready(function(){
+    $('.modal-trigger').leanModal();
+  });
 
 
 //Google 0Auth
 // Client ID and API key from the Developer Console
 
 // var CLIENT_ID = "508293590442-rrplmivvjjoj3kbs3gj2u7se2ampcm3j.apps.googleusercontent.com";
-// var API_KEY = "AIzaSyAammCuBWBn776LjE3FIdPiLh5_bLQmc7o";
 
 
 // var authorizeButton = document.getElementById("signin-button");
