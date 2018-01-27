@@ -25,13 +25,16 @@ INSERT INTO events
 		'102 My House Lane', 'Raleigh', 'NC', 27571, 3, NOW(), NOW());
         
 INSERT INTO meetups
-	(userId, eventId, comment_body, createdAt, updatedAt)
+	(userId, eventId, comment_body, event_item, createdAt, updatedAt)
 	VALUES
-	(4, 5, 'Looking forward to it, bringing a bottle of red wine', NOW(), NOW()),
-	(6, 5, 'Yay spaghetti! I will bring some homemade marinara sauce - vegan style', NOW(), NOW()),
-	(4, 8, 'I love red wine! I will bring some merlot', NOW(), NOW()),
-	(5, 7, 'So sad you guys will not be here for the next event, I will bring some dessert to share',
+	(4, 5, 'Looking forward to it!', 'Bringing a bottle of red wine', NOW(), NOW()),
+	(6, 5, 'Yay spaghetti!', 'I will bring some homemade marinara sauce - vegan style', NOW(), NOW()),
+	(4, 8, 'I love red wine!', 'I will bring some merlot', NOW(), NOW()),
+	(5, 7, 'So sad you guys will not be here for the next event', 'I will bring some dessert to share',
 		NOW(), NOW());
+
+DROP TABLE meetups FROM pastaclub_db;
+
 
 	
 

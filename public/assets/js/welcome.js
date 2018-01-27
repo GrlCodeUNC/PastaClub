@@ -6,6 +6,7 @@ var CLIENT_ID = "508293590442-q7ltok2rfnli378h2co0398hbnef5gli.apps.googleuserco
 var API_KEY = "AIzaSyAheZEDMMZC5FHJv0aa99rEyH2qyUV5FVc";
 
 
+
 function onSuccess(googleUser) {
   console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
 }
@@ -36,6 +37,10 @@ function renderButton() {
 // };
     // if they are then take that data and send it to the dashboard
     // if not give them a button to add themselves to the database
+
+
+// var authorizeButton = document.getElementById("signin-button");
+// var signoutButton = document.getElementById('signUpbtns');
 
 
 
