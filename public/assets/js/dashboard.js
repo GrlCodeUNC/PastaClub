@@ -8,3 +8,17 @@ $(document).ready(function(){
 
 // 
 
+//when user clicks createEvent btn
+$("#createEvent").on("click", function(event) {
+	event.preventDefault();
+
+	//make a newEvent obj
+	var newEvent = {
+		// Title from eventName input
+		Title: $("#eventName").val().trim(),
+		// Date from eventDate input
+		Month: $("#eventDate").val().trim(),
+
+
+	}
+}); 
