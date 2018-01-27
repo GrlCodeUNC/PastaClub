@@ -330,6 +330,142 @@ module.exports = function(app) {
 
 	});
 
-  });
+  });  // end of app.get for dashboard route call
+
+  // Grab single event / meetup info to send to the client
+	// this should come from the client ... 
+	// http://localhost:8080/api/<event id>
+  app.get("/api/:eventID", function(req, res) {
+
+	console.log("single event api code started");
+	console.log("getting information for event request = " + req.params.eventID);
+
+	var eventInfo = {
+		eventDetails: {},
+		commentInfo: []
+	};
+
+	// grab data for the single event from Event Table
+	// Query events model (table) to get data associated with event id
+		// from the client side 
+		// if event not in table then return error
+	Events.findOne({
+		where: {
+			id: req.params.eventID
+		}
+	}).then(function(result) {
+
+		// console.log(result);
+		// console.log(result.dataValues);
+
+		// check if there was data that was returned
+		if (result.dataValues.length > 0) {
+			// add the evenData for this event to the eventInfo array
+			eventInfo.eventDetails = result.dataValues;
+
+			console.log(eventInfo.eventDetails);
+
+			// get all the comments that are associated w/ the event id request
+			Meetup.findAll({
+				where: {
+					eventId: req.params.eventID
+				}
+			}).then( function (eventData){
+
+				// Let's see what we get back from this query
+				// console.log(eventData);
+
+				// check to see if any data comes back for this event id
+				if (eventData.length > 0) {
+					
+					// data is available in the table add it to the object going back to the client
+					// eventInfo.eventDetails = eventData.dataValues;
+					console.log(eventData[0].dataValues.id);
+					console.log(eventData[0].dataValues.comment_body);
+
+					// Loop thru all the event Data that comes back from the query
+					for (var i = 0; i < eventData.length; i++) {
+						
+						// add the evenData for hosting events to the EventsInfo array
+						eventInfo.commentInfo.push(eventData[i].dataValues);
+					}
+					
+					console.log(eventInfo.commentInfo[0]);
+					console.log(eventInfo.commentInfo.length);
+
+					// sends single event data back to the client for displaying
+					return eventInfo;
+
+				}
+				else {
+
+					// no comments / items available for this event id requested
+					console.log("no comments / items for this event");
+					return ("Nothing yet in the comments for this event");
+				}
+
+			});  // end meetup.findAll 
+		
+		} // end if for checking for data back from findOne
+	
+	}); // end of events.findOne to grab the events info
+
+
+  });  // end of app.get for single event / meetup info
+
+
+  // Add single event / meetup info from the client to the events db
+	// this should come from the client ... 
+	// JSON object w/ token id, event title, event start/end, description
+	// address, city, state, zip, host id
+	app.post("/api/newevent", function(req, res) {
+
+		console.log("create new event api code started");
+		console.log("checking information from the client = " + req.body);
+
+		// use data from the client req.body JSON object
+		// dummy data to test create event below
+		var newEvent = {
+			title: "Pasta Time",
+			start: "2018-02-09 17:45:00",
+			end: "2018-02-09 19:59:00",
+			descr: "Pasta Time for all!  We will have a variety of pasta to choose from ... come dig in!",
+			street: "90210 Beverly Hills",
+			city: "Raleigh Town",
+			state: "NC",
+			zip: 27610,
+			userId: 3
+		};
+
+		// call sequelize create function to add event to the database
+		Events.create({
+
+			// add new info from client to the 
+			events_title: newEvent.title,
+			events_start: newEvent.start,
+			events_end: newEvent.end,
+			events_desc: newEvent.descr,
+			events_loc_street_add: newEvent.street,
+			events_loc_city: newEvent.city,
+			events_loc_state: newEvent.state,
+			events_loc_zip: newEvent.zip
+
+		}).then(function(result) {
+	
+			console.log("create api new event added a new event to the table");
+			console.log(result);
+
+			// check result to see if new event was added successfullly
+			
+				// if success send back data for event to the client for single event page view???
+
+
+				// if failure ... send error to the client for resolution
+
+				return result;
+
+		});
+
+
 
 };
