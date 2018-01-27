@@ -10,10 +10,10 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/welcome.html"));
   });
 
-  // users are able to signup for app
-//   app.get("/signup", function(req, res) {
-//     res.sendFile(path.join(__dirname, "../public/signup.html"));
-//   });
+//   users are able to signup for app
+  app.get("/signup", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/signup.html"));
+  });
 
   // users dashboard is loaded
   app.get("/dashboard", function(req, res) {
@@ -21,8 +21,8 @@ module.exports = function(app) {
   });
 
 // user wants to attend a meetup
-  app.get("/attending", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/attending.html"));
+  app.get("/singleEvent", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/singleEvent.html"));
   });
 
 };
