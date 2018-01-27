@@ -1,5 +1,8 @@
 // get the id to be able to add it to the dashboard/get function below
 // document 
+$(document).ready(function(){
+    $('.modal-trigger').leanModal();
+  });
 
 $.get("/api/dashboard/" + id, function(data){
 
