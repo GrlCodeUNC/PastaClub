@@ -14,4 +14,7 @@ SELECT * FROM users;
 -- * Select all the rows from the users table to show what is currently there
 SELECT * FROM events;
 
--- * DELETE FROM users WHERE user_google_token = 'google2';
+-- * DELETE FROM meetups WHERE user_google_token = 'google2';
+
+-- * Delete table 'meetups' from the database
+DROP TABLE meetups;

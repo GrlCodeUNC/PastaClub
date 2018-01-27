@@ -24,8 +24,16 @@ var Meetup = sequelize.define("meetup", {
     }
   },
 
-  // Comments about what the user is bringing or other info
+  // Comments from the user about info for the event
   comment_body: {
+    type: Sequelize.STRING,
+    validate: {
+      // do we need to validate here?
+    }
+  },
+
+  // Event item / what the user is bringing
+  event_item: {
     type: Sequelize.STRING,
     validate: {
       // do we need to validate here?
