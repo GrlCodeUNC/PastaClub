@@ -134,8 +134,8 @@
 
 .rsvp {
 	margin: 10px;
-	padding-bottom: 80px;
-	padding-top: 10px;
+	padding-top: 40px;
+	padding-bottom: 10px;
 }
 
 .attendees {
@@ -256,6 +256,27 @@ tr:nth-child(even) {
 	background: #ff4d03;
 	font-size: 60px;
 	width: 100%;
+}
+
+.eventName {
+	background: #959cbc;
+	margin-top: 50px;
+}
+
+#eventDate {
+  background: #041259;
+  height: auto;
+  margin-top: 100;
+  color: #ffffff;
+  font-family: 'Arya', sans-serif;
+}
+
+#eventDetails {
+  background: #959cbc;
+  height: auto;
+  margin-top: 100;
+  color: #ffffff;
+  font-family: 'Arya', sans-serif;
 }
 
 
