@@ -258,7 +258,6 @@ tr:nth-child(even) {
 }
 
 #plate {
-	background: #ff4d03;
 	font-size: 60px;
 	width: 100%;
 }
@@ -284,6 +283,9 @@ tr:nth-child(even) {
   font-family: 'Arya', sans-serif;
 }
 
+#modal1 {
+	background-color: #959cbc;
+}
 
 
 
