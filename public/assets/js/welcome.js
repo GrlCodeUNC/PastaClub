@@ -1,13 +1,30 @@
-// $(document).ready(function(){
-//     $('.modal-trigger').leanModal();
-//   });
+$(document).ready(function(){
+    $('.modal-trigger').leanModal();
+  });
+
+var CLIENT_ID = "508293590442-rrplmivvjjoj3kbs3gj2u7se2ampcm3j.apps.googleusercontent.com";
+var API_KEY = "AIzaSyAammCuBWBn776LjE3FIdPiLh5_bLQmc7o";
 
 
-//Google 0Auth
-// Client ID and API key from the Developer Console
-
-// var CLIENT_ID = "508293590442-rrplmivvjjoj3kbs3gj2u7se2ampcm3j.apps.googleusercontent.com";
-// var API_KEY = "AIzaSyAammCuBWBn776LjE3FIdPiLh5_bLQmc7o";
+function onSuccess(googleUser) {
+  console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+}
+function onFailure(error) {
+  console.log(error);
+}
+function renderButton() {
+  gapi.signin2.render('my-signin2', {
+    apiKey: API_KEY,
+    clientId: CLIENT_ID,
+    'scope': 'profile email',
+    'width': 240,
+    'height': 50,
+    'longtitle': true,
+    'theme': 'dark',
+    'onsuccess': onSuccess,
+    'onfailure': onFailure
+  });
+};
 
 
 // var authorizeButton = document.getElementById("signin-button");
@@ -66,22 +83,3 @@
 // function handleSignoutClick(event) {
 //   gapi.auth2.getAuthInstance().signOut();
 // }
-
-
-function onSuccess(googleUser) {
-      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
-    }
-    function onFailure(error) {
-      console.log(error);
-    }
-    function renderButton() {
-      gapi.signin2.render('my-signin2', {
-        'scope': 'profile email',
-        'width': 240,
-        'height': 50,
-        'longtitle': true,
-        'theme': 'dark',
-        'onsuccess': onSuccess,
-        'onfailure': onFailure
-      });
-    };
