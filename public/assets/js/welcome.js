@@ -5,11 +5,20 @@ $(document).ready(function(){
 var CLIENT_ID = "508293590442-q7ltok2rfnli378h2co0398hbnef5gli.apps.googleusercontent.com";
 var API_KEY = "AIzaSyAheZEDMMZC5FHJv0aa99rEyH2qyUV5FVc";
 
-
-
 function onSuccess(googleUser) {
-  console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
-}
+  // var id_token = googleUser.Zi.id_token;
+  // var email = googleUser.getBasicProfile().getEmail();
+  // var name = googleUser.getBasicProfile().getName();
+  // console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+    // console.log(googleUser);
+    // console.log(id_token);
+    // console.log(googleUser.Zi.id_token);
+    // console.log(name);
+    // console.log(email);
+    // $.put("/api/login/" + email + "/" + id_token, function(data) {
+    //   console.log(data)
+    // })
+  }
 function onFailure(error) {
   console.log(error);
 }
@@ -28,13 +37,18 @@ function renderButton() {
   });
 };
 
+function google() {
+  function onSuccess(googleUser) {
+    var id_token = googleUser.Zi.id_token;
+    var email = googleUser.getBasicProfile().getEmail();
+    var name = googleUser.getBasicProfile().getName();
+  }
+  $.put("/api/login/" + email + "/" + id_token, function(data) {
+    console.log(data)
+  })
+  console.log(email);
+}
 // grab the data from google and send to api_routes to check if already member or not,
-// if (onSuccess === true) {
-//     console.log(.getBasicProfile())
-// } 
-// else {
-//   console.log("damn!")
-// };
     // if they are then take that data and send it to the dashboard
     // if not give them a button to add themselves to the database
 

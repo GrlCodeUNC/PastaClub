@@ -1,9 +1,8 @@
 // get the id to be able to add it to the dashboard/get function below
 // document 
 $(document).ready(function(){
-
-      $('.parallax').parallax();
-    });
+  $('.modal-trigger').leanModal();
+});
 
 // For each event need to have a event id -- div or data toggle GET 
 
@@ -26,14 +25,11 @@ $("#createEvent").on("click", function(event) {
 	}
 }); 
 
-    $('.modal-trigger').leanModal();
-  });
-
 $.get("/api/dashboard/" + id, function(data){
 
   console.log(data);
 
-  var fullName = data.user_name.split(" "),
+  var name = data.user_name.split(" "),
       firstName = fullName[0];
 
   var userID = data.id;
