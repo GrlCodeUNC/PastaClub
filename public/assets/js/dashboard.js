@@ -57,25 +57,26 @@ $.get("/api/dashboard/" + id, function(data){
 
 //when user clicks createEvent btn
 $("#createEvent").on("click", function(event) {
-	event.preventDefault();
 
-	//make a newEvent obj
-	var newEvent = {
-		// Title from eventName input
-		Title: $("#eventName").val().trim(),
-		// Month from month input
-		Month: $("#month").val().trim(),
-		// Day from day input
-		Day: $("#day").val().trim(),
-		// Host from host input
-		Host: $("#hostName").val().trim(),
-		// Start from startTime input
-		Start: $("startTime").val().trim(),
-		// End from endTime input
-		End: $("endTime").val().trim(),
-		// Location from location input
-		Location: $("location").val().trim(),
-	
+    event.preventDefault();
+
+    //make a newEvent obj
+    var newEvent = {
+        // Title from eventName input
+        Title: $("#eventName").val().trim(),
+        // Month from month input
+        Month: $("#month").val().trim(),
+        // Day from day input
+        Day: $("#day").val().trim(),
+        // Host from host input
+        Host: $("#hostName").val().trim(),
+        // Start from startTime input
+        Start: $("startTime").val().trim(),
+        // End from endTime input
+        End: $("endTime").val().trim(),
+        // Location from location input
+        Location: $("location").val().trim(),
+
 }; 
 
 // send an AJAX POST-request with jQuery
@@ -101,5 +102,10 @@ $("#createEvent").on("click", function(event) {
 
 
 
-
-
+      $("#eventName").val("");
+        $("#month").val("");
+        $("#day").val("");
+        $("#hostName").val("");
+        $("#startTime").val("");
+        $("#endTime").val("");
+});
