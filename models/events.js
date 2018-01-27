@@ -87,14 +87,15 @@ var Events = sequelize.define("events", {
   events_loc_zip: {
     type: Sequelize.INTEGER,
     validate: {
-      isAlpha: true,
-      len: [0,2]
+      isNumeric: true,
+      len: [0,5]
       // do we need any validation here?
     }
   }
 }, { timestamps: true });
 
 // adds a UserID to the Events table
+  // can be referenced by 'userId' as field name
 Events.belongsTo(Users);
 
 // Syncs with DB
