@@ -484,7 +484,7 @@ module.exports = function(app) {
 			if (result.dataValues.id > 0 || result.dataValues.id != undefined) {
 				// if success send back data for event to the client for single event page view???
 				// return event id to be able to hit single event route w/ id
-				return(result.dataValues.id)
+				return(result.dataValues)
 			}
 			else {
 				// if failure ... send error to the client for resolution
