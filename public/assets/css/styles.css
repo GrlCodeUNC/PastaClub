@@ -286,8 +286,11 @@ tr:nth-child(even) {
   font-family: 'Arya', sans-serif;
 }
 
+#modal1 {
+	background-color: #959cbc;
+}
+
 .nav-wrapper {
 	background: #ffa72e;
 }
-
 

@@ -69,6 +69,7 @@ $.get("/api/dashboard/" + id, function(data){
 // 
 
 //when user clicks createEvent btn
+
 // $("#createEvent").on("click", function(event) {
 // 	event.preventDefault();
 
@@ -91,6 +92,7 @@ $.get("/api/dashboard/" + id, function(data){
 	
 // }; 
 
+
 // send an AJAX POST-request with jQuery
   // $.post("/api/newEvent", newEvent)
     // on success, run this callback
@@ -102,6 +104,7 @@ $.get("/api/dashboard/" + id, function(data){
     // });
 
 
+
 //       $("#eventName").val("");
 //   	  $("#month").val("");
 //   	  $("#day").val("");
@@ -111,3 +114,4 @@ $.get("/api/dashboard/" + id, function(data){
 
 
 // });
+

@@ -38,7 +38,19 @@ var Meetup = sequelize.define("meetup", {
     validate: {
       // do we need to validate here?
     }
-  }
+  },
+
+  // createdAt default values defined
+  createdAt: {
+    type: Sequelize.DATE,
+    defaultValue: Sequelize.NOW(),
+  },
+  
+  // updatedAt default values defined
+  updatedAt: {
+    type: Sequelize.DATE,
+    defaultValue: Sequelize.NOW(),
+  },
   
 }, { timestamps: true });
 
