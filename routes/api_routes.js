@@ -425,18 +425,40 @@ module.exports = function(app) {
 
 		// use data from the client req.body JSON object
 		// dummy data to test create event below
+		// var newEvent = {
+		// 	title: "Pasta Time",
+		// 	start: "2018-02-09 17:45:00",
+		// 	end: "2018-02-09 19:59:00",
+		// 	descr: "Pasta Time for all!  We will have a variety of pasta to choose from ... come dig in!",
+		// 	street: "90210 Beverly Hills",
+		// 	city: "Raleigh Town",
+		// 	state: "NC",
+		// 	zip: 27610,
+		// 	userId: 3
+		// };
+
+		var created = new Date;
+		var updated = new Date;
+
+		console.log("dates = ", created, updated);
+		
+		// data being used from the Postman app
 		var newEvent = {
-			title: "Pasta Time",
-			start: "2018-02-09 17:45:00",
-			end: "2018-02-09 19:59:00",
-			descr: "Pasta Time for all!  We will have a variety of pasta to choose from ... come dig in!",
-			street: "90210 Beverly Hills",
-			city: "Raleigh Town",
-			state: "NC",
-			zip: 27610,
-			userId: 3
+			title: req.body.title,
+			start: new Date(req.body.start),
+			end: new Date(req.body.end),
+			descr: req.body.descr,
+			street: req.body.street,
+			city: req.body.city,
+			state: req.body.state,
+			zip: req.body.zip,
+			userId: req.body.userId
 		};
 
+		console.log(newEvent);
+
+
+		
 		// call sequelize create function to add event to the database
 		Events.create({
 
@@ -448,24 +470,32 @@ module.exports = function(app) {
 			events_loc_street_add: newEvent.street,
 			events_loc_city: newEvent.city,
 			events_loc_state: newEvent.state,
-			events_loc_zip: newEvent.zip
+			events_loc_zip: newEvent.zip,
+			userId: newEvent.userId
+			// createdAt: created,
+			// updatedAt: updated
 
 		}).then(function(result) {
-	
+
 			console.log("create api new event added a new event to the table");
 			console.log(result);
 
 			// check result to see if new event was added successfullly
-			
+			if (result.dataValues.id > 0 || result.dataValues.id != undefined) {
 				// if success send back data for event to the client for single event page view???
-
-
+				// return event id to be able to hit single event route w/ id
+				return(result.dataValues.id)
+			}
+			else {
 				// if failure ... send error to the client for resolution
+				console.log("error new event record not created");
+				return ("error creating new event");
+			}
 
-				return result;
+		}); // end of Events.create.then function
 
-		});
+	}); // end of app.post new event route
 
-
+	
 
 };
