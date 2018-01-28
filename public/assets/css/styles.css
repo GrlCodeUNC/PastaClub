@@ -244,7 +244,8 @@ h5 {
 table {
     border-collapse: collapse;
     width: 100%;
-    font color: #ffffff;
+    background-color: #041259;
+    color: white;
 }
 
 td, th {
