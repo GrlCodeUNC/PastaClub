@@ -33,7 +33,19 @@ var Users = sequelize.define("user", {
     validate: {
       // need to figure out if we want to add anything here or now for validation
     }
-  }
+  },
+  
+  // createdAt default values defined
+  createdAt: {
+    type: Sequelize.DATE,
+    defaultValue: Sequelize.NOW(),
+  },
+  
+  // updatedAt default values defined
+  updatedAt: {
+    type: Sequelize.DATE,
+    defaultValue: Sequelize.NOW(),
+  },
 }, { timestamps: true });
 
 console.log("user table here");
