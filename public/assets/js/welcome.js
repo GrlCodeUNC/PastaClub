@@ -42,11 +42,11 @@ function google() {
     var id_token = googleUser.Zi.id_token;
     var email = googleUser.getBasicProfile().getEmail();
     var name = googleUser.getBasicProfile().getName();
+    console.log(email);
   }
   $.put("/api/login/" + email + "/" + id_token, function(data) {
     console.log(data)
   })
-  console.log(email);
 }
 // grab the data from google and send to api_routes to check if already member or not,
     // if they are then take that data and send it to the dashboard
