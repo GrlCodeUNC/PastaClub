@@ -14,8 +14,8 @@ var Events = sequelize.define("events", {
   // Events title
   events_title: {
     type: Sequelize.STRING,
+    allowNull: false,
     validate: {
-      notNull: true,
       notEmpty: true
     }
   },
@@ -31,9 +31,9 @@ var Events = sequelize.define("events", {
   // Events start time w/ date
   events_start: {
     type: Sequelize.DATE,
+    allowNull: false,
     validate: {
-      isDate: true,
-      notNull: true
+      isDate: true
       // isAfter: current date?
     }
   },
@@ -91,7 +91,17 @@ var Events = sequelize.define("events", {
       len: [0,5]
       // do we need any validation here?
     }
-  }
+  },
+  // createdAt default values defined
+  createdAt: {
+      type: Sequelize.DATE,
+      defaultValue: Sequelize.NOW(),
+    },
+    // updatedAt default values defined
+    updatedAt: {
+      type: Sequelize.DATE,
+      defaultValue: Sequelize.NOW(),
+    },
 }, { timestamps: true });
 
 // adds a UserID to the Events table

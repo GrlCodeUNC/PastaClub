@@ -224,7 +224,7 @@ h5 {
      color: #041259;
    }
 .modal {
-   	background: #ff4d03;
+   	background: #959cbc;
 }
 
 .active {
@@ -285,14 +285,11 @@ tr:nth-child(even) {
   font-family: 'Arya', sans-serif;
 }
 
+#modal1 {
+	background-color: #959cbc;
+}
+
 .nav-wrapper {
 	background: #ffa72e;
 }
-
-
-
-
-
-
-
 
