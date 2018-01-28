@@ -496,6 +496,46 @@ module.exports = function(app) {
 
 	}); // end of app.post new event route
 
-	
+	// Add meetup RSVP info from the client to the meetup db
+		// this should come from the client ... 
+		// JSON object w/ user id, event id, comments,
+		// item being brought by user for event
+	app.post("/api/RSVP", function(req, res) {
+
+		console.log("create new RSVP for api code started");
+		console.log(req.body);
+
+		// call sequelize create function to add meetup to the database
+		Meetup.create({
+
+			// add new info from client to the meetup table
+			comment_body: req.body.comment,
+			event_item: req.body.item,
+			userId: req.body.userId,
+			eventId: req.body.eventId
+			// createdAt: created,
+			// updatedAt: updated
+
+		}).then(function(result) {
+
+			console.log("meetup RSVP attendee added to the db");
+			console.log(result);
+
+			// check result to see if new meetup was added successfullly
+			if (result.dataValues.id > 0 || result.dataValues.id != undefined) {
+				// if success send back data for event to the client for single event page view???
+				// return event id to be able to hit single event route w/ id
+				return(result.dataValues.id)
+			}
+			else {
+				// if failure ... send error to the client for resolution
+				console.log("error new RSVP / meetup record not created");
+				return ("error creating new RSVP for user");
+			}
+
+		});  // end meetup.create.then function
+
+
+	}); // end of app.post RSVP route function
 
 };
