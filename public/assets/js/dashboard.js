@@ -1,5 +1,19 @@
 // get the id to be able to add it to the dashboard/get function below
 // document 
+
+$(document).ready(function(){
+  $('.modal-trigger').leanModal();
+});
+
+$(document).ready(function(){
+             if (jQuery) {  
+               // jQuery is loaded  
+               alert("Yeah!");
+             } else {
+               // jQuery is not loaded
+               alert("Doesn't Work");
+             }
+          });
 // $(document).ready(function(){
 //   $('.modal-trigger').leanModal();
 // });
@@ -40,7 +54,11 @@ $(document).ready(function(){
 	// });
 
 
+
+  var hosting = data.eventName;
+
 	var id = "tokenID 1";
+
 
     	$.get("/api/dashboard/" + id, function(data){
 
