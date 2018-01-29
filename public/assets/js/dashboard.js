@@ -1,5 +1,8 @@
 // get the id to be able to add it to the dashboard/get function below
 // document 
+$(document).ready(function(){
+  $('.modal-trigger').leanModal();
+});
 
 $(document).ready(function(){
              if (jQuery) {  
@@ -46,7 +49,7 @@ $.get("/api/dashboard/" + id, function(data){
 
   console.log(data);
 
-  var hosting = data.eventName,
+  var hosting = data.eventName;
 
   $("#host").empty();
 
