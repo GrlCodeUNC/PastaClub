@@ -294,3 +294,11 @@ tr:nth-child(even) {
 	background: #ffa72e;
 }
 
+#my-signin2 {
+/*	float: center;*/
+	/*display: block;
+/*	margin-right: auto;*/
+	margin-left: 600px;
+}
+
+
