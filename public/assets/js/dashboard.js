@@ -55,7 +55,7 @@ $(document).ready(function(){
 
 
 
-  var hosting = data.eventName;
+  var hosting = data.events_title;
 
 	var id = "tokenID 1";
 
@@ -64,7 +64,7 @@ $(document).ready(function(){
 
       		console.log(data);
 
-      		var hosting = data.eventName;
+      		var hosting = data.events_title;
 
       			$("#host").empty();
 
