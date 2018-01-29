@@ -1,66 +1,57 @@
 // get the id to be able to add it to the dashboard/get function below
 // document 
-
-$(document).ready(function(){
-             if (jQuery) {  
-               // jQuery is loaded  
-               alert("Yeah!");
-             } else {
-               // jQuery is not loaded
-               alert("Doesn't Work");
-             }
-          });
-
+// $(document).ready(function(){
+//   $('.modal-trigger').leanModal();
+// });
 
 // $(document).ready(function(){
-
-//       $('.modal-trigger').leanModal();
-
-//       $.get("/api/dashboard/" + userID, function(data){
-
-//   console.log(data);
-
-//   var name = data.user_name.split(" "),
-//       firstName = fullName[0];
-
-//   var userID = data.id;
-
-//   $("#plate").empty();
-
-//   if(!data) {
-//     $("#plate").append("<p> Your Plate </p>");
-//     $("#hostingDash").append("<p> Sorry for our mess")
-//   }
-//   else {
-//     $("#plate").append("<p>" + firstName + "'s Plate</p>");
-//   } 
+//              if (jQuery) {  
+//                // jQuery is loaded  
+//                alert("Yeah!");
+//              } else {
+//                // jQuery is not loaded
+//                alert("Doesn't Work");
+//              }
+//           });
 
 
-// });
+$(document).ready(function(){
 
-// });
+      $('.modal-trigger').leanModal();
 
-var id = 1;
+ //      $.get("/api/dashboard/" + userID, function(data){
 
-$.get("/api/dashboard/" + id, function(data){
+ //  	  	console.log(data);
 
-  console.log(data);
+	//   	var name = data.user_name.split(" "),
+	//       	firstName = fullName[0];
 
-  var hosting = data.eventName,
+ //  	  	var userID = data.id;
 
-  $("#host").empty();
+ //  	  $("#plate").empty();
 
-  if(!data) {
-    $("#host").append("<p> Your Plate </p>");
- 
-  }
-  else {
-    $("#host").append("<p>" + firstName + "'s Plate</p>");
-  } 
+	//   if(!data) {
+	//     $("#plate").append("<p> Your Plate </p>");
+	//     $("#hostingDash").append("<p> Sorry for our mess")
+	//   }
+ //  	  else {
+ //    	$("#plate").append("<p>" + firstName + "'s Plate</p>");
+ //  	  } 
+	// });
 
 
+	var id = "tokenID 1";
 
- });
+    	$.get("/api/dashboard/" + id, function(data){
+
+      		console.log(data);
+
+      		var hosting = data.eventName;
+
+      			$("#host").empty();
+
+	});
+});
 
 // For each event need to have a event id -- div or data toggle GET 
 
@@ -71,25 +62,25 @@ $.get("/api/dashboard/" + id, function(data){
 //when user clicks createEvent btn
 
 // $("#createEvent").on("click", function(event) {
-// 	event.preventDefault();
+//     event.preventDefault();
 
-	//make a newEvent obj
-	// var newEvent = {
-		// Title from eventName input
-		// Title: $("#eventName").val().trim(),
-		// Month from month input
-		// Month: $("#month").val().trim(),
-		// Day from day input
-		// Day: $("#day").val().trim(),
-		// Host from host input
-		// Host: $("#hostName").val().trim(),
-		// Start from startTime input
-		// Start: $("startTime").val().trim(),
-		// End from endTime input
-		// End: $("endTime").val().trim(),
-		// Location from location input
-		// Location: $("location").val().trim(),
-	
+    //make a newEvent obj
+    // var newEvent = {
+        // Title from eventName input
+        // Title: $("#eventName").val().trim(),
+        // Month from month input
+        // Month: $("#month").val().trim(),
+        // Day from day input
+        // Day: $("#day").val().trim(),
+        // Host from host input
+        // Host: $("#hostName").val().trim(),
+        // Start from startTime input
+        // Start: $("startTime").val().trim(),
+        // End from endTime input
+        // End: $("endTime").val().trim(),
+        // Location from location input
+        // Location: $("location").val().trim(),
+    
 // }; 
 
 
@@ -106,12 +97,11 @@ $.get("/api/dashboard/" + id, function(data){
 
 
 //       $("#eventName").val("");
-//   	  $("#month").val("");
-//   	  $("#day").val("");
-//   	  $("#hostName").val("");
-//   	  $("#startTime").val("");
-//   	  $("#endTime").val("");
+//         $("#month").val("");
+//         $("#day").val("");
+//         $("#hostName").val("");
+//         $("#startTime").val("");
+//         $("#endTime").val("");
 
 
 // });
-
