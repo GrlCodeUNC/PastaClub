@@ -5,15 +5,15 @@ $(document).ready(function(){
   $('.modal-trigger').leanModal();
 });
 
-$(document).ready(function(){
-             if (jQuery) {  
-               // jQuery is loaded  
-               alert("Yeah!");
-             } else {
-               // jQuery is not loaded
-               alert("Doesn't Work");
-             }
-          });
+// $(document).ready(function(){
+//              if (jQuery) {  
+//                // jQuery is loaded  
+//                alert("Yeah!");
+//              } else {
+//                // jQuery is not loaded
+//                alert("Doesn't Work");
+//              }
+//           });
 // $(document).ready(function(){
 //   $('.modal-trigger').leanModal();
 // });
