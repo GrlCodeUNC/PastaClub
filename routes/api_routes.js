@@ -47,27 +47,31 @@ module.exports = function(app) {
 			// check if update worked
 			if (result !== 1) {  // expect result to return # of rows affected by update query
 				// if it didn't then send back that the user must be added (client needs to call signup route)
-				return ("Need to add user to pasta club app list");
+
+				
+				// Query user model to check user email & pswd coming from the client side
+				// db.Users.create({
+					Users.create({
+						user_email: user_email,
+						user_name: user_name,
+						user_google_token: user_google_token,
+	
+					}).then(function(result) {
+	
+						console.log("create api signup added a new user");
+						console.log(result);
+						return res.json(result);
+	
+					});
+
+				// return ("Need to add user to pasta club app list");
 			}
 			else {
 				// if it did then nothing needed
 
-				// Query user model to check user email & pswd coming from the client side
-				// db.Users.create({
-				Users.create({
-					user_email: user_email,
-					user_name: user_name,
-					user_google_token: user_google_token,
 
-				}).then(function(result) {
-
-					console.log("create api signup added a new user");
-					console.log(result);
-					return result;
-
-				});
-
-				return ("Google token ID updated in user table");
+				// return ("Google token ID updated in user table");
+				return res.json(result);
 			}
 
 			
@@ -160,6 +164,7 @@ module.exports = function(app) {
   	// grab user from client route params passed
 	var google_token_id = req.params.userToken;
 	var eventsInfo = {
+		userName: "",
 		hostingEvents: [],
 		attendingEvents: [],
 		upcomingEvents: []
@@ -180,6 +185,7 @@ module.exports = function(app) {
 		// id back from users table in DB
 		console.log("user ID in table = ", result.dataValues.id);
 		var userID = result.dataValues.id;
+		eventsInfo.userName = result.dataValues.user_name;
 		
 		// get hosting events list
 		Events.findAll({
@@ -249,8 +255,8 @@ module.exports = function(app) {
 				// the user is attending events
 				// console.log(eventData);
 				// console.log(eventData.dataValues);
-				console.log(eventData[0].dataValues.id);
-				console.log(eventData[0].dataValues.comment_body);
+				// console.log(eventData[0].dataValues.id);
+				// console.log(eventData[0].dataValues.comment_body);
 
 				// Loop thru all the event Data that comes back from the query
 				for (var i = 0; i < eventData.length; i++) {
@@ -259,7 +265,7 @@ module.exports = function(app) {
 					eventsInfo.attendingEvents.push(eventData[i].dataValues);
 				}
 				
-				console.log(eventsInfo.attendingEvents.length);
+				// console.log(eventsInfo.attendingEvents.length);
 				// console.log(eventsInfo.attendingEvents);
 				// Data being added to the Attending events array looks like this
 				// [ { id: 5,
@@ -281,7 +287,7 @@ module.exports = function(app) {
 
 				// user does not have any events associated w/ their name in the meetup table
 				console.log("no events being attended by this user");
-				return ("You are not signed up for any events currently");
+				// return ("You are not signed up for any events currently");
 			}
 
 		});
@@ -317,8 +323,8 @@ module.exports = function(app) {
 
 			if (eventData.length > 0) {
 				
-				console.log(eventData[0].dataValues.id);
-				console.log(eventData[0].dataValues.comment_body);
+				// console.log(eventData[0].dataValues.id);
+				// console.log(eventData[0].dataValues.comment_body);
 
 				// Loop thru all the event Data that comes back from the query
 				for (var i = 0; i < eventData.length; i++) {
@@ -327,19 +333,20 @@ module.exports = function(app) {
 					eventsInfo.upcomingEvents.push(eventData[i].dataValues);
 				}
 				
-				console.log(eventsInfo.upcomingEvents[0]);
+				// console.log(eventsInfo.upcomingEvents[0]);
 				// console.log(eventsInfo.upcomingEvents.length);
 			}
 			else {
 
 				// no event data being returned from the query
 				console.log("no events available");
-				return ("There are currently no events scheduled");
+				// return ("There are currently no events scheduled");
 			}
 
 			console.log("Object being returned to the client")
-			console.log(eventsInfo);
-			return eventsInfo;
+			// console.log(eventsInfo);
+			// return eventsInfo;
+			return res.json(eventsInfo);
 
 		});
 
