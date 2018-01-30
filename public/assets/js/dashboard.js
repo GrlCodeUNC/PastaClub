@@ -55,6 +55,14 @@
 				}
 
 				console.log("# of hosting events = " + data.hostingEvents.length);
+				console.log("# of attending events = " + data.attendingEvents.length);
+				console.log("# of upcoming events = " + data.upcomingEvents.length);
+
+				// get elements to add table data after
+				var hostingList = $("#hostingDash h5:first"); // grabs the first h5 element in the hostingDash div
+				var attendingList = $("#attendingDash h5:first"); // grabs the first h5 element in the attendingDash div
+
+				// data.hostingEvents = []; // added to test else statement below
 
 				// dynamically add data to the divs from the .get data
 				// check to see if there is any events the user is hosting
@@ -64,7 +72,8 @@
 					// can't clear div because button is in there already
 					// $("#hostingDash").empty();
 					console.log("building hosting events now");
-					var hostingList = $("#hostingDash h5:first"); // grabs the first h5 element in the hostingDash div
+					// put this above so the else statement can use it too
+					// var hostingList = $("#hostingDash h5:first"); // grabs the first h5 element in the hostingDash div
 
 					// create new table for the hosting event div
 					var hostTable = $("<table></table>");
@@ -115,11 +124,92 @@
 						hostTable.append(hostTableRow);
 
 						// append table data to div
-						// $("#hostingDash").append(hostTable);
-						hostingList.after(hostTable); // append after the h5 tag??
+						hostingList.after(hostTable); // insert(append) after the h5 tag
 					
-					}
+					} // end for loop to add hosting data
 				}
+				else {
+					// if no hosting event data then put empty data into table
+					hostingList.after("<i>You are not hosting any events yet<i><br><br>");
+
+				} // end if statement for hosting data list
+
+				// ------------------------------------------------------------------------
+				// Attending div data now
+				// ------------------------------------------------------------------------
+								
+				// check to see if there is any events the user is attending
+				if (data.attendingEvents.length > 0) {
+
+					console.log("building attending events now");
+					
+					// create new table for the attending event div
+					var attendTable = $("<table></table>");
+					attendTable.css("width", "100%"); // not sure that is the right syntax
+
+					// create a heading table in the div
+					var attendTableHeading = $("<tr></tr>");
+					var attendTableHeadingTitle = $("<th></th>");
+					attendTableHeadingTitle.text("Event Title");
+					var attendTableHeadingDate = $("<th></th>");
+					attendTableHeadingDate.text("Date");
+
+					// add table heading elements to the each other
+					attendTable.append(attendTableHeading); // adds heading to table
+					attendTableHeading.append(attendTableHeadingDate); // adds date heading to th row
+					attendTableHeading.append(attendTableHeadingTitle); // adds title heading to the th row
+
+					// loop through data for attending table side if available
+					for (i = 0; i < data.attendingEvents.length; i++) {
+						
+						// here is what we are getting back from db for attending events
+						console.log(data.attendingEvents[i]);	
+						
+						// create a row for the data
+						var attendTableRow = $("<tr></tr>");
+						attendTableRow.addClass("event_data"); // add class for onclick code
+						attendTableRow.css("id", data.attendingEvents[i].id); // add id for onclick code
+
+						// create data elements for data
+						// date info
+						var attendTableDataEventDate = $("<td></td>");
+						var attendTableDataEventDateLink = $("<a>");
+						// get date info out of db format
+						var event_start_info = data.attendingEvents[i].events_start.split("T");
+
+						attendTableDataEventDate.text(event_start_info[0]);
+
+						// title info
+						var attendTableDataEventTitle = $("<td></td>");
+						attendTableDataEventTitle.text(data.attendingEvents[i].events_title);
+
+						// append data / rows to table
+						attendTableRow.append(attendTableDataEventDate);
+						attendTableRow.append(attendTableDataEventTitle);
+						attendTable.append(attendTableRow);
+
+						// append table data to div
+						attendingList.after(attendTable); // insert(append) after the h5 tag
+					
+					} // end for loop to add attending data
+				}
+				else {
+					// if no attending event data then put empty data into table
+					attendingList.after("<i>You are not attending any events yet<i><br><br>");
+
+				} // end if statement for attending data list
+
+				// ---------------------------------------------------------------
+				// Can I do this in a loop to build w/out duplicate coding??
+				// get elements to add upcoming event 1 data to image container
+				var upcomingEvent1Img = $("#upcoming1 img"); // grabs the img element in the upcoming1 div
+				var upcomingEventDiv = $("#upcoming1"); // grabs the upcoming1 div
+
+				// create the elements needed to add the upcoming event data to the img area
+				var 
+
+				// ---------------------------------------------------------------
+				
 
 			
 			});

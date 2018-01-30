@@ -244,7 +244,8 @@ module.exports = function(app) {
 		Meetup.findAll({
 			where: {
 				userId: userID
-			}
+			},
+			include: [Events]
 		}).then( function (eventData){
 			
 			console.log("events that are being attended");
@@ -265,8 +266,8 @@ module.exports = function(app) {
 				// Loop thru all the event Data that comes back from the query
 				for (var i = 0; i < eventData.length; i++) {
 					
-					// add the evenData for hosting events to the EventsInfo array
-					eventsInfo.attendingEvents.push(eventData[i].dataValues);
+					// add the eventData for attending events to the EventsInfo array
+					eventsInfo.attendingEvents.push(eventData[i].dataValues.event);
 				}
 				
 				// console.log(eventsInfo.attendingEvents.length);
