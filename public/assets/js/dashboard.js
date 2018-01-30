@@ -20,7 +20,7 @@ var email = localStorage.getItem("email");
 	console.log("this is the dashboard.js on client");
    	 console.log(data);
 
-   var fullName = data.user_name.split(" ");
+   var fullName = data.userName.split(" ");
    		var firstName = fullName[0];
 
    		var userID = data.id;
