@@ -5,19 +5,23 @@
 
    // added to get user email for this page
 //   var email = googleUser.getBasicProfile().getEmail();
-var name = localStorage.getItem("name");
+// added local storage items to grab info from welcome page
+var nameLS = localStorage.getItem("name");
 var email = localStorage.getItem("email");
   console.log("email = " + email);
-  console.log("name = " + name);
+  console.log("name = " + nameLS);
 
    var id = "tokenID 1";
 
-   $.get("api/dashboard/" + id, function(data) {
 
+
+   $.get("/api/dashboard/" + id, function(data) {
+
+	console.log("this is the dashboard.js on client");
    	 console.log(data);
 
-   var name = date.user_name.split(" "),
-   		firstName = fullName[0];
+   var fullName = data.user_name.split(" ");
+   		var firstName = fullName[0];
 
    		var userID = data.id;
 
@@ -28,7 +32,8 @@ var email = localStorage.getItem("email");
    		$("#hostingDash").append("<p> Sorry for our mess")
    	}
    		else{
-   			$("#plate").append("<p>" + firstName + "'s Plate</p>");
+			   $("#plate").append("<p>" + firstName + "'s Plate</p>");
+			//    $("#plate").append("<p>" + firstName + "'s Plate</p>");
    		}
    });
 

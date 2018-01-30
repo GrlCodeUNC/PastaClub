@@ -21,12 +21,12 @@ jQuery.each( [ "put" ], function( i, method ) {
   };
 });
       
-      // Clear absolutely everything stored in localStorage using localStorage.clear()
-      localStorage.clear();
+      // // Clear absolutely everything stored in localStorage using localStorage.clear()
+      // localStorage.clear();
 
-      // Store the username into localStorage using "localStorage.setItem"
-      localStorage.setItem("name", name);
-      localStorage.setItem("email", email);
+      // // Store the username into localStorage using "localStorage.setItem"
+      // localStorage.setItem("name", name);
+      // localStorage.setItem("email", email);
       
 
 var GoogleAuth;
@@ -95,6 +95,13 @@ var isAuthorized = user.hasGrantedScopes(SCOPE);
   // console.log(name);
   // console.log(token);
   // console.log(email);
+
+  // Clear absolutely everything stored in localStorage using localStorage.clear()
+  localStorage.clear();
+
+  // Store the username into localStorage using "localStorage.setItem"
+  localStorage.setItem("name", name);
+  localStorage.setItem("email", email);
 }
 
 function updateSigninStatus(isSignedIn) {
