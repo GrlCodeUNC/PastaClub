@@ -153,16 +153,18 @@ module.exports = function(app) {
 
   });
 
-  // Grab event data from the database for the userID
+  // Grab event data from the database for the email
 	// this should come from the client ... 
-	// http://localhost:8080/api/dashboard/<google token id>
-  app.get("/api/dashboard/:userToken", function(req, res) {
+	// http://localhost:8080/api/dashboard/<email>
+  app.get("/api/dashboard/:email", function(req, res) {
 
   	console.log("dashboard api code started");
-  	console.log("getting information for user = " + req.params.userToken);
+  	// console.log("getting information for user = " + req.params.userToken);
 
   	// grab user from client route params passed
 	var google_token_id = req.params.userToken;
+
+	// setup JSON object for response
 	var eventsInfo = {
 		userName: "",
 		hostingEvents: [],
@@ -176,7 +178,9 @@ module.exports = function(app) {
 		// if user not in table then return error
     Users.findOne({
     	where: {
-    		user_google_token: google_token_id
+			// user_google_token: google_token_id
+			// user_id: req.params.userid
+			user_email: req.params.email
     	}
     }).then(function(result) {
 
@@ -240,7 +244,8 @@ module.exports = function(app) {
 		Meetup.findAll({
 			where: {
 				userId: userID
-			}
+			},
+			include: [Events]
 		}).then( function (eventData){
 			
 			console.log("events that are being attended");
@@ -261,8 +266,8 @@ module.exports = function(app) {
 				// Loop thru all the event Data that comes back from the query
 				for (var i = 0; i < eventData.length; i++) {
 					
-					// add the evenData for hosting events to the EventsInfo array
-					eventsInfo.attendingEvents.push(eventData[i].dataValues);
+					// add the eventData for attending events to the EventsInfo array
+					eventsInfo.attendingEvents.push(eventData[i].dataValues.event);
 				}
 				
 				// console.log(eventsInfo.attendingEvents.length);
@@ -340,6 +345,14 @@ module.exports = function(app) {
 
 				// no event data being returned from the query
 				console.log("no events available");
+				var response = {
+					error: "no events available",
+					code: -1
+				};
+
+				// client side should get error message and throw up modal for sign up request
+				return res.json(response);
+
 				// return ("There are currently no events scheduled");
 			}
 
@@ -360,8 +373,8 @@ module.exports = function(app) {
 
   // Grab single event / meetup info to send to the client
 	// this should come from the client ... 
-	// http://localhost:8080/api/<event id>
-  app.get("/api/:eventID", function(req, res) {
+	// http://localhost:8080/api/event/<event id>
+  app.get("/api/event/:eventID", function(req, res) {
 
 	console.log("single event api code started");
 	console.log("getting information for event request = " + req.params.eventID);
@@ -420,14 +433,18 @@ module.exports = function(app) {
 					console.log(eventInfo.commentInfo.length);
 
 					// sends single event data back to the client for displaying
-					return eventInfo;
+					return res.json(eventInfo);
 
 				}
 				else {
 
 					// no comments / items available for this event id requested
 					console.log("no comments / items for this event");
-					return ("Nothing yet in the comments for this event");
+					var response = {
+						error: "no comments available",
+						code: -1
+					};
+					return res.json(response);
 				}
 
 			});  // end meetup.findAll 
@@ -567,14 +584,14 @@ module.exports = function(app) {
 	// Grab user id to send to the client
 	// this should come from the client ... 
 	// http://localhost:8080/api/<email>
-	app.get("/api/:email", function(req, res) {
+	app.get("/api/userid/:email", function(req, res) {
 
 		console.log("single event api code started");
 		console.log("getting information for event request = " + req.params.eventID);
 
-		db.Users.findOne({
+		Users.findOne({
     	where: {
-    		user_email: user_email
+    		user_email: req.params.email
 			}
 		}).then(function(result) {
 
@@ -583,8 +600,13 @@ module.exports = function(app) {
 
 				console.log("user not yet in pastaclub_db");
 
+				var response = {
+					error: "user needs to be added to db",
+					code: -1
+				};
+
 				// client side should get error message and throw up modal for sign up request
-				return ("need to add user");
+				return res.json(response);
 			} 
 			else {
 				// if user found ... need to update google token id for that user
