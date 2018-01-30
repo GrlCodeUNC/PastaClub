@@ -10,7 +10,7 @@ var email = localStorage.getItem("email");
   console.log("email = " + email);
   console.log("name = " + name);
 
-   var id = "tokenID 1";
+//    var id = "tokenID 1";
 
    $.get("api/dashboard/" + id, function(data) {
 
