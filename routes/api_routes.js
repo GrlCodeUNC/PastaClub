@@ -47,27 +47,28 @@ module.exports = function(app) {
 			// check if update worked
 			if (result !== 1) {  // expect result to return # of rows affected by update query
 				// if it didn't then send back that the user must be added (client needs to call signup route)
-				return ("Need to add user to pasta club app list");
+				// Query user model to check user email & pswd coming from the client side
+				// db.Users.create({
+					Users.create({
+						user_email: user_email,
+						user_name: user_name,
+						user_google_token: user_google_token,
+	
+					}).then(function(result) {
+	
+						console.log("create api signup added a new user");
+						console.log(result);
+						return result;
+	
+					});
+					return ("Google token ID updated in user table");
+					return ("Need to add user to pasta club app list");
 			}
 			else {
 				// if it did then nothing needed
 
 				// Query user model to check user email & pswd coming from the client side
 				// db.Users.create({
-				Users.create({
-					user_email: user_email,
-					user_name: user_name,
-					user_google_token: user_google_token,
-
-				}).then(function(result) {
-
-					console.log("create api signup added a new user");
-					console.log(result);
-					return result;
-
-				});
-
-				return ("Google token ID updated in user table");
 			}
 
 			
