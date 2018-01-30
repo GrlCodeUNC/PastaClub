@@ -66,15 +66,19 @@
                   </div>
                   <div class="row">
                         <div class="input-field col s12">
-                          <input id="date" type="text" class="validate">
+                          <input id="date" type="text" class="validate" placeholder="yyyy-mm-dd">
                           <label for="date">Date</label>
                     </div>
                   </div> 
                   <div class="row">
-                        <div class="input-field col s12">
-                          <input id="time" type="text" class="validate">
-                          <label for="time">Time</label>
-                    </div>
+                        <div class="input-field col s6">
+                          <input id="start-time" type="text" class="validate">
+                          <label for="start-time">Start Time</label>
+                        </div>
+                        <div class="input-field col s6">
+                          <input id="end-time" type="text" class="validate" placeholder="(optional)">
+                          <label for="end-time">End Time</label>
+                        </div>
                   </div>
                   <div class="row">
                         <div class="input-field col s12">
@@ -83,28 +87,36 @@
                     </div>
                   </div> 
                   <div class="row">
-                        <div class="input-field col s12">
+                        <div class="input-field col s6">
                           <input id="city" type="text" class="validate">
                           <label for="city">City</label>
-                    </div>
+                        </div>
+                        <div class="input-field col s3">
+                            <input id="state" type="text" class="validate">
+                            <label for="state">State</label>
+                        </div>
+                        <div class="input-field col s3">
+                            <input id="zip" type="text" class="validate">
+                            <label for="zip">Zip</label>
+                        </div>
                   </div> 
-                   <div class="row">
+                   <!-- <div class="row">
                         <div class="input-field col s12">
                           <input id="state" type="text" class="validate">
                           <label for="state">State</label>
                     </div>
-                  </div> 
-                  <div class="row">
+                  </div>  -->
+                  <!-- <div class="row">
                         <div class="input-field col s12">
                           <input id="zip" type="text" class="validate">
                           <label for="zip">Zip</label>
                     </div>
-                  </div>   
+                  </div>    -->
               </div>
 
               <!-- added route to single event page on this button for on click function -->
               <div class="modal-footer">
-                <a href=" " class=" modal-action modal-close waves-effect waves-white btn-flat">Create Event</a>
+                <a href=" " class="modal-action modal-close waves-effect waves-white btn-flat">Create Event</a>
               </div>
         </div>
 
