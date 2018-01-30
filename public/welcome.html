@@ -61,7 +61,18 @@
 
             <a class="waves-effect orange lighten-1 btn modal-trigger" href="#modal1">Login</a> -->
 			<div align="center">
-            	<div id="my-signin2"></div>
+
+                    <!-- <button id="sign-in-or-out-button"
+                    style="margin-left: 25px">Sign In/Authorize</button>
+            <div id="auth-status" style="display: inline; padding-left: 25px"></div><hr> -->
+            
+            <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+            <script async defer src="https://apis.google.com/js/api.js" 
+                    onload="this.onload=function(){};handleClientLoad()" 
+                    onreadystatechange="if (this.readyState === 'complete') this.onload()"> -->
+            <!-- </script> -->
+                <!-- <div id="my-signin2"></div> -->
+                <a class="waves-effect waves-light btn" id="googlebtn">Signin with Google!</a>
             </div>
 <!--         </div>  -->
 
@@ -104,6 +115,8 @@
             <img width="40" src="assets/images/onePastaspinning.gif" alt="pasta gif">
         </div>
     </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
      <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
@@ -111,7 +124,12 @@
 		
     <script src="assets/js/welcome.js"></script>
 
-    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+    <script async defer src="https://apis.google.com/js/api.js" 
+                    onload="this.onload=function(){};handleClientLoad()" 
+                    onreadystatechange="if (this.readyState === 'complete') this.onload()">
+            </script>
+
+    <!-- <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script> -->
     
 </body>
 </html> 
