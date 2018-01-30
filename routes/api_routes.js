@@ -48,7 +48,6 @@ module.exports = function(app) {
 			if (result !== 1) {  // expect result to return # of rows affected by update query
 				// if it didn't then send back that the user must be added (client needs to call signup route)
 
-				
 				// Query user model to check user email & pswd coming from the client side
 				// db.Users.create({
 					Users.create({
@@ -63,8 +62,8 @@ module.exports = function(app) {
 						return res.json(result);
 	
 					});
-
-				// return ("Need to add user to pasta club app list");
+					return ("Google token ID updated in user table");
+					return ("Need to add user to pasta club app list");
 			}
 			else {
 				// if it did then nothing needed
@@ -72,6 +71,7 @@ module.exports = function(app) {
 
 				// return ("Google token ID updated in user table");
 				return res.json(result);
+
 			}
 
 			
