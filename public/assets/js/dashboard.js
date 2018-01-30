@@ -274,8 +274,8 @@
 
 
 // this disables the modal....??/
-//  $("#createEvent").on("click", function(event) {
-//     event.preventDefault();
+$("#createEvent").on("click", function(event) {
+    event.preventDefault();
 
     
 //     var newEvent = { 
@@ -289,14 +289,15 @@
 //         State: $("state").val().trim(),
 //         Zip: $("zip").val().trim(),
          
-// }; 
+//  }; 
+ });
 
-$.post("/api/newEvent", newEvent)
-	.then(function(data) {
-		console.log(data);
+// $.post("/api/newevent", newEvent)
+// 	.then(function(data) {
+// 		console.log(data);
 
-		alert("Adding new event...");
-	});
+// 		alert("Adding new event...");
+// 	});
 
 // this disables the modal....??/	
 
