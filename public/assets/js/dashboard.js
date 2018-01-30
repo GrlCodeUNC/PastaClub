@@ -103,7 +103,7 @@
 						// create a row for the data
 						var hostTableRow = $("<tr></tr>");
 						hostTableRow.addClass("event_data"); // add class for onclick code
-						hostTableRow.css("id", data.hostingEvents[i].id); // add id for onclick code
+						hostTableRow.attr("id", data.hostingEvents[i].id); // add id for onclick code
 
 						// create data elements for data
 						// date info
@@ -168,7 +168,7 @@
 						// create a row for the data
 						var attendTableRow = $("<tr></tr>");
 						attendTableRow.addClass("event_data"); // add class for onclick code
-						attendTableRow.css("id", data.attendingEvents[i].id); // add id for onclick code
+						attendTableRow.attr("id", data.attendingEvents[i].id); // add id for onclick code
 
 						// create data elements for data
 						// date info
@@ -199,19 +199,56 @@
 
 				} // end if statement for attending data list
 
+				
+				// need to add if statement for upcoming events check
+				// need to add loop for adding to each image (if possible)
 				// ---------------------------------------------------------------
 				// Can I do this in a loop to build w/out duplicate coding??
-				// get elements to add upcoming event 1 data to image container
-				var upcomingEvent1Img = $("#upcoming1 img"); // grabs the img element in the upcoming1 div
-				var upcomingEventDiv = $("#upcoming1"); // grabs the upcoming1 div
-
-				// create the elements needed to add the upcoming event data to the img area
-				var 
-
 				// ---------------------------------------------------------------
-				
+				// check if there is any data to be added to the images
+				if (data.upcomingEvents.length > 0) {
+					
+					// loop through the 3 next events and add them to the images
+					for(i = 0; i < data.upcomingEvents.length || i < 3; i++) {
+						console.log("building upcoming event info now");
+						console.log(data.upcomingEvents[i].event);
 
-			
+						// get elements to add upcoming event 1 data to image container
+						var upcomingEventImg = $("#ravioli"+(i+1)); // grabs the img element
+						var upcomingEventDiv = $("#upcoming" + (i+1) + " > div"); // grabs the upcoming1 div child
+						// make the attr of the div relative to allow the label to be contained within it??
+						upcomingEventDiv.css("position", "relative");
+
+						// create the elements needed to add the upcoming event data to the img area
+						var upcomingEventLink = $("<a></a>");
+						var upcomingEventLabel = $("<h5></h5>");
+						var rsvpBtn = $("<button>"); // should we add a button to each img for them to rsvp too??
+
+						// grab date for label to use on image
+						var event_date = data.upcomingEvents[i].event.events_start.split("T");
+
+						// add data to the link / labels for the images
+						upcomingEventLink.attr("href", "/singleEvent"); // was using the event id but this needs to be done on the single event page load // + data.upcomingEvents[0].event.id);
+						upcomingEventLink.attr("alt", data.upcomingEvents[i].event.events_title);
+						upcomingEventLabel.addClass("image_labels");
+						upcomingEventLabel.addClass("orange lighten-3");
+						upcomingEventLabel.html(data.upcomingEvents[i].event.events_title + "<br>" + event_date[0]);
+
+						console.log(upcomingEventLabel);
+
+						// add link / labels to the DOM
+						upcomingEventLink.append(upcomingEventImg); // add image to a tag (href link)
+						upcomingEventLink.append(upcomingEventLabel); // add label to link tag / image
+
+						console.log(upcomingEventLink);
+										
+						// add image / link to the div
+						upcomingEventDiv.append(upcomingEventLink);
+					
+					} // end for loop to add labels / data to upcoming event images 
+				} // end if statement for upcoming events data check
+				// ---------------------------------------------------------------
+							
 			});
 			
 			// var hosting = "data.events_title";

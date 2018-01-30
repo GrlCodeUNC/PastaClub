@@ -320,4 +320,20 @@ tr:nth-child(even) {
 	margin-left: 600px;
 }
 
+/* dashboard images for upcoming events */
+/* style the labels on the images the same */
+.image_labels
+{
+	color: #ffffff;
+	background-color: #959cbc;
+	text-align: center;
+	padding: 10px 0px;  /* put some space around the wording (content) and the background box */
+	opacity: 0.9;  /* make the label a little see through */
+
+	/* set this position property to allow the label to move to a position that is relative to it's ancestor (the image section) */
+	position: absolute;
+	bottom: 30%;   /* put it 40px above the bottom of the ancestor element */
+	width: 100%;	/* span the full width of the ancestor element */
+}
+
 

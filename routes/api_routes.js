@@ -373,8 +373,8 @@ module.exports = function(app) {
 
   // Grab single event / meetup info to send to the client
 	// this should come from the client ... 
-	// http://localhost:8080/api/<event id>
-  app.get("/api/:eventID", function(req, res) {
+	// http://localhost:8080/api/event/<event id>
+  app.get("/api/event/:eventID", function(req, res) {
 
 	console.log("single event api code started");
 	console.log("getting information for event request = " + req.params.eventID);
@@ -433,14 +433,18 @@ module.exports = function(app) {
 					console.log(eventInfo.commentInfo.length);
 
 					// sends single event data back to the client for displaying
-					return eventInfo;
+					return res.json(eventInfo);
 
 				}
 				else {
 
 					// no comments / items available for this event id requested
 					console.log("no comments / items for this event");
-					return ("Nothing yet in the comments for this event");
+					var response = {
+						error: "no comments available",
+						code: -1
+					};
+					return res.json(response);
 				}
 
 			});  // end meetup.findAll 
