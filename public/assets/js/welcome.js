@@ -17,6 +17,14 @@ $(document).ready(function(){
       name = googleUser.getBasicProfile().getName();
       // console.log(email);
       // console.log(token);
+      
+      // Clear absolutely everything stored in localStorage using localStorage.clear()
+      localStorage.clear();
+
+      // Store the username into localStorage using "localStorage.setItem"
+      localStorage.setItem("name", name);
+      localStorage.setItem("email", email);
+      
     }
     function onFailure(error) {
       console.log(error);

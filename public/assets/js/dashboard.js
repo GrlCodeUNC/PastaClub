@@ -3,6 +3,13 @@
 
    $('.modal-trigger').leanModal();
 
+   // added to get user email for this page
+//   var email = googleUser.getBasicProfile().getEmail();
+var name = localStorage.getItem("name");
+var email = localStorage.getItem("email");
+  console.log("email = " + email);
+  console.log("name = " + name);
+
    var id = "tokenID 1";
 
    $.get("api/dashboard/" + id, function(data) {
