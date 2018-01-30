@@ -155,10 +155,11 @@
 	padding-top: 10px;
 }
 
-.rsvp {
-	margin: 10px;
-	padding-top: 40px;
-	padding-bottom: 12px;
+#rsvp {
+/*	margin: 10px;
+	padding-top: 40px;*/
+	/*padding-bottom: 20px;*/
+	margin-bottom: 23px;
 }
 
 .attendees {
@@ -299,6 +300,7 @@ tr:nth-child(even) {
   background: #959cbc;
   height: auto;
   margin-top: -20px;
+/*  margin-bottom: 50px;*/
   color: #ffffff;
   font-family: 'Arya', sans-serif;
 }

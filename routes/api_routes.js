@@ -18,10 +18,11 @@ module.exports = function(app) {
 	  // http://localhost:8080/api/login/<email>/<google token id>
 	  
 	// should we send everything needed to update or add to the user table??
-  app.put("/api/login/:email/:google", function(req, res) {
+  app.put("/api/login/:email/:google/:name", function(req, res) {
     
     var user_email = req.params.email;
 	var user_google_token = req.params.google;
+	var user_name = req.params.name;
 	
 	console.log(req.params);
 	console.log(req.body);
@@ -50,8 +51,26 @@ module.exports = function(app) {
 			}
 			else {
 				// if it did then nothing needed
+
+				// Query user model to check user email & pswd coming from the client side
+				// db.Users.create({
+				Users.create({
+					user_email: user_email,
+					user_name: user_name,
+					user_google_token: user_google_token,
+
+				}).then(function(result) {
+
+					console.log("create api signup added a new user");
+					console.log(result);
+					return result;
+
+				});
+
 				return ("Google token ID updated in user table");
 			}
+
+			
 		
 		});
 
