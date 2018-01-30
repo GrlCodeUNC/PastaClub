@@ -18,10 +18,11 @@ module.exports = function(app) {
 	  // http://localhost:8080/api/login/<email>/<google token id>
 	  
 	// should we send everything needed to update or add to the user table??
-  app.put("/api/login/:email/:google", function(req, res) {
+  app.put("/api/login/:email/:google/:name", function(req, res) {
     
     var user_email = req.params.email;
 	var user_google_token = req.params.google;
+	var user_name = req.params.name;
 	
 	console.log(req.params);
 	console.log(req.body);
@@ -50,8 +51,26 @@ module.exports = function(app) {
 			}
 			else {
 				// if it did then nothing needed
+
+				// Query user model to check user email & pswd coming from the client side
+				// db.Users.create({
+				Users.create({
+					user_email: user_email,
+					user_name: user_name,
+					user_google_token: user_google_token,
+
+				}).then(function(result) {
+
+					console.log("create api signup added a new user");
+					console.log(result);
+					return result;
+
+				});
+
 				return ("Google token ID updated in user table");
 			}
+
+			
 		
 		});
 
@@ -537,5 +556,49 @@ module.exports = function(app) {
 
 
 	}); // end of app.post RSVP route function
+
+	// Grab user id to send to the client
+	// this should come from the client ... 
+	// http://localhost:8080/api/<email>
+	app.get("/api/:email", function(req, res) {
+
+		console.log("single event api code started");
+		console.log("getting information for event request = " + req.params.eventID);
+
+		db.Users.findOne({
+    	where: {
+    		user_email: user_email
+			}
+		}).then(function(result) {
+
+			// if no user matches in db ... return error to client
+			if (result === null) {
+
+				console.log("user not yet in pastaclub_db");
+
+				// client side should get error message and throw up modal for sign up request
+				return ("need to add user");
+			} 
+			else {
+				// if user found ... need to update google token id for that user
+				// return user profile information
+				console.log("result for api login route");
+				console.log(result);
+
+				// result looks like this ...
+				// {
+				//     "id": 1,
+				//     "user_email": "abreaw@hotmail.com",
+				//     "user_name": "Brea Torres",
+				//     "user_pswd": "PCBrea",
+				//     "createdAt": "2018-01-24T19:52:52.000Z",
+				//     "updatedAt": "2018-01-24T19:52:52.000Z"
+				// }
+				return res.json(result);
+			}
+		});
+	
+	});
+	
 
 };

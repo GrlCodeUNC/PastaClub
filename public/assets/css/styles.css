@@ -1,6 +1,6 @@
 
 .logo {
-	margin-top: 100px;
+	margin-top: 20px;
 }
 
 .floatingNoodle1 {
@@ -26,6 +26,23 @@
 .floatingNoodle5 {
 	position: relative;
     left: 200px;
+}
+
+.floatingNoodle6 {
+	position: relative;
+    left: 40px;
+}
+
+.floatingNoodle7 {
+	position: relative;
+    left: 50px;
+    top: 100px;
+}
+
+.floatingNoodle8 {
+	position: relative;
+    left: 150px;
+    top: 200px;
 }
 
 .arya {

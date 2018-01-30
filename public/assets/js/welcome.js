@@ -22,6 +22,40 @@ jQuery.each( [ "put" ], function( i, method ) {
 });
 
 
+//     function onSuccess(googleUser) {
+//       token = googleUser.Zi.id_token;
+//       email = googleUser.getBasicProfile().getEmail();
+//       name = googleUser.getBasicProfile().getName();
+      // console.log(email);
+      // console.log(token);
+      
+      // Clear absolutely everything stored in localStorage using localStorage.clear()
+      localStorage.clear();
+
+      // Store the username into localStorage using "localStorage.setItem"
+      localStorage.setItem("name", name);
+      localStorage.setItem("email", email);
+      
+//     }
+//     function onFailure(error) {
+//       console.log(error);
+//     }
+//     function renderButton() {
+//       gapi.signin2.render('my-signin2', {
+//         apiKey: API_KEY,
+//         clientId: CLIENT_ID,
+//         'scope': 'profile',
+//         'width': 240,
+//         'height': 50,
+//         'longtitle': true,
+//         'theme': 'dark',
+//         'onsuccess': onSuccess,
+//         'onfailure': onFailure,
+//         redirect_uri: "http://localhost:8080/dashboard",
+//       });
+//     }
+
+
 // var CLIENT_ID = "508293590442-q7ltok2rfnli378h2co0398hbnef5gli.apps.googleusercontent.com";
 // var API_KEY = "AIzaSyAheZEDMMZC5FHJv0aa99rEyH2qyUV5FVc";
 
