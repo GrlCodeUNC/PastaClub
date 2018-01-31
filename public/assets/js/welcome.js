@@ -30,6 +30,7 @@ function handleClientLoad() {
 }
 
 function initClient() {
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 // Retrieve the discovery document for version 3 of Google Drive API.
 // In practice, your app can retrieve one or more discovery documents.
@@ -89,6 +90,37 @@ gapi.client.init({
     });     
   });
 >>>>>>> Stashed changes
+=======
+  // Retrieve the discovery document for version 3 of Google Drive API.
+  // In practice, your app can retrieve one or more discovery documents.
+  var discoveryUrl = 'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest';
+
+  // Initialize the gapi.client object, which app uses to make API requests.
+  // Get API key and client ID from API Console.
+  // 'scope' field specifies space-delimited list of access scopes.
+  gapi.client.init({
+      'apiKey': 'AIzaSyCXxrv98Cw050fw84X7ozRuZYzYeDOP-Qc',
+      'discoveryDocs': [discoveryUrl],
+      'clientId': '508293590442-jekrcrdf9b5na32ubhoobv1kgqntcg22.apps.googleusercontent.com',
+      'scope': SCOPE
+  }).then(function () {
+    GoogleAuth = gapi.auth2.getAuthInstance();
+
+    // Listen for sign-in state changes.
+    GoogleAuth.isSignedIn.listen(updateSigninStatus);
+
+    // Handle initial sign-in state. (Determine if user is already signed in.)
+    var user = GoogleAuth.currentUser.get();
+    setSigninStatus();
+
+    // Call handleAuthClick function when user clicks on
+    //      "Sign In/Authorize" button.
+    $('#googlebtn').click(function() {
+      handleAuthClick();
+    });     
+  });
+
+>>>>>>> 6c1752c828311cb6301d20ceb84bb5dda3dd11e7
 }
 
 function handleAuthClick() {
@@ -106,6 +138,7 @@ function setSigninStatus(isSignedIn) {
   console.log("do I get here?");
 var user = GoogleAuth.currentUser.get();
 var isAuthorized = user.hasGrantedScopes(SCOPE);
+<<<<<<< HEAD
 <<<<<<< Updated upstream
   if (isAuthorized) {
     $('#googlebtn').html('Sign out');
@@ -154,6 +187,8 @@ setSigninStatus();
     // console.log(id_token);
     // console.log(googleUser.Zi.id_token);
 =======
+=======
+>>>>>>> 6c1752c828311cb6301d20ceb84bb5dda3dd11e7
     if (isAuthorized) {
       $('#googlebtn').html('Sign out');
       name = user.getBasicProfile().getName();
@@ -166,7 +201,10 @@ setSigninStatus();
     } else {
       $('#googlebtn').html('Sign In with Google!');
     }
+<<<<<<< HEAD
 >>>>>>> Stashed changes
+=======
+>>>>>>> 6c1752c828311cb6301d20ceb84bb5dda3dd11e7
     // console.log(name);
     // console.log(token);
     // console.log(email);

@@ -155,7 +155,10 @@
 					attendTableHeadingTitle.text("Event Title");
 					var attendTableHeadingDate = $("<th></th>").addClass("attendingTable");
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6c1752c828311cb6301d20ceb84bb5dda3dd11e7
 					attendTableHeadingDate.text("Date");
 
 					// add table heading elements to the each other
