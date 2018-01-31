@@ -13,7 +13,7 @@ $(document).ready(function() {
     console.log("event ID = ", eventId);
 
     // when user clicks rsvp btn
-    $("#rsvp").on("click", function(event) {
+    $("#rsvpButton").on("click", function(event) {
         event.preventDefault();
 
         //make a rsvp obj
@@ -28,6 +28,8 @@ $(document).ready(function() {
             eventId: eventId,
         };
 
+        console.log("data sent to server", newRsvp);
+
         // send an AJAX POST-request with jQuery
         $.post("/api/RSVP", newRsvp)
             // on success, run this callback
@@ -35,7 +37,10 @@ $(document).ready(function() {
             // log the data we found
             console.log(data);
             // tell the user we're adding a new rsvp with an alert window
-            alert("Adding new rsvp...");
+            // alert("Adding new rsvp...");
+            var commentArray = [];
+            commentArray.push(data);
+            buildAttendeeTable(commentArray);
         });
 
         // empty each input by replacing the value with an empty string
@@ -111,76 +116,93 @@ $(document).ready(function() {
         var location = data.eventDetails.events_loc_street_add + "<br>" + data.eventDetails.events_loc_city + ", " + data.eventDetails.events_loc_state + " " + data.eventDetails.events_loc_zip;
         $("#location").html(location);
 
+        
+        // could use this on both areas to condense and add newest to the view
+        buildAttendeeTable(data.commentInfo);
+
 
         // for each attendee that our server sends us back
-        for (var i = 0; i < data.commentInfo.length; i++) {
+        // for (var i = 0; i < data.commentInfo.length; i++) {
 
-            var tableRow = $('<tr><td>' + data.commentInfo[i].user.user_name + '</td><td>' + data.commentInfo[i].event_item + '</td><td>' + data.commentInfo[i].comment_body + '</td></tr>');
-            $('#rsvpList').append(tableRow);
+        //     var tableRow = $('<tr><td>' + data.commentInfo[i].user.user_name + '</td><td>' + data.commentInfo[i].event_item + '</td><td>' + data.commentInfo[i].comment_body + '</td></tr>');
+        //     $('#rsvpList').append(tableRow);
             
-                // WHERE TABLE GOES. FOLLOW JACK's EXAMPLE
-            // var attendees = data.attendees;
-            // for (var i = 0; i < attendees.length; i++) {
-            // var tableRow = $('<tr><td>' + attendees[i].name + '</td><td>' + attendees[i].country + '</tr>')
-            // $('#rsvpList').append(tableRow)
-            // };
-            
-
+        //         // WHERE TABLE GOES. FOLLOW JACK's EXAMPLE
+        //     // var attendees = data.attendees;
+        //     // for (var i = 0; i < attendees.length; i++) {
+        //     // var tableRow = $('<tr><td>' + attendees[i].name + '</td><td>' + attendees[i].country + '</tr>')
+        //     // $('#rsvpList').append(tableRow)
+        //     // };
             
 
+            
 
 
-            // // append the table to the meetup section
-            // $(".table").append(Meetup);
 
-            // Now add all of our attendee data to the div already on the page
+        //     // // append the table to the meetup section
+        //     // $(".table").append(Meetup);
 
-            // make the attendee and td
-            // $("#attendee1" + i).append("<td> " + data[i].userId + "</td>");
-            // // the item and td
-            // $("#item1" + i).append("<td> " + data[i].item + "</td>");
-            // // the comment and td
-            // $("#comment1" + i).append("<td> " + data[i].comment + "</td>");
+        //     // Now add all of our attendee data to the div already on the page
 
-            // how to add <tr> in there for table?
+        //     // make the attendee and td
+        //     // $("#attendee1" + i).append("<td> " + data[i].userId + "</td>");
+        //     // // the item and td
+        //     // $("#item1" + i).append("<td> " + data[i].item + "</td>");
+        //     // // the comment and td
+        //     // $("#comment1" + i).append("<td> " + data[i].comment + "</td>");
 
-
-            // loop through data for hosting table side if available
+        //     // how to add <tr> in there for table?
 
 
-            // here is what we are getting back from db for hosting events
+        //     // loop through data for hosting table side if available
 
 
-            // create a row for the data
-            // var attendeeTableRow = $("<tr></tr>");
-            // attendeeTableRow.addClass("event_data"); // add class for onclick code
-            // attendeeTableRow.attr("id", data.id); // add id for onclick code
-
-            // // create data elements for data
-            // // date info
-            // var hostTableDataEventDate = $("<td></td>");
-            // var hostTableDataEventDateLink = $("<a>");
-            // // get date info out of db format
-            // var event_start_info = data.hostingEvents[i].events_start.split("T");
-
-            // hostTableDataEventDate.text(event_start_info[0]);
-
-            // // title info
-            // var hostTableDataEventTitle = $("<td></td>");
-            // hostTableDataEventTitle.text(data.hostingEvents[i].events_title);
-
-            // // append data / rows to table
-            // hostTableRow.append(hostTableDataEventDate);
-            // hostTableRow.append(hostTableDataEventTitle);
-            // hostTable.append(hostTableRow);
-
-            // // append table data to div
-            // hostingList.after(hostTable); // insert(append) after the h5 tag
+        //     // here is what we are getting back from db for hosting events
 
 
-        } // end for loop for comment table info
+        //     // create a row for the data
+        //     // var attendeeTableRow = $("<tr></tr>");
+        //     // attendeeTableRow.addClass("event_data"); // add class for onclick code
+        //     // attendeeTableRow.attr("id", data.id); // add id for onclick code
+
+        //     // // create data elements for data
+        //     // // date info
+        //     // var hostTableDataEventDate = $("<td></td>");
+        //     // var hostTableDataEventDateLink = $("<a>");
+        //     // // get date info out of db format
+        //     // var event_start_info = data.hostingEvents[i].events_start.split("T");
+
+        //     // hostTableDataEventDate.text(event_start_info[0]);
+
+        //     // // title info
+        //     // var hostTableDataEventTitle = $("<td></td>");
+        //     // hostTableDataEventTitle.text(data.hostingEvents[i].events_title);
+
+        //     // // append data / rows to table
+        //     // hostTableRow.append(hostTableDataEventDate);
+        //     // hostTableRow.append(hostTableDataEventTitle);
+        //     // hostTable.append(hostTableRow);
+
+        //     // // append table data to div
+        //     // hostingList.after(hostTable); // insert(append) after the h5 tag
+
+
+        // } // end for loop for comment table info
 
     }); // end .get for comment / attendee section
 
 
 }); // on document ready function
+
+
+function buildAttendeeTable (dbInfo) {
+
+    // for each attendee that our server sends us back
+    for (var i = 0; i < dbInfo.length; i++) {
+
+        var tableRow = $('<tr><td>' + dbInfo[i].user.user_name + '</td><td>' + dbInfo[i].event_item + '</td><td>' + dbInfo[i].comment_body + '</td></tr>');
+        $('#rsvpList').prepend(tableRow);
+        
+    };
+    
+};
