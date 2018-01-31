@@ -58,6 +58,7 @@ function initClient() {
       handleAuthClick();
     });     
   });
+
 }
 
 function handleAuthClick() {
@@ -71,6 +72,8 @@ function handleAuthClick() {
 }
 
 function setSigninStatus(isSignedIn) {
+
+  console.log("do I get here?");
 var user = GoogleAuth.currentUser.get();
 var isAuthorized = user.hasGrantedScopes(SCOPE);
     if (isAuthorized) {

@@ -182,16 +182,22 @@
 
 #hostingDash {
   background: #041259;
-  height: 200px;
+  height: 250px;
   margin-top: 100;
   color: #ffffff;
 }
 
 #attendingDash {
   background: #ff4d03;
-  height: 200px;
+  height: 250px;
   margin-top: 100;
   color: #ffffff;
+}
+
+.attendingTable {
+  background: #ff4d03;
+  color: #ffffff;
+  border: none;
 }
 
 h5 {
@@ -208,6 +214,7 @@ h5 {
 
 #createEvent {
 	color: #041259;
+	margin-top: 20px;
 }
 
 .material-icons {
@@ -276,6 +283,10 @@ td, th {
 tr:nth-child(even) {
     background-color: #041259;
     font color: #ffffff;
+}
+
+.redCell {
+    background-color: #041259;
 }
 
 #plate {
