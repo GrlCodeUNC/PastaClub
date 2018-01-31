@@ -391,7 +391,8 @@ module.exports = function(app) {
 	Events.findOne({
 		where: {
 			id: req.params.eventID
-		}
+		},
+		include: [Users]
 	}).then(function(result, error) {
 		// console.log(result.dataValues);
 		console.log('RESULTS: ', result.dataValues)
@@ -407,7 +408,8 @@ module.exports = function(app) {
 			Meetup.findAll({
 				where: {
 					eventId: req.params.eventID
-				}
+				},
+				include: [Users]
 			}).then( function (eventData){
 
 				// Let's see what we get back from this query
@@ -573,19 +575,45 @@ module.exports = function(app) {
 		}).then(function(result) {
 
 			console.log("meetup RSVP attendee added to the db");
+			// console.log(result);
 			console.log(result);
 
-			// check result to see if new meetup was added successfullly
-			if (result.dataValues.id > 0 || result.dataValues.id != undefined) {
-				// if success send back data for event to the client for single event page view???
-				// return event id to be able to hit single event route w/ id
-				return(result.dataValues.id)
-			}
-			else {
-				// if failure ... send error to the client for resolution
-				console.log("error new RSVP / meetup record not created");
-				return ("error creating new RSVP for user");
-			}
+			// get the latest comment that was posted to the DB for adding to the attendee list view on the current page
+			Meetup.findOne({
+				where: {
+					id: result.dataValues.id
+				},
+				include: [Users]
+			}).then( function (eventData){
+
+				// Let's see what we get back from this query
+				console.log(eventData);
+
+				// check to see if any data comes back for this event id
+				if (eventData.dataValues.id > 0 || eventData.dataValues.id != undefined) {
+					
+					// data is available in the table add it to the object going back to the client
+					// eventInfo.eventDetails = eventData.dataValues;
+					console.log(eventData.dataValues.id);
+					console.log(eventData.dataValues.comment_body);
+
+					// sends single event data back to the client for displaying
+					console.log('sending response json')
+					return res.json(eventData);
+
+				}
+				else {
+
+					// no comments / items available for this event id requested
+					console.log("no comments / items for this event");
+					var response = {
+						error: "no comments available",
+						code: -1
+					};
+					return res.json(response);
+				} // end if stmt checking if eventData has results
+
+			});  // end meetup.findOne 
 
 		});  // end meetup.create.then function
 

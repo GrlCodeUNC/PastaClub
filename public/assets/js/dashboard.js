@@ -13,8 +13,8 @@
 
 	// hardcoding name / email since my login not working properly :(
 	// take this out for everyone else
-	// nameLS = "Brea Torres";
-	// emailLS = "abreaw@hotmail.com";
+	nameLS = "Brea Torres";
+	emailLS = "abreaw@hotmail.com";
 	
 	//    var id = "tokenID 1";
 	// get the user id associated with the email that the user logged in with
@@ -108,7 +108,10 @@
 						// create data elements for data
 						// date info
 						var hostTableDataEventDate = $("<td></td>");
-						var hostTableDataEventDateLink = $("<a>");
+						var hostTableDataEventLink = $("<a></a>");
+						hostTableDataEventLink.attr("href", "/singleEvent/"+ data.hostingEvents[i].id);
+						hostTableDataEventLink.attr("alt",  data.hostingEvents[i].events_title);
+						
 						// get date info out of db format
 						var event_start_info = data.hostingEvents[i].events_start.split("T");
 
@@ -119,8 +122,10 @@
 						hostTableDataEventTitle.text(data.hostingEvents[i].events_title);
 
 						// append data / rows to table
-						hostTableRow.append(hostTableDataEventDate);
-						hostTableRow.append(hostTableDataEventTitle);
+						hostTableDataEventLink.append(hostTableDataEventDate);
+						hostTableDataEventLink.append(hostTableDataEventTitle);
+						hostTableRow.append(hostTableDataEventLink);
+						// hostTableRow.append(hostTableDataEventTitle);
 						hostTable.append(hostTableRow);
 
 						// append table data to div
@@ -145,6 +150,7 @@
 					
 					// create new table for the attending event div
 					var attendTable = $("<table></table>");
+					attendTable.addClass("attendingTable");
 
 					// attendTable.css("width", "100%"); // not sure that is the right syntax
 
@@ -170,14 +176,16 @@
 						// create a row for the data
 						var attendTableRow = $("<tr></tr>");
 						attendTableRow.addClass("event_data"); // add class for onclick code
+						// attendTableRow.addClass("attendingTable"); // add class for orange color
 						attendTableRow.attr("id", data.attendingEvents[i].id); // add id for onclick code
 
 						// create data elements for data
 						// date info
-
 						var attendTableDataEventDate = $("<td></td>").addClass("attendingTable");
-
-						var attendTableDataEventDateLink = $("<a>");
+						var attendTableDataEventLink = $("<a></a>");
+						attendTableDataEventLink.attr("href", "/singleEvent/"+ data.attendingEvents[i].id);
+						attendTableDataEventLink.attr("alt",  data.attendingEvents[i].events_title);
+						
 						// get date info out of db format
 						var event_start_info = data.attendingEvents[i].events_start.split("T");
 
@@ -190,8 +198,9 @@
 						attendTableDataEventTitle.text(data.attendingEvents[i].events_title);
 
 						// append data / rows to table
-						attendTableRow.append(attendTableDataEventDate);
-						attendTableRow.append(attendTableDataEventTitle);
+						attendTableDataEventLink.append(attendTableDataEventDate);
+						attendTableDataEventLink.append(attendTableDataEventTitle);
+						attendTableRow.append(attendTableDataEventLink);
 						attendTable.append(attendTableRow);
 
 						// append table data to div
@@ -234,7 +243,7 @@
 						var event_date = data.upcomingEvents[i].event.events_start.split("T");
 
 						// add data to the link / labels for the images
-						upcomingEventLink.attr("href", "/singleEvent"); // was using the event id but this needs to be done on the single event page load // + data.upcomingEvents[0].event.id);
+						upcomingEventLink.attr("href", "/singleEvent/"+ data.upcomingEvents[i].event.id); // was using the event id but this needs to be done on the single event page load // + data.upcomingEvents[0].event.id);
 						upcomingEventLink.attr("alt", data.upcomingEvents[i].event.events_title);
 						upcomingEventLink.attr("id", data.upcomingEvents[i].event.id); // add id for onclick code
 						upcomingEventLabel.addClass("image_labels");

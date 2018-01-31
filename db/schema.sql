@@ -20,6 +20,9 @@ SELECT * FROM events;
 SELECT * FROM meetups;
 
 -- * DELETE FROM meetups WHERE user_google_token = 'google2';
+DELETE FROM events WHERE id = 6;
+-- * UPDATE meetups SET userId = 3 WHERE id = 9;
+UPDATE meetups SET userId = 2 WHERE id = 11;
 
 -- * Delete table 'meetups' from the database
 DROP TABLE events;
