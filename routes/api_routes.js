@@ -43,9 +43,9 @@ module.exports = function(app) {
 			}
 		}).then(function(result) {
 
-			console.log(result);
+			console.log(result[0]);
 			// check if update worked
-			if (result !== 1) {  // expect result to return # of rows affected by update query
+			if (result[0] === 0) {  // expect result to return # of rows affected by update query
 				// if it didn't then send back that the user must be added (client needs to call signup route)
 
 				// Query user model to check user email & pswd coming from the client side
