@@ -3,6 +3,9 @@
  $(document).ready(function(){
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> master
 	// triggers modal for new event button
 	$('.modal-trigger').leanModal();
 
@@ -277,6 +280,7 @@
 		}
 			
 	});
+<<<<<<< HEAD
 =======
    $('.modal-trigger').leanModal();
 
@@ -321,6 +325,8 @@ var email = localStorage.getItem("email");
    		$.get("/api/dashboard/" + id, function(data) {
 
    			console.log(data);
+>>>>>>> master
+=======
 >>>>>>> master
 
 });
