@@ -145,6 +145,7 @@
 					
 					// create new table for the attending event div
 					var attendTable = $("<table></table>");
+
 					// attendTable.css("width", "100%"); // not sure that is the right syntax
 
 					// create a heading table in the div
@@ -152,6 +153,8 @@
 					var attendTableHeadingTitle = $("<th></th>").addClass("attendingTable");
 					attendTableHeadingTitle.text("Event Title");
 					var attendTableHeadingDate = $("<th></th>").addClass("attendingTable");
+
+
 					attendTableHeadingDate.text("Date");
 
 					// add table heading elements to the each other
@@ -172,7 +175,9 @@
 
 						// create data elements for data
 						// date info
+
 						var attendTableDataEventDate = $("<td></td>").addClass("attendingTable");
+
 						var attendTableDataEventDateLink = $("<a>");
 						// get date info out of db format
 						var event_start_info = data.attendingEvents[i].events_start.split("T");
@@ -180,7 +185,9 @@
 						attendTableDataEventDate.text(event_start_info[0]);
 
 						// title info
+
 						var attendTableDataEventTitle = $("<td></td>").addClass("attendingTable");
+
 						attendTableDataEventTitle.text(data.attendingEvents[i].events_title);
 
 						// append data / rows to table
@@ -312,6 +319,9 @@ $("#createEvent").on("click", function(event) {
 //     $("#zip").val("");
 
 // });
+
+
+
 
 
 
