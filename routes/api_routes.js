@@ -392,13 +392,12 @@ module.exports = function(app) {
 		where: {
 			id: req.params.eventID
 		}
-	}).then(function(result) {
-
-		// console.log(result);
+	}).then(function(result, error) {
 		// console.log(result.dataValues);
+		console.log('RESULTS: ', result.dataValues)
 
 		// check if there was data that was returned
-		if (result.dataValues.length > 0) {
+		if (result.dataValues) {
 			// add the evenData for this event to the eventInfo array
 			eventInfo.eventDetails = result.dataValues;
 
@@ -433,6 +432,7 @@ module.exports = function(app) {
 					console.log(eventInfo.commentInfo.length);
 
 					// sends single event data back to the client for displaying
+					console.log('sending response json')
 					return res.json(eventInfo);
 
 				}
@@ -449,6 +449,8 @@ module.exports = function(app) {
 
 			});  // end meetup.findAll 
 		
+		} else {
+			res.json("No event with id " + req.params.eventID)
 		} // end if for checking for data back from findOne
 	
 	}); // end of events.findOne to grab the events info
