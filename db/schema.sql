@@ -22,10 +22,13 @@ SELECT * FROM meetups;
 -- * DELETE FROM meetups WHERE user_google_token = 'google2';
 
 -- * Delete table 'meetups' from the database
--- * DROP TABLE meetups;
+DROP TABLE events;
+DROP TABLE users;
+DROP TABLE meetups;
 
-
+-- * ----------------------------------------------------------------------------------------------------------------
 -- * THIS PORTION OF THE FILE IS FOR THE HEROKU HOSTING PORTION TO CREATE THE TABLES IN THE JAWSDB VERSION OF MYSQL
+-- * ----------------------------------------------------------------------------------------------------------------
 
 -- * Switch to or use the `a7modiih0x9hcu8b`.
 USE a7modiih0x9hcu8b;

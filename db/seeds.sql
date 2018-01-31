@@ -35,8 +35,8 @@ INSERT INTO meetups
 	(4, 4, 'I love red wine!', 'I will bring some merlot'),
 	(2, 3, 'So sad you guys will not be here for the next event', 'I will bring some dessert to share');
     
-    
-DROP TABLE meetups FROM pastaclub_db;
+-- * Used for reset of db when models rebuilt differently
+-- * DROP TABLE meetups FROM pastaclub_db;
 
 
 	
