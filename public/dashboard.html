@@ -29,14 +29,13 @@
 </head>
 <body>
 
-<div class="container">
- <div class="row left" id="dashLogo">
-    <img src="assets/images/pastaClublogo.png" alt="Pasta Club Logo" width="150">
-  </div>
+  <div class="container">
+   <div class="row left" id="dashLogo">
+      <img src="assets/images/pastaClublogo.png" alt="Pasta Club Logo" width="150">
+   </div>
   
 
   <div class="row right" id="userPic" data-userID="">
-
     <img src="assets/images/dempsey-1987.jpg" alt="Patrick" width="80" class="circle">
   </div>
 
@@ -47,30 +46,33 @@
       <div class="row">
         <div class="col s6 section" id="hostingDash">
           <h5>Hosting</h5>
-
-          <!-- <p>Stuff</p> -->
-     <a class="waves-effect orange lighten-1 btn modal-trigger" id= "createEvent" href="#modal1">Create Event</a>
-
-          <div id="host"> <p></p> </div>
-
+              <!-- <p>Stuff</p> -->
+         <a class="waves-effect orange lighten-1 btn modal-trigger" id= "createEvent" href="#modal1">Create Event</a>
+         <div id="host"> <p></p> </div>
 
                   <!-- Modal Structure -->
         <div id="modal1" class="modal">
               <div class="modal-content">
 <!--                   <h4>Create Event</h4>
  -->                  <div class="row">
-                    <div class="input-field col s12">
+                        <div class="input-field col s12">
                           <input id="event" type="text" class="validate">
                           <label for="event">Event Name</label>
-                    </div>
-                  </div>
-                  <div class="row">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s12">
+                            <input id="descr" type="text" class="validate">
+                            <label for="descr">Description</label>
+                        </div>
+                      </div>
+                      <div class="row">
                         <div class="input-field col s12">
                           <input id="date" type="text" class="validate" placeholder="yyyy-mm-dd">
                           <label for="date">Date</label>
-                    </div>
-                  </div> 
-                  <div class="row">
+                        </div>
+                      </div> 
+                        <div class="row">
                         <div class="input-field col s6">
                           <input id="start-time" type="text" class="validate">
                           <label for="start-time">Start Time</label>
@@ -89,28 +91,36 @@
                         <div class="input-field col s6">
                           <input id="end-time" type="text" class="validate" placeholder="(optional)">
                           <label for="end-time">End Time</label>
+                            <!-- Dropdown Trigger -->
+                          <a class='dropdown-button btn col s6' href='#' data-activates='dropdown1'>AM / PM!</a>
+
+                          <!-- Dropdown Structure -->
+                          <ul id='dropdown1' class='dropdown-content'>
+                            <li><a href="#!">AM</a></li>
+                            <li><a href="#!">PM</a></li>
+                          </ul>
                         </div>
-                  </div>
-                  <div class="row">
-                        <div class="input-field col s12">
-                          <input id="street" type="text" class="validate">
-                          <label for="street">Street</label>
-                    </div>
-                  </div> 
-                  <div class="row">
-                        <div class="input-field col s6">
-                          <input id="city" type="text" class="validate">
-                          <label for="city">City</label>
-                        </div>
-                        <div class="input-field col s3">
-                            <input id="state" type="text" class="validate">
-                            <label for="state">State</label>
-                        </div>
-                        <div class="input-field col s3">
-                            <input id="zip" type="text" class="validate">
-                            <label for="zip">Zip</label>
-                        </div>
-                  </div> 
+                   </div>
+                        <div class="row">
+                          <div class="input-field col s12">
+                            <input id="street" type="text" class="validate">
+                            <label for="street">Street</label>
+                          </div>
+                        </div> 
+                        <div class="row">
+                              <div class="input-field col s6">
+                                <input id="city" type="text" class="validate">
+                                <label for="city">City</label>
+                              </div>
+                              <div class="input-field col s3">
+                                  <input id="state" type="text" class="validate">
+                                  <label for="state">State</label>
+                              </div>
+                              <div class="input-field col s3">
+                                  <input id="zip" type="text" class="validate">
+                                  <label for="zip">Zip</label>
+                              </div>
+                        </div> 
                    <!-- <div class="row">
                         <div class="input-field col s12">
                           <input id="state" type="text" class="validate">
@@ -127,16 +137,16 @@
 
               <!-- added route to single event page on this button for on click function -->
               <div class="modal-footer">
-                <a href=" " class="modal-action modal-close waves-effect waves-white btn-flat">Create Event</a>
+                <a href=" " class="modal-action modal-close waves-effect waves-white btn-flat" id="addNewEvent">Create Event</a>
               </div>
         </div>
 
         </div>
-        <div class="col s6 section" id="attendingDash">
-          <h5>Attending</h5>
-          <!-- <p>Stuff</p> -->
+          <div class="col s6 section" id="attendingDash">
+            <h5>Attending</h5>
+            <!-- <p>Stuff</p> -->
+          </div>
         </div>
-      </div>
     </div>
   
 

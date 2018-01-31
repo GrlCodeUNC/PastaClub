@@ -464,7 +464,8 @@ module.exports = function(app) {
 	app.post("/api/newevent", function(req, res) {
 
 		console.log("create new event api code started");
-		console.log("checking information from the client = " + req.body);
+		console.log("checking information from the client");
+		console.log(req.body);
 
 		// use data from the client req.body JSON object
 		// dummy data to test create event below
@@ -484,23 +485,27 @@ module.exports = function(app) {
 		var updated = new Date;
 
 		console.log("dates = ", created, updated);
-		
+
 		// data being used from the Postman app
 		var newEvent = {
-			title: req.body.title,
-			start: new Date(req.body.start),
-			end: new Date(req.body.end),
-			descr: req.body.descr,
-			street: req.body.street,
-			city: req.body.city,
-			state: req.body.state,
-			zip: req.body.zip,
-			userId: req.body.userId
+			title: req.body.Title,
+			start: new Date(req.body.Start),
+			end: null,
+			descr: req.body.Desc,
+			street: req.body.Street,
+			city: req.body.City,
+			state: req.body.State,
+			zip: req.body.Zip,
+			userId: req.body.HostID
 		};
 
+		// check if end date / time was added
+		if (req.body.End !== "") {
+
+			newEvent.end = new Date(req.body.End);
+		}
+
 		console.log(newEvent);
-
-
 		
 		// call sequelize create function to add event to the database
 		Events.create({
@@ -527,12 +532,16 @@ module.exports = function(app) {
 			if (result.dataValues.id > 0 || result.dataValues.id != undefined) {
 				// if success send back data for event to the client for single event page view???
 				// return event id to be able to hit single event route w/ id
-				return(result.dataValues)
+				return res.json(result.dataValues);
 			}
 			else {
 				// if failure ... send error to the client for resolution
 				console.log("error new event record not created");
-				return ("error creating new event");
+				var response = {
+					error: "error new event record not created",
+					code: -1
+				};
+				return res.json(response);
 			}
 
 		}); // end of Events.create.then function
