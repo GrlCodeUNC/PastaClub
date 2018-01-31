@@ -2,6 +2,7 @@
 // processes code once document loads in the DOM
  $(document).ready(function(){
 
+<<<<<<< HEAD
 	// triggers modal for new event button
 	$('.modal-trigger').leanModal();
 
@@ -273,6 +274,51 @@
 		}
 			
 	});
+=======
+   $('.modal-trigger').leanModal();
+
+   // added to get user email for this page
+//   var email = googleUser.getBasicProfile().getEmail();
+// added local storage items to grab info from welcome page
+var nameLS = localStorage.getItem("name");
+var email = localStorage.getItem("email");
+  console.log("email = " + email);
+  console.log("name = " + nameLS);
+
+   var id = "tokenID 1";
+
+
+
+   $.get("/api/dashboard/" + id, function(data) {
+
+	console.log("this is the dashboard.js on client");
+   	 console.log(data);
+
+   var fullName = data.userName.split(" ");
+   		var firstName = fullName[0];
+
+   		var userID = data.id;
+
+   	$("#plate").empty();
+
+   	if(!data) {
+   		$("#plate").append("<p> Your Plate </p>");
+   		$("#hostingDash").append("<p> Sorry for our mess")
+   	}
+   		else{
+			   $("#plate").append("<p>" + firstName + "'s Plate</p>");
+			//    $("#plate").append("<p>" + firstName + "'s Plate</p>");
+   		}
+   });
+
+   var hosting = "data.events_title";
+
+   var id = "tokenID 1";
+
+   		$.get("/api/dashboard/" + id, function(data) {
+
+   			console.log(data);
+>>>>>>> master
 
 });
 
