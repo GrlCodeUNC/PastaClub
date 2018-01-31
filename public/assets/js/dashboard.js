@@ -13,8 +13,8 @@
 
 	// hardcoding name / email since my login not working properly :(
 	// take this out for everyone else
-	nameLS = "Brea Torres";
-	emailLS = "abreaw@hotmail.com";
+	// nameLS = "Brea Torres";
+	// emailLS = "abreaw@hotmail.com";
 	
 	//    var id = "tokenID 1";
 	// get the user id associated with the email that the user logged in with
@@ -145,13 +145,15 @@
 					
 					// create new table for the attending event div
 					var attendTable = $("<table></table>");
-					attendTable.css("width", "100%"); // not sure that is the right syntax
+
+					// attendTable.css("width", "100%"); // not sure that is the right syntax
 
 					// create a heading table in the div
 					var attendTableHeading = $("<tr></tr>");
-					var attendTableHeadingTitle = $("<th></th>");
+					var attendTableHeadingTitle = $("<th></th>").addClass("attendingTable");
 					attendTableHeadingTitle.text("Event Title");
-					var attendTableHeadingDate = $("<th></th>");
+					var attendTableHeadingDate = $("<th></th>").addClass("attendingTable");
+
 					attendTableHeadingDate.text("Date");
 
 					// add table heading elements to the each other
@@ -172,7 +174,9 @@
 
 						// create data elements for data
 						// date info
-						var attendTableDataEventDate = $("<td></td>");
+
+						var attendTableDataEventDate = $("<td></td>").addClass("attendingTable");
+
 						var attendTableDataEventDateLink = $("<a>");
 						// get date info out of db format
 						var event_start_info = data.attendingEvents[i].events_start.split("T");
@@ -180,7 +184,9 @@
 						attendTableDataEventDate.text(event_start_info[0]);
 
 						// title info
-						var attendTableDataEventTitle = $("<td></td>");
+
+						var attendTableDataEventTitle = $("<td></td>").addClass("attendingTable");
+
 						attendTableDataEventTitle.text(data.attendingEvents[i].events_title);
 
 						// append data / rows to table
@@ -230,6 +236,7 @@
 						// add data to the link / labels for the images
 						upcomingEventLink.attr("href", "/singleEvent"); // was using the event id but this needs to be done on the single event page load // + data.upcomingEvents[0].event.id);
 						upcomingEventLink.attr("alt", data.upcomingEvents[i].event.events_title);
+						upcomingEventLink.attr("id", data.upcomingEvents[i].event.id); // add id for onclick code
 						upcomingEventLabel.addClass("image_labels");
 						upcomingEventLabel.addClass("orange lighten-3");
 						upcomingEventLabel.html(data.upcomingEvents[i].event.events_title + "<br>" + event_date[0]);
@@ -267,29 +274,94 @@
 			
 	});
 
-});
-
-
+ });
 
 
 
 // this disables the modal....??/
-$("#createEvent").on("click", function(event) {
-    event.preventDefault();
+$("#addNewEvent").on("click", function(event) {
+	event.preventDefault();
+	
+	// grab data needed to create new event record
+	var eventDate = $("#date").val().trim();
+	var startTime = $("#start-time").val().trim();
+	var endTime = $("#end-time").val().trim();
+	var userID = localStorage.getItem("userid");
 
-    
-//     var newEvent = { 
-//         Title: $("#eventName").val().trim(),    
-//         Month: $("#month").val().trim(),
-//         Day: $("#day").val().trim(),
-//         Host: $("#hostName").val().trim(),
-//         Start: $("startTime").val().trim(),
-//         End: $("endTime").val().trim(),
-//         Street: $("street").val().trim(),
-//         State: $("state").val().trim(),
-//         Zip: $("zip").val().trim(),
-         
-//  }; 
+	var eventEnd = new Date(eventDate);
+
+	// setup end time if one was entered
+	if (endTime !== "") {
+
+		console.log("getting end time ready");
+
+		// setup date info to send to server
+		var eventEndTimeArray = endTime.split(":");
+		// add time to individual variables
+		var eHour = parseInt(eventEndTimeArray[0]);
+		var eMin = parseInt(eventEndTimeArray[1]);
+		eventEnd.setHours(eHour, eMin);
+	}
+	else {
+
+		eventEnd = null;
+	}
+
+	// setup date info to send to server
+	var eventStartTimeArray = startTime.split(":");
+	// add time to individual variables
+	var sHour = parseInt(eventStartTimeArray[0]);
+	var sMin = parseInt(eventStartTimeArray[1]);
+
+	// var date = new Date(Date.UTC(2013, 1, 1, 14, 0, 0)); 
+	// console.log(date);
+
+	// console.log("eventStart = " + eventStart);
+	// console.log("eventEnd = " + eventEnd);
+
+	// this is to add 12 hrs to the time if pm selected in the new Event modal
+	// if ($("#ampm").selected() === "pm") {
+	// 	sHour = sHour + 12;
+	// }
+	
+	// format data for server side
+	var eventStart = new Date(eventDate);
+	eventStart.setHours(sHour, sMin);
+
+	console.log("eventStart = " + eventStart);
+	console.log("eventEnd = " + eventEnd);
+
+	// create JSON object to send to the db for post
+    var newEvent = { 
+        Title: $("#event").val().trim(),    
+        // Date: $("#date").val().trim(),
+        // Day: $("#day").val().trim(),
+        // Host: $("#hostName").val().trim(),
+		// Start: $("startTime").val().trim(),
+		Desc: $("#descr").val(),
+		Start: eventStart,
+		// End: $("endTime").val().trim(),
+		End: eventEnd,
+		Street: $("#street").val().trim(),
+		City: $("#city").val().trim(),
+        State: $("#state").val().trim(),
+		Zip: $("#zip").val().trim(),
+		HostID: userID,
+	};
+
+	console.log("event data going to server side");
+	console.log(newEvent);
+
+	$.post("/api/newevent", newEvent)
+		.then(function(data) {
+			
+			console.log("server adding a new event");
+			console.log(data);
+
+			// alert("Adding new event...");
+	});
+	
+
  });
 
 // $.post("/api/newevent", newEvent)
@@ -312,6 +384,9 @@ $("#createEvent").on("click", function(event) {
 //     $("#zip").val("");
 
 // });
+
+
+
 
 
 
