@@ -13,8 +13,8 @@
 
 	// hardcoding name / email since my login not working properly :(
 	// take this out for everyone else
-	nameLS = "Brea Torres";
-	emailLS = "abreaw@hotmail.com";
+	// nameLS = "Brea Torres";
+	// emailLS = "abreaw@hotmail.com";
 	
 	//    var id = "tokenID 1";
 	// get the user id associated with the email that the user logged in with

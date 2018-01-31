@@ -85,13 +85,10 @@ var isAuthorized = user.hasGrantedScopes(SCOPE);
         console.log(data);
         
       });
+      window.location = "/dashboard";
     } else {
       $('#googlebtn').html('Sign In with Google!');
     }
-    // console.log(name);
-    // console.log(token);
-    // console.log(email);
-  
     // Clear absolutely everything stored in localStorage using localStorage.clear()
     localStorage.clear();
   
