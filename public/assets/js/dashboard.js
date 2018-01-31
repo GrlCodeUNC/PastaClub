@@ -2,10 +2,6 @@
 // processes code once document loads in the DOM
  $(document).ready(function(){
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> master
 	// triggers modal for new event button
 	$('.modal-trigger').leanModal();
 
@@ -158,10 +154,6 @@
 					attendTableHeadingTitle.text("Event Title");
 					var attendTableHeadingDate = $("<th></th>").addClass("attendingTable");
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 6c1752c828311cb6301d20ceb84bb5dda3dd11e7
 					attendTableHeadingDate.text("Date");
 
 					// add table heading elements to the each other
@@ -244,6 +236,7 @@
 						// add data to the link / labels for the images
 						upcomingEventLink.attr("href", "/singleEvent"); // was using the event id but this needs to be done on the single event page load // + data.upcomingEvents[0].event.id);
 						upcomingEventLink.attr("alt", data.upcomingEvents[i].event.events_title);
+						
 						upcomingEventLabel.addClass("image_labels");
 						upcomingEventLabel.addClass("orange lighten-3");
 						upcomingEventLabel.html(data.upcomingEvents[i].event.events_title + "<br>" + event_date[0]);
@@ -280,65 +273,15 @@
 		}
 			
 	});
-<<<<<<< HEAD
-=======
-   $('.modal-trigger').leanModal();
 
-   // added to get user email for this page
-//   var email = googleUser.getBasicProfile().getEmail();
-// added local storage items to grab info from welcome page
-var nameLS = localStorage.getItem("name");
-var email = localStorage.getItem("email");
-  console.log("email = " + email);
-  console.log("name = " + nameLS);
-
-   var id = "tokenID 1";
-
-
-
-   $.get("/api/dashboard/" + id, function(data) {
-
-	console.log("this is the dashboard.js on client");
-   	 console.log(data);
-
-   var fullName = data.userName.split(" ");
-   		var firstName = fullName[0];
-
-   		var userID = data.id;
-
-   	$("#plate").empty();
-
-   	if(!data) {
-   		$("#plate").append("<p> Your Plate </p>");
-   		$("#hostingDash").append("<p> Sorry for our mess")
-   	}
-   		else{
-			   $("#plate").append("<p>" + firstName + "'s Plate</p>");
-			//    $("#plate").append("<p>" + firstName + "'s Plate</p>");
-   		}
-   });
-
-   var hosting = "data.events_title";
-
-   var id = "tokenID 1";
-
-   		$.get("/api/dashboard/" + id, function(data) {
-
-   			console.log(data);
->>>>>>> master
-=======
->>>>>>> master
-
-});
-
-
-
+    });
+   
 
 
 // this disables the modal....??/
 $("#createEvent").on("click", function(event) {
     event.preventDefault();
-
+});
     
 //     var newEvent = { 
 //         Title: $("#eventName").val().trim(),    
