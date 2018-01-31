@@ -7,9 +7,10 @@ $(document).ready(function() {
 
     var path = window.location.pathname;
     var eventId = path.slice(path.lastIndexOf("/") + 1);
+    var userId = localStorage.getItem("userid");
 
-    console.log(eventId);
-
+    console.log("user ID = " + userId);
+    console.log("event ID = ", eventId);
 
     // when user clicks rsvp btn
     $("#rsvp").on("click", function(event) {
@@ -21,11 +22,10 @@ $(document).ready(function() {
             item: $("#bringing").val().trim(),
             // comment from comments input
             comment: $("#comments").val().trim(),
-
-            userId: 1,
-
-            eventId: 5,
-
+            // userId from local storage (welcome / sign in page)
+            userId: userId,
+            // eventId from url / path sent via dashboard page
+            eventId: eventId,
         };
 
         // send an AJAX POST-request with jQuery
@@ -53,36 +53,77 @@ $(document).ready(function() {
         var eventName = data.eventDetails.events_title;
         $('#eventName').text(eventName);
 
-        var month = data.eventDetails.events_start;
-        $("#month").text(month);
+        // grab start date and format for display
+        var startDate = new Date(data.eventDetails.events_start);  
+        var options = {  
+            weekday: "long", year: "numeric", month: "short",  
+            day: "numeric", hour: "2-digit", minute: "2-digit"  
+        };
+        var longStartDate = startDate.toLocaleTimeString("en-us", options);
+        // take out start time to display separately in webpage
+        var displayStart = longStartDate.slice(longStartDate.lastIndexOf(",") + 1);
+        $("#startTime").text(displayStart); // display formatted time view
 
-        var day = data.eventDetails.events_start;
-        $("#day").text(day);
+        // grab end date and format for dislpay if not null
+        var endTime = data.eventDetails.events_end;
+        // endTime = null; // test null case
+        if (endTime !== null) {
 
-        var host = data.eventDetails.user_Id;
+            var endDate = new Date(endTime);  
+            var longEndDate = endDate.toLocaleTimeString("en-us", options);
+            // take out start time to display separately in webpage
+            var displayEnd = longEndDate.slice(longEndDate.lastIndexOf(",") + 1);
+            $("#endTime").text(" to " + displayEnd);
+        }
+        else {
+
+            $("#endTime").text("until ... ");
+        }
+
+        // console.log(displayStart);
+        var dateOnlyOptions = {  
+            weekday: "long", year: "numeric", month: "short",  
+            day: "numeric"  
+        };
+
+        // new view of the single event page with full date and start time / end time showing differently
+        var longStartDate = startDate.toLocaleDateString("en-us", dateOnlyOptions);
+        $("#date").text(longStartDate);
+        console.log(longStartDate);
+
+        // var month = data.eventDetails.events_start;
+        // $("#month").text(month);
+
+        // var day = data.eventDetails.events_start;
+        // $("#day").text(day);
+
+        var host = data.eventDetails.user.user_name;
         $("#host").text(host);
 
-        var startTime = data.eventDetails.events_start;
-        $("#startTime").text(startTime);
+        // var startTime = data.eventDetails.events_start;
+        // $("#startTime").text(startTime);
+        // $("#startTime").text(displayStart); // display formatted time view
 
-        var endTime = data.eventDetails.events_start;
-        $("#endTime").text(endTime);
+        // var endTime = data.eventDetails.events_start;
+        // $("#endTime").text(endTime);
 
-        var location = data.eventDetails.events_loc_street_add + data.eventDetails.events_loc_city +  data.eventDetails.events_loc_state + data.eventDetails.events_loc_zip;
-        $("#location").text(location);
-
-
+        // format location data from server into better display view
+        var location = data.eventDetails.events_loc_street_add + "<br>" + data.eventDetails.events_loc_city + ", " + data.eventDetails.events_loc_state + " " + data.eventDetails.events_loc_zip;
+        $("#location").html(location);
 
 
         // for each attendee that our server sends us back
-        for (var i = 0; i < data.length; i++) {
+        for (var i = 0; i < data.commentInfo.length; i++) {
 
+            var tableRow = $('<tr><td>' + data.commentInfo[i].user.user_name + '</td><td>' + data.commentInfo[i].event_item + '</td><td>' + data.commentInfo[i].comment_body + '</td></tr>');
+            $('#rsvpList').append(tableRow);
+            
                 // WHERE TABLE GOES. FOLLOW JACK's EXAMPLE
-            var attendees = data.attendees;
-            for (var i = 0; i < attendees.length; i++) {
-            var tableRow = $('<tr><td>' + attendees[i].name + '</td><td>' + attendees[i].country + '</tr>')
-            $('#rsvpList').append(tableRow)
-            };
+            // var attendees = data.attendees;
+            // for (var i = 0; i < attendees.length; i++) {
+            // var tableRow = $('<tr><td>' + attendees[i].name + '</td><td>' + attendees[i].country + '</tr>')
+            // $('#rsvpList').append(tableRow)
+            // };
             
 
             
@@ -137,13 +178,9 @@ $(document).ready(function() {
             // hostingList.after(hostTable); // insert(append) after the h5 tag
 
 
-        }
-    });
+        } // end for loop for comment table info
+
+    }); // end .get for comment / attendee section
 
 
-
-
-
-
-
-});
+}); // on document ready function

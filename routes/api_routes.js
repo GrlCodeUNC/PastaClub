@@ -391,7 +391,8 @@ module.exports = function(app) {
 	Events.findOne({
 		where: {
 			id: req.params.eventID
-		}
+		},
+		include: [Users]
 	}).then(function(result, error) {
 		// console.log(result.dataValues);
 		console.log('RESULTS: ', result.dataValues)
@@ -407,7 +408,8 @@ module.exports = function(app) {
 			Meetup.findAll({
 				where: {
 					eventId: req.params.eventID
-				}
+				},
+				include: [Users]
 			}).then( function (eventData){
 
 				// Let's see what we get back from this query
