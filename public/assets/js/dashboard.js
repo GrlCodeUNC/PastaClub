@@ -274,7 +274,7 @@
 			
 	});
 
-});
+ });
 
 
 
@@ -361,6 +361,7 @@ $("#addNewEvent").on("click", function(event) {
 			// alert("Adding new event...");
 	});
 	
+
  });
 
 // $.post("/api/newevent", newEvent)
@@ -383,6 +384,9 @@ $("#addNewEvent").on("click", function(event) {
 //     $("#zip").val("");
 
 // });
+
+
+
 
 
 

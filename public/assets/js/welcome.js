@@ -58,7 +58,6 @@ function initClient() {
       handleAuthClick();
     });     
   });
-
 }
 
 function handleAuthClick() {
