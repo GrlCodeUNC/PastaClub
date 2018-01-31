@@ -21,7 +21,7 @@ module.exports = function(app) {
   });
 
 // user wants to attend a meetup
-  app.get("/singleEvent", function(req, res) {
+  app.get("/singleEvent/:id?", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/singleEvent.html"));
   });
 
