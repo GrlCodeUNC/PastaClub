@@ -45,17 +45,19 @@ $(document).ready(function() {
 
             console.log(data);
 
-            // append the table to the meetup section
-            $(".table").append(Meetup);
+            // // append the table to the meetup section
+            // $(".table").append(Meetup);
 
             // Now add all of our attendee data to the div already on the page
-
+            
             // make the attendee and td
             $("#attendee1" + i).append("<td> " + data[i].userId + "</td>");
             // the item and td
             $("#item1" + i).append("<td> " + data[i].item + "</td>");
             // the comment and td
             $("#comment1" + i).append("<td> " + data[i].comment + "</td>");
+
+            // how to add <tr> in there for table?
 
         }
     });

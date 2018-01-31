@@ -50,9 +50,9 @@ gapi.client.init({
     'discoveryDocs': [discoveryUrl],
     'clientId': '508293590442-q7ltok2rfnli378h2co0398hbnef5gli.apps.googleusercontent.com',
     'scope': SCOPE
-}).then(function () {
+}).then(function (a, b) {
   GoogleAuth = gapi.auth2.getAuthInstance();
-
+  
   // Listen for sign-in state changes.
   GoogleAuth.isSignedIn.listen(updateSigninStatus);
 
@@ -79,6 +79,8 @@ if (GoogleAuth.isSignedIn.get()) {
 }
 
 function setSigninStatus(isSignedIn) {
+
+  console.log("do I get here?");
 var user = GoogleAuth.currentUser.get();
 var isAuthorized = user.hasGrantedScopes(SCOPE);
   if (isAuthorized) {
@@ -90,7 +92,8 @@ var isAuthorized = user.hasGrantedScopes(SCOPE);
   email = user.getBasicProfile().getEmail();
   token = user.Zi.id_token
   $.put("/api/login/" + email + "/" + token + "/" + name, function(data) {
-    // console.log(data);
+    console.log(data);
+    
   });
   // console.log(name);
   // console.log(token);
