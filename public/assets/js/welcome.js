@@ -1,6 +1,7 @@
 var token;
 var name;
 var email;
+var picture;
 
 
 jQuery.each( [ "put" ], function( i, method ) {
