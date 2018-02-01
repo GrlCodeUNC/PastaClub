@@ -347,4 +347,8 @@ tr:nth-child(even) {
 	width: 100%;	/* span the full width of the ancestor element */
 }
 
+/*.table {
+	padding-left: 20px;
+}*/
+
 
