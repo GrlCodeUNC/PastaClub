@@ -240,12 +240,19 @@ module.exports = function(app) {
 
 		});
 
-		// get attending events list
+		// // get attending events list
+		// Meetup.findAll({
+		// 	where: {
+		// 		userId: userID
+		// 	},
+		// 	include: [Events]
+		// see if this one works for the join w/ user id
 		Meetup.findAll({
 			where: {
 				userId: userID
 			},
-			include: [Events]
+			include: [Events],
+			group: Meetup.userId
 		}).then( function (eventData){
 			
 			console.log("events that are being attended");
@@ -258,16 +265,24 @@ module.exports = function(app) {
 			if (eventData.length > 0) {
 
 				// the user is attending events
-				// console.log(eventData);
+				console.log(eventData);
 				// console.log(eventData.dataValues);
 				// console.log(eventData[0].dataValues.id);
 				// console.log(eventData[0].dataValues.comment_body);
 
+				var currentEventId;
+
 				// Loop thru all the event Data that comes back from the query
 				for (var i = 0; i < eventData.length; i++) {
 					
-					// add the eventData for attending events to the EventsInfo array
-					eventsInfo.attendingEvents.push(eventData[i].dataValues.event);
+					// send only 1 of each event attending to the client (checking here)
+					if (eventData[i].dataValues.eventId != currentEventId) {
+
+						// add the eventData for attending events to the EventsInfo array
+						eventsInfo.attendingEvents.push(eventData[i].dataValues.event);
+						currentEventId = eventData[i].dataValues.eventId;
+					}
+					
 				}
 				
 				// console.log(eventsInfo.attendingEvents.length);
@@ -330,9 +345,12 @@ module.exports = function(app) {
 				
 				// console.log(eventData[0].dataValues.id);
 				// console.log(eventData[0].dataValues.comment_body);
+				
 
 				// Loop thru all the event Data that comes back from the query
 				for (var i = 0; i < eventData.length; i++) {
+
+					if (eventData[i])
 					
 					// add the evenData for hosting events to the EventsInfo array
 					eventsInfo.upcomingEvents.push(eventData[i].dataValues);
