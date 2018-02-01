@@ -359,6 +359,12 @@ tr:nth-child(even) {
 	width: 100%;	/* span the full width of the ancestor element */
 }
 
+footer.page-footer {
+    margin-top: 20px;
+    padding-top: 20px;
+    background-color: rgba(4, 17, 88, 0.81);
+}
+
 /*.table {
 	padding-left: 20px;
 }*/
