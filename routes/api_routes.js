@@ -486,13 +486,23 @@ module.exports = function(app) {
 						error: "no comments available",
 						code: -1
 					};
-					return res.json(response);
+					
+					// return res.json(response);
+					eventInfo.commentInfo.push(response);
+					return res.json(eventInfo);
+					
 				}
 
 			});  // end meetup.findAll 
 		
 		} else {
-			res.json("No event with id " + req.params.eventID)
+			var response = {
+				error: "no event with id " + req.params.eventID,
+				code: -1
+			};
+			eventInfo.eventDetails = response;
+
+			return res.json(eventInfo);
 		} // end if for checking for data back from findOne
 	
 	}); // end of events.findOne to grab the events info
