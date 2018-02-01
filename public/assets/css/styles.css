@@ -185,6 +185,7 @@
   height: 250px;
   margin-top: 100;
   color: #ffffff;
+  border-radius: 20px 0px 0px 20px;
 }
 
 #attendingDash {
@@ -192,6 +193,7 @@
   height: 250px;
   margin-top: 100;
   color: #ffffff;
+  border-radius: 0px 20px 20px 0px;
 }
 
 .attendingTable {
@@ -297,6 +299,7 @@ tr:nth-child(even) {
 .eventName {
 	background: #959cbc;
 	margin-top: 50px;
+	border-radius: 20px;
 }
 
 #eventDate {
@@ -305,6 +308,7 @@ tr:nth-child(even) {
   margin-top: -20px;
   color: #ffffff;
   font-family: 'Arya', sans-serif;
+  border-radius: 20px 0px 0px 20px;
 }
 
 #eventDetails {
@@ -314,6 +318,7 @@ tr:nth-child(even) {
 /*  margin-bottom: 50px;*/
   color: #ffffff;
   font-family: 'Arya', sans-serif;
+  border-radius: 0px 20px 20px 0px;
 }
 
 #modal1 {
