@@ -181,7 +181,7 @@
 }
 
 #hostingDash {
-  background: #041259;
+  background-color: rgba(4, 17, 88, 0.8);
   height: 250px;
   margin-top: 100;
   color: #ffffff;
@@ -189,7 +189,7 @@
 }
 
 #attendingDash {
-  background: #ff4d03;
+  background: rgba(255, 77, 3, 0.81);
   height: 250px;
   margin-top: 100;
   color: #ffffff;
@@ -221,6 +221,8 @@ h5 {
 #createEvent {
 	color: #041259;
 	margin-top: 20px;
+	color: #ffffff;
+    font-family: 'Arya', sans-serif;
 }
 
 .material-icons {
@@ -277,6 +279,7 @@ table {
     width: 100%;
     background-color: rgba(4, 17, 88, 0.65);
     color: white;
+    font-family: 'Arya', sans-serif;
 }
 
 td, th {
