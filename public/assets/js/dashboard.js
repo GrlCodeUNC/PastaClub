@@ -122,8 +122,9 @@
 						hostTableDataEventTitle.text(data.hostingEvents[i].events_title);
 
 						// append data / rows to table
-						hostTableDataEventLink.append(hostTableDataEventDate);
+						// hostTableDataEventLink.append(hostTableDataEventDate);
 						hostTableDataEventLink.append(hostTableDataEventTitle);
+						hostTableRow.append(hostTableDataEventDate);
 						hostTableRow.append(hostTableDataEventLink);
 						// hostTableRow.append(hostTableDataEventTitle);
 						hostTable.append(hostTableRow);
@@ -198,8 +199,9 @@
 						attendTableDataEventTitle.text(data.attendingEvents[i].events_title);
 
 						// append data / rows to table
-						attendTableDataEventLink.append(attendTableDataEventDate);
+						// attendTableDataEventLink.append(attendTableDataEventDate);
 						attendTableDataEventLink.append(attendTableDataEventTitle);
+						attendTableRow.append(attendTableDataEventDate);
 						attendTableRow.append(attendTableDataEventLink);
 						attendTable.append(attendTableRow);
 
