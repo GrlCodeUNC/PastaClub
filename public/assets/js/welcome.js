@@ -1,8 +1,16 @@
+// processes code once document loads in the DOM
+$(document).ready(function(){
+
+	// triggers modal for new event button
+  $('.modal-trigger').leanModal();
+  
+});
+
+
 var token;
 var name;
 var email;
 var picture;
-
 
 jQuery.each( [ "put" ], function( i, method ) {
   jQuery[ method ] = function( url, data, callback, type ) {
