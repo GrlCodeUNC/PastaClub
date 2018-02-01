@@ -198,45 +198,57 @@ module.exports = function(app) {
 			}
 		}).then( function (eventData){
 			
-			// console.log(eventData);
-			console.log(eventData[0].dataValues.id);
-			console.log(eventData[0].dataValues.events_title);
-
-			// Loop thru all the event Data that comes back from the query
-			for (var i = 0; i < eventData.length; i++) {
-				
-				// add the evenData for hosting events to the EventsInfo array
-				eventsInfo.hostingEvents.push(eventData[i].dataValues);
-			}
-
 			console.log("Events that are being hosted");
-			console.log(eventsInfo.hostingEvents.length);
-			// console.log(eventsInfo.hostingEvents);
-			// Data being added to hostingEvents array looks like this
-			// [ { id: 5,
-			// 	events_title: 'Spaghetti Feast',
-			// 	events_start: 2018-02-20T18:30:00.000Z,
-			// 	events_end: 2018-02-20T21:00:00.000Z,
-			// 	events_desc: 'Join us for spaghetti night, bring a sauce or drink to share',
-			// 	events_loc_street_add: '102 My House Lane',
-			// 	events_loc_city: 'Raleigh',
-			// 	events_loc_state: 'NC',
-			// 	events_loc_zip: 27571,
-			// 	createdAt: 2018-01-26T21:14:52.000Z,
-			// 	updatedAt: 2018-01-26T21:14:52.000Z,
-			// 	userId: 1 },
-			//   { id: 7,
-			// 	events_title: 'Pasta Luego',
-			// 	events_start: 2018-04-20T18:30:00.000Z,
-			// 	events_end: 2018-04-20T21:00:00.000Z,
-			// 	events_desc: 'We are heading to Italy for a while to celebrate, bring a sauce or drink to share',
-			// 	events_loc_street_add: '102 My House Lane',
-			// 	events_loc_city: 'Raleigh',
-			// 	events_loc_state: 'NC',
-			// 	events_loc_zip: 27571,
-			// 	createdAt: 2018-01-26T21:14:52.000Z,
-			// 	updatedAt: 2018-01-26T21:14:52.000Z,
-			// 	userId: 1 } ]
+			console.log(eventData.length);
+
+			// check if there was any information returned from the findAll query
+			// use length to find out if there is any data in the array
+			if (eventData.length > 0) {
+
+				// console.log(eventData);
+				// console.log(eventData[0].dataValues.id);
+				// console.log(eventData[0].dataValues.events_title);
+
+				// Loop thru all the event Data that comes back from the query
+				for (var i = 0; i < eventData.length; i++) {
+					
+					// add the evenData for hosting events to the EventsInfo array
+					eventsInfo.hostingEvents.push(eventData[i].dataValues);
+				}
+
+				// console.log("Events that are being hosted");
+				// console.log(eventsInfo.hostingEvents.length);
+				// console.log(eventsInfo.hostingEvents);
+				// Data being added to hostingEvents array looks like this
+				// [ { id: 5,
+				// 	events_title: 'Spaghetti Feast',
+				// 	events_start: 2018-02-20T18:30:00.000Z,
+				// 	events_end: 2018-02-20T21:00:00.000Z,
+				// 	events_desc: 'Join us for spaghetti night, bring a sauce or drink to share',
+				// 	events_loc_street_add: '102 My House Lane',
+				// 	events_loc_city: 'Raleigh',
+				// 	events_loc_state: 'NC',
+				// 	events_loc_zip: 27571,
+				// 	createdAt: 2018-01-26T21:14:52.000Z,
+				// 	updatedAt: 2018-01-26T21:14:52.000Z,
+				// 	userId: 1 },
+				//   { id: 7,
+				// 	events_title: 'Pasta Luego',
+				// 	events_start: 2018-04-20T18:30:00.000Z,
+				// 	events_end: 2018-04-20T21:00:00.000Z,
+				// 	events_desc: 'We are heading to Italy for a while to celebrate, bring a sauce or drink to share',
+				// 	events_loc_street_add: '102 My House Lane',
+				// 	events_loc_city: 'Raleigh',
+				// 	events_loc_state: 'NC',
+				// 	events_loc_zip: 27571,
+				// 	createdAt: 2018-01-26T21:14:52.000Z,
+				// 	updatedAt: 2018-01-26T21:14:52.000Z,
+				// 	userId: 1 } ]
+			}
+			else { 
+				// user does not have any events associated w/ their name in the events table
+				console.log("no events being hosted by this user");
+			}
 
 		});
 
@@ -265,8 +277,8 @@ module.exports = function(app) {
 			if (eventData.length > 0) {
 
 				// the user is attending events
-				console.log(eventData);
-				// console.log(eventData.dataValues);
+				// console.log(eventData);
+				console.log(eventData.dataValues);
 				// console.log(eventData[0].dataValues.id);
 				// console.log(eventData[0].dataValues.comment_body);
 
@@ -328,18 +340,22 @@ module.exports = function(app) {
 
 		// });
 
+		// next 3 events available (where user is not attending or hosting??)
 		// see if this one works for the join w/ user id
-		Meetup.findAll({
+		// Meetup.findAll({
+		Events.findAll({
 			where: {
 				userId: {
 					ne: userID
 				}
 			},
-			include: [Events]
+			// include: [Events]
 		}).then( function (eventData){
 
 			// Let's see what we get back from this join query
-			// console.log(eventData);
+			console.log(eventData);
+
+			// var currentEventId;
 
 			if (eventData.length > 0) {
 				
@@ -350,14 +366,20 @@ module.exports = function(app) {
 				// Loop thru all the event Data that comes back from the query
 				for (var i = 0; i < eventData.length; i++) {
 
-					if (eventData[i])
+					// send only 1 of each event attending to the client (checking here)
+					// if (eventData[i].dataValues.eventId !== currentEventId) {
+
+					// 	// add the eventData for attending events to the EventsInfo array
+					// 	eventsInfo.upcomingEvents.push(eventData[i].dataValues.event);
+					// 	currentEventId = eventData[i].dataValues.eventId;
+					// }
 					
 					// add the evenData for hosting events to the EventsInfo array
 					eventsInfo.upcomingEvents.push(eventData[i].dataValues);
 				}
 				
-				// console.log(eventsInfo.upcomingEvents[0]);
-				// console.log(eventsInfo.upcomingEvents.length);
+				// console.log(eventData.upcomingEvents[0]);
+				console.log(eventsInfo.upcomingEvents.length);
 			}
 			else {
 
@@ -368,7 +390,7 @@ module.exports = function(app) {
 					code: -1
 				};
 
-				// client side should get error message and throw up modal for sign up request
+				// client side should get error message if no events exist
 				return res.json(response);
 
 				// return ("There are currently no events scheduled");
@@ -464,13 +486,23 @@ module.exports = function(app) {
 						error: "no comments available",
 						code: -1
 					};
-					return res.json(response);
+					
+					// return res.json(response);
+					eventInfo.commentInfo.push(response);
+					return res.json(eventInfo);
+					
 				}
 
 			});  // end meetup.findAll 
 		
 		} else {
-			res.json("No event with id " + req.params.eventID)
+			var response = {
+				error: "no event with id " + req.params.eventID,
+				code: -1
+			};
+			eventInfo.eventDetails = response;
+
+			return res.json(eventInfo);
 		} // end if for checking for data back from findOne
 	
 	}); // end of events.findOne to grab the events info
