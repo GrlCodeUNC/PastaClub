@@ -85,8 +85,8 @@
 	position: relative;
 	top: 30px;
 	display: block;
-  margin-left: auto;
-  margin-right: auto;
+  	margin-left: auto;
+  	margin-right: auto;
 }
 
 .section {
@@ -196,6 +196,10 @@
   border-radius: 0px 20px 20px 0px;
 }
 
+/*#singleEventTable {
+  border-radius: 20px;
+}*/
+
 .attendingTable {
   background: #ff4d03;
   color: #ffffff;
@@ -271,7 +275,7 @@ h5 {
 table {
     border-collapse: collapse;
     width: 100%;
-    background-color: #041259;
+    background-color: rgba(4, 17, 88, 0.65);
     color: white;
 }
 
@@ -297,7 +301,7 @@ tr:nth-child(even) {
 }
 
 .eventName {
-	background: #959cbc;
+	background-color: rgba(4, 17, 88, 0.65);
 	margin-top: 50px;
 	border-radius: 20px;
 }
