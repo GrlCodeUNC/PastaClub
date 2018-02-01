@@ -13,8 +13,8 @@
 
 	// hardcoding name / email since my login not working properly :(
 	// take this out for everyone else
-	nameLS = "Brea Torres";
-	emailLS = "abreaw@hotmail.com";
+	// nameLS = "Brea Torres";
+	// emailLS = "abreaw@hotmail.com";
 	
 	//    var id = "tokenID 1";
 	// get the user id associated with the email that the user logged in with
@@ -228,7 +228,8 @@
 					// loop through the 3 next events and add them to the images
 					for(i = 0; i < data.upcomingEvents.length || i < 3; i++) {
 						console.log("building upcoming event info now");
-						console.log(data.upcomingEvents[i].event);
+						// console.log(data.upcomingEvents[i].event); // had .event in there when joined on the meetup table ... no longer joining on meetup in api_routes
+						console.log(data.upcomingEvents[i]);
 
 						// get elements to add upcoming event 1 data to image container
 						var upcomingEventImg = $("#ravioli"+(i+1)); // grabs the img element
@@ -242,15 +243,16 @@
 						var rsvpBtn = $("<button>"); // should we add a button to each img for them to rsvp too??
 
 						// grab date for label to use on image
-						var event_date = data.upcomingEvents[i].event.events_start.split("T");
+						// var event_date = data.upcomingEvents[i].event.events_start.split("T");
+						var event_date = data.upcomingEvents[i].events_start.split("T");
 
 						// add data to the link / labels for the images
-						upcomingEventLink.attr("href", "/singleEvent/"+ data.upcomingEvents[i].event.id); // was using the event id but this needs to be done on the single event page load // + data.upcomingEvents[0].event.id);
-						upcomingEventLink.attr("alt", data.upcomingEvents[i].event.events_title);
-						upcomingEventLink.attr("id", data.upcomingEvents[i].event.id); // add id for onclick code
+						upcomingEventLink.attr("href", "/singleEvent/"+ data.upcomingEvents[i].id); // was using the event id but this needs to be done on the single event page load // + data.upcomingEvents[0].event.id);
+						upcomingEventLink.attr("alt", data.upcomingEvents[i].events_title);
+						upcomingEventLink.attr("id", data.upcomingEvents[i].id); // add id for onclick code
 						upcomingEventLabel.addClass("image_labels");
 						upcomingEventLabel.addClass("orange lighten-3");
-						upcomingEventLabel.html(data.upcomingEvents[i].event.events_title + "<br>" + event_date[0]);
+						upcomingEventLabel.html(data.upcomingEvents[i].events_title + "<br>" + event_date[0]);
 
 						console.log(upcomingEventLabel);
 
