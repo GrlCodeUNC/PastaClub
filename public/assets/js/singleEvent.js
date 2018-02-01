@@ -8,9 +8,16 @@ $(document).ready(function() {
     var path = window.location.pathname;
     var eventId = path.slice(path.lastIndexOf("/") + 1);
     var userId = localStorage.getItem("userid");
+    var pictureID = localStorage.getItem("picture");
 
     console.log("user ID = " + userId);
     console.log("event ID = ", eventId);
+    console.log("picture = " + pictureID);
+
+    // Appending profile picture for every user to the page
+    var image = $("<img>");
+      image.addClass("circle").attr("width", "80").attr("src", pictureID);
+      $("#userPic").append(image);
 
     // when user clicks rsvp btn
     $("#rsvpButton").on("click", function(event) {
