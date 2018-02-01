@@ -93,6 +93,7 @@
 					hostTableHeadingTitle.text("Event Title");
 					var hostTableHeadingDate = $("<th></th>");
 					hostTableHeadingDate.text("Date");
+          
 
 					// add table heading elements to the each other
 					hostTable.append(hostTableHeading); // adds heading to table
