@@ -51,7 +51,8 @@ function initClient() {
     // Handle initial sign-in state. (Determine if user is already signed in.)
     var user = GoogleAuth.currentUser.get();
     setSigninStatus();
-    console.log(user);
+    // console.log(GoogleAuth.currentUser.Ab.w3.Paa);
+
 
     // Call handleAuthClick function when user clicks on
     //      "Sign In/Authorize" button.
@@ -81,11 +82,14 @@ var isAuthorized = user.hasGrantedScopes(SCOPE);
       name = user.getBasicProfile().getName();
       email = user.getBasicProfile().getEmail();
       token = user.Zi.id_token
+      picture = GoogleAuth.currentUser.Ab.w3.Paa
       $.put("/api/login/" + email + "/" + token + "/" + name, function(data) {
         console.log(data);
         
       });
+      // commented out so i can see user info to add profile pic
       window.location = "/dashboard";
+      console.log(picture);
     } else {
       $('#googlebtn').html('Sign In with Google!');
     }
@@ -95,6 +99,7 @@ var isAuthorized = user.hasGrantedScopes(SCOPE);
     // Store the username into localStorage using "localStorage.setItem"
     localStorage.setItem("name", name);
     localStorage.setItem("email", email);
+    localStorage.setItem("picture", picture);
   }
 
 function updateSigninStatus(isSignedIn) {

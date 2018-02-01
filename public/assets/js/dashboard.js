@@ -8,13 +8,21 @@
 	// added local storage items to grab info from welcome page
 	var nameLS = localStorage.getItem("name");
 	var emailLS = localStorage.getItem("email");
+	var pictureLS = localStorage.getItem("picture");
+
 	console.log("email = " + emailLS);
 	console.log("name = " + nameLS);
+	console.log("picture = " + pictureLS )
+
+	// Appending profile picture for every user to the page
+	var image = $("<img>");
+      image.addClass("circle").attr("width", "80").attr("src", pictureLS);
+      $("#userPic").append(image);
 
 	// hardcoding name / email since my login not working properly :(
 	// take this out for everyone else
-	nameLS = "Brea Torres";
-	emailLS = "abreaw@hotmail.com";
+	// nameLS = "Brea Torres";
+	// emailLS = "abreaw@hotmail.com";
 	
 	//    var id = "tokenID 1";
 	// get the user id associated with the email that the user logged in with
@@ -370,6 +378,9 @@ $("#addNewEvent").on("click", function(event) {
 			// alert("Adding new event...");
 	});
 	
+	$('#addNewEvent').click(function() {
+		location.reload();
+	});
 
  });
 
