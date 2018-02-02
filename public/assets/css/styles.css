@@ -307,6 +307,7 @@ td, th {
 	background-color: rgba(4, 17, 88, 0.65);
 	margin-top: 30px;
 	border-radius: 20px;
+	margin-bottom: 40px;
 }
 
 #eventDate {
@@ -410,10 +411,20 @@ tr:nth-child(even) {
 	color: #041158cc;
 }
 
-#socialMediaIcons {
-    display: inline;
-    margin: 0px;
+a.socialMediaIcons {
+    float: right;
+    padding-top: 10px;
 }
+
+#eventDescription {
+	color: #ffffff;
+	padding-top: 20px;
+}
+
+h6 {
+	padding-bottom: 20px;
+}
+
 
 
 

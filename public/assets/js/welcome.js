@@ -1,12 +1,9 @@
 // processes code once document loads in the DOM
-$(document).ready(function(){
+// $(document).ready(function(){
 
 	// triggers modal for new event button
-  $('.modal-trigger').leanModal();
+  // $('.modal-trigger').leanModal();
   
-});
-
-
 var token;
 var name;
 var email;
@@ -101,6 +98,7 @@ var isAuthorized = user.hasGrantedScopes(SCOPE);
       console.log(picture);
     } else {
       $('#googlebtn').html('Sign In with Google!');
+      // $('.modal-trigger').leanModal();
     }
     // Clear absolutely everything stored in localStorage using localStorage.clear()
     localStorage.clear();
@@ -114,3 +112,4 @@ var isAuthorized = user.hasGrantedScopes(SCOPE);
 function updateSigninStatus(isSignedIn) {
   setSigninStatus();
 }
+
