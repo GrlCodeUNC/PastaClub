@@ -8,6 +8,9 @@ CREATE DATABASE pastaclub_db;
 -- * Switch to or use the `pastaclub_db`.
 USE pastaclub_db;
 
+-- * Switch to or use the `a7modiih0x9hcu8b` for the heroku db view.
+USE a7modiih0x9hcu8b;
+
 -- * Tables will be created in the models portion of the application:
 
 -- * Select all the rows from the users table to show what is currently there
@@ -25,9 +28,9 @@ DELETE FROM events WHERE id = 6;
 UPDATE meetups SET userId = 2 WHERE id = 11;
 
 -- * Delete table 'meetups' from the database
-DROP TABLE events;
-DROP TABLE users;
-DROP TABLE meetups;
+-- * DROP TABLE events;
+-- * DROP TABLE users;
+-- * DROP TABLE meetups;
 
 -- * ----------------------------------------------------------------------------------------------------------------
 -- * THIS PORTION OF THE FILE IS FOR THE HEROKU HOSTING PORTION TO CREATE THE TABLES IN THE JAWSDB VERSION OF MYSQL
