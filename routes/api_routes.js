@@ -146,8 +146,8 @@ module.exports = function(app) {
     }).then(function(result) {
 
    		console.log("create api signup added a new user");
-		   console.log(result);
-		   return result;
+		//    console.log(result);
+		   return res.json(result);
 
     });
 
@@ -195,7 +195,8 @@ module.exports = function(app) {
 		Events.findAll({
 			where: {
 				userId: userID
-			}
+			},
+			order: ['events_start'],
 		}).then( function (eventData){
 			
 			console.log("Events that are being hosted");
@@ -264,6 +265,8 @@ module.exports = function(app) {
 				userId: userID
 			},
 			include: [Events],
+			// order: [[{model: Events, as: 'event'}, 'events_start', 'DESC'],],
+			order: [[{model: Events, as: 'event'}, 'events_start'],],
 			group: Meetup.userId
 		}).then( function (eventData){
 			
@@ -325,22 +328,6 @@ module.exports = function(app) {
 		});
 
 		// next 3 events available (where user is not attending or hosting??)
-		// this doesn't work to add in attending events too
-		// Events.findAll({
-		// 	where: {
-		// 		userId: {
-		// 			ne: userID
-		// 		}
-		// 	}
-		// 	// include: [Meetup]  // error happening here ... not able to do the join this way
-		// }).then( function (eventData){
-
-		// 	// Let's see what we get back from this join query
-		// 	console.log(eventData);
-
-		// });
-
-		// next 3 events available (where user is not attending or hosting??)
 		// see if this one works for the join w/ user id
 		// Meetup.findAll({
 		Events.findAll({
@@ -349,11 +336,13 @@ module.exports = function(app) {
 					ne: userID
 				}
 			},
+			order: ['events_start'],
+			limit: 3,
 			// include: [Events]
 		}).then( function (eventData){
 
 			// Let's see what we get back from this join query
-			console.log(eventData);
+			// console.log(eventData);
 
 			// var currentEventId;
 
@@ -397,8 +386,6 @@ module.exports = function(app) {
 			}
 
 			console.log("Object being returned to the client")
-			// console.log(eventsInfo);
-			// return eventsInfo;
 			return res.json(eventsInfo);
 
 		});
