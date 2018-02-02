@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Pasta Club</title>
 
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <!-- Compiled and minified JavaScript -->
@@ -24,13 +24,20 @@
     <div class="nav-wrapper">
         <!-- <a href="#" class="brand-logo right">Logo</a> -->
         <ul id="nav-mobile" class="left hide-on-med-and-down">
-            <li><a href="sass.html">Plate</a></li>
-            <li><a href="badges.html">Forum</a></li>
-            <li><a href="collapsible.html">Events</a></li>
+
+            <li><a href="/dashboard">Plate</a></li>
+            <li><a href="">Forum</a></li>
+            <li><a href="">Events</a></li>
+             <a class="socialMediaIcons">
+                <li><img src="/assets/images/socialMediaIcons-02.png" alt="socialMediaIcon" height="30" width="30"></li>
+                <li><img src="/assets/images/socialMediaIcons-03.png" alt="socialMediaIcon" height="30" width="30"></li>
+                <li><img src="/assets/images/socialMediaIcons-04.png" alt="socialMediaIcon" height="30" width="30"></li>
+                <li><img href="#https://github.com/GrlCodeUNC/PastaClub" target="blank" src="/assets/images/socialMediaIcons-05.png" alt="socialMediaIcon" height="30" width="30"></li>
+             </a>
         </ul>
     </div>
 </nav>
-<div class="container">
+<div class="container center">
     <!-- <div class="row left" id="dashLogo">
         <img src="assets/images/pastaClublogo.png" alt="Pasta Club Logo" width="150">
     </div> -->
@@ -38,18 +45,28 @@
         <!-- <img src="/assets/images/dempsey-1987.jpg" alt="Patrick" width="80" class="circle"> -->
     </div>
     <div class="row center">
-        <div class="eventName col s12">
+        <div class="eventName col s10">
             <span class="flow-text">
                 <div>
-                    <!-- <h1>Event Name: <span id="eventName"></span></h1> -->
-                    <h5>Event Name</h5>
                     <h1><span id="eventName"></span></h1>
                 </div>
             </span>
+            <!-- <div class="eventDescription col s10"> -->
+                <span class="flow-text">
+                    <div>
+                        <h6><span id="eventDescription"></span></h6>
+                    </div>
+                </span>
         </div>
     </div>
 </div>
+
+<div class="container center">
+    
+</div>
+
 <div class="container center" id="featured">
+  <div class="row col s12">
     <div id="eventName" id="featured">
         <div class="row center">
             <div class="row">
@@ -74,7 +91,7 @@
                         <h5>End Time: <span id="endTime"></span></h5>
                     </div> -->
                     <div>
-                        <h4>Location: <span id="location"></span></h4>
+                        <h5>Location: <span id="location"></span></h5>
                     </div>
                     <div class="rsvp">
                         <a class="waves-effect orange lighten-1 btn modal-trigger" id="rsvp" href="#modal1">RSVP</a>
@@ -167,6 +184,7 @@
             <p>Tomato Sauce </p>
           </div>
         </div> -->
+</div>
 </div>
 </div>
 </div>
@@ -301,6 +319,23 @@
     </div>
 
 </div> -->
+
+  <footer class="page-footer">
+         <div class="container">
+            
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2018 GRL Code 
+           
+            <ul>
+             
+            </ul>
+           
+            </div>
+          </div>
+   </footer>
+
 <!--js scripts-->
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <!-- <script src="js/materialize.js"></script> -->

@@ -62,139 +62,83 @@ $(document).ready(function() {
 
         console.log(data);
 
-        var eventName = data.eventDetails.events_title;
-        $('#eventName').text(eventName);
+        if (data.eventDetails.id) {
 
-        // grab start date and format for display
-        var startDate = new Date(data.eventDetails.events_start);  
-        var options = {  
-            weekday: "long", year: "numeric", month: "short",  
-            day: "numeric", hour: "2-digit", minute: "2-digit"  
-        };
-        var longStartDate = startDate.toLocaleTimeString("en-us", options);
-        // take out start time to display separately in webpage
-        var displayStart = longStartDate.slice(longStartDate.lastIndexOf(",") + 1);
-        $("#startTime").text(displayStart); // display formatted time view
+            var eventName = data.eventDetails.events_title;
+            $('#eventName').text(eventName);
+            
+            var eventDesc = data.eventDetails.events_desc;
+            $("#eventDescription").text(eventDesc);
 
-        // grab end date and format for dislpay if not null
-        var endTime = data.eventDetails.events_end;
-        // endTime = null; // test null case
-        if (endTime !== null) {
-
-            var endDate = new Date(endTime);  
-            var longEndDate = endDate.toLocaleTimeString("en-us", options);
+            // grab start date and format for display
+            var startDate = new Date(data.eventDetails.events_start);  
+            var options = {  
+                weekday: "long", year: "numeric", month: "short",  
+                day: "numeric", hour: "2-digit", minute: "2-digit"  
+            };
+            var longStartDate = startDate.toLocaleTimeString("en-us", options);
             // take out start time to display separately in webpage
-            var displayEnd = longEndDate.slice(longEndDate.lastIndexOf(",") + 1);
-            $("#endTime").text(" to " + displayEnd);
-        }
+            var displayStart = longStartDate.slice(longStartDate.lastIndexOf(",") + 1);
+            $("#startTime").text(displayStart); // display formatted time view
+
+            // grab end date and format for dislpay if not null
+            var endTime = data.eventDetails.events_end;
+            // endTime = null; // test null case
+            if (endTime !== null) {
+
+                var endDate = new Date(endTime);  
+                var longEndDate = endDate.toLocaleTimeString("en-us", options);
+                // take out start time to display separately in webpage
+                var displayEnd = longEndDate.slice(longEndDate.lastIndexOf(",") + 1);
+                $("#endTime").text(" to " + displayEnd);
+            }
+            else {
+
+                $("#endTime").text(" until ... ");
+            }
+
+            // console.log(displayStart);
+            var dateOnlyOptions = {  
+                weekday: "long", year: "numeric", month: "short",  
+                day: "numeric"  
+            };
+
+            // new view of the single event page with full date and start time / end time showing differently
+            var longStartDate = startDate.toLocaleDateString("en-us", dateOnlyOptions);
+            $("#date").text(longStartDate);
+            console.log(longStartDate);
+
+            // var month = data.eventDetails.events_start;
+            // $("#month").text(month);
+
+            // var day = data.eventDetails.events_start;
+            // $("#day").text(day);
+
+            var host = data.eventDetails.user.user_name;
+            $("#host").text(host);
+
+            // format location data from server into better display view
+            var location = data.eventDetails.events_loc_street_add + "<br>" + data.eventDetails.events_loc_city + ", " + data.eventDetails.events_loc_state + " " + data.eventDetails.events_loc_zip;
+            $("#location").html(location);
+
+            // check to see if there are any comments / attendees for this event
+            if (data.commentInfo[0].code === -1) {
+
+                var tableRow = $('<tr><td> No Attendees Yet </td><td>');
+                $('#rsvpList').prepend(tableRow);
+
+            }
+            else {
+                // could use this on both areas to condense and add newest to the view
+                buildAttendeeTable(data.commentInfo);
+            } // end if statement to check for comments back from server
+        
+        } // end if check for datat from server
         else {
 
-            $("#endTime").text("until ... ");
-        }
+            // make user go back to dashboard??
 
-        // console.log(displayStart);
-        var dateOnlyOptions = {  
-            weekday: "long", year: "numeric", month: "short",  
-            day: "numeric"  
-        };
-
-        // new view of the single event page with full date and start time / end time showing differently
-        var longStartDate = startDate.toLocaleDateString("en-us", dateOnlyOptions);
-        $("#date").text(longStartDate);
-        console.log(longStartDate);
-
-        // var month = data.eventDetails.events_start;
-        // $("#month").text(month);
-
-        // var day = data.eventDetails.events_start;
-        // $("#day").text(day);
-
-        var host = data.eventDetails.user.user_name;
-        $("#host").text(host);
-
-        // var startTime = data.eventDetails.events_start;
-        // $("#startTime").text(startTime);
-        // $("#startTime").text(displayStart); // display formatted time view
-
-        // var endTime = data.eventDetails.events_start;
-        // $("#endTime").text(endTime);
-
-        // format location data from server into better display view
-        var location = data.eventDetails.events_loc_street_add + "<br>" + data.eventDetails.events_loc_city + ", " + data.eventDetails.events_loc_state + " " + data.eventDetails.events_loc_zip;
-        $("#location").html(location);
-
-        
-        // could use this on both areas to condense and add newest to the view
-        buildAttendeeTable(data.commentInfo);
-
-
-        // for each attendee that our server sends us back
-        // for (var i = 0; i < data.commentInfo.length; i++) {
-
-        //     var tableRow = $('<tr><td>' + data.commentInfo[i].user.user_name + '</td><td>' + data.commentInfo[i].event_item + '</td><td>' + data.commentInfo[i].comment_body + '</td></tr>');
-        //     $('#rsvpList').append(tableRow);
-            
-        //         // WHERE TABLE GOES. FOLLOW JACK's EXAMPLE
-        //     // var attendees = data.attendees;
-        //     // for (var i = 0; i < attendees.length; i++) {
-        //     // var tableRow = $('<tr><td>' + attendees[i].name + '</td><td>' + attendees[i].country + '</tr>')
-        //     // $('#rsvpList').append(tableRow)
-        //     // };
-            
-
-            
-
-
-
-        //     // // append the table to the meetup section
-        //     // $(".table").append(Meetup);
-
-        //     // Now add all of our attendee data to the div already on the page
-
-        //     // make the attendee and td
-        //     // $("#attendee1" + i).append("<td> " + data[i].userId + "</td>");
-        //     // // the item and td
-        //     // $("#item1" + i).append("<td> " + data[i].item + "</td>");
-        //     // // the comment and td
-        //     // $("#comment1" + i).append("<td> " + data[i].comment + "</td>");
-
-        //     // how to add <tr> in there for table?
-
-
-        //     // loop through data for hosting table side if available
-
-
-        //     // here is what we are getting back from db for hosting events
-
-
-        //     // create a row for the data
-        //     // var attendeeTableRow = $("<tr></tr>");
-        //     // attendeeTableRow.addClass("event_data"); // add class for onclick code
-        //     // attendeeTableRow.attr("id", data.id); // add id for onclick code
-
-        //     // // create data elements for data
-        //     // // date info
-        //     // var hostTableDataEventDate = $("<td></td>");
-        //     // var hostTableDataEventDateLink = $("<a>");
-        //     // // get date info out of db format
-        //     // var event_start_info = data.hostingEvents[i].events_start.split("T");
-
-        //     // hostTableDataEventDate.text(event_start_info[0]);
-
-        //     // // title info
-        //     // var hostTableDataEventTitle = $("<td></td>");
-        //     // hostTableDataEventTitle.text(data.hostingEvents[i].events_title);
-
-        //     // // append data / rows to table
-        //     // hostTableRow.append(hostTableDataEventDate);
-        //     // hostTableRow.append(hostTableDataEventTitle);
-        //     // hostTable.append(hostTableRow);
-
-        //     // // append table data to div
-        //     // hostingList.after(hostTable); // insert(append) after the h5 tag
-
-
-        // } // end for loop for comment table info
+        } // end else statement to check for data back from server
 
     }); // end .get for comment / attendee section
 
