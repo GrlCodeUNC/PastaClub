@@ -363,7 +363,7 @@ td, th {
 }
 
 footer.page-footer {
-    margin-top: 20px;
+    margin-top: 0px;
     padding-top: 20px;
     background-color: rgba(4, 17, 88, 0.81);
 }
