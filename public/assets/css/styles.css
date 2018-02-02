@@ -283,16 +283,15 @@ table {
 }
 
 td, th {
-    border: 1px solid #041259;
     text-align: left;
     padding: 8px;
     font color: #ffffff;
 }
 
-tr:nth-child(even) {
+/*tr:nth-child(even) {
     background-color: #041259;
     font color: #ffffff;
-}
+}*/
 
 .redCell {
     background-color: #041259;
@@ -368,5 +367,46 @@ footer.page-footer {
 /*.table {
 	padding-left: 20px;
 }*/
+
+table, th, td {
+    border: none;
+    text-align: left;
+    border-radius: 0px;
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+    -webkit-tap-highlight-color: #d3e1f7;
+}
+
+a:hover {
+    color: #ff4d03cf;
+}
+
+a.attendingTable {
+    color: #ffffff;
+    text-decoration: none;
+    -webkit-tap-highlight-color: #d3e1f7;
+}
+
+a.attendingTable :hover {
+    color: #ff4d03cf;
+}
+
+tr:nth-child(even) {
+    font color: #ffffff;
+}
+
+.attendingTable a {
+    color: #ffffff;  
+}
+
+.attendingTable a :hover{
+	color: #041158cc;
+}
+
+
+
 
 
