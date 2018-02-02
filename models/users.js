@@ -29,7 +29,7 @@ var Users = sequelize.define("user", {
   },
   // User Google ID Token
   user_google_token: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
     validate: {
       // need to figure out if we want to add anything here or now for validation
     }
