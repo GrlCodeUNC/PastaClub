@@ -66,6 +66,9 @@ $(document).ready(function() {
 
             var eventName = data.eventDetails.events_title;
             $('#eventName').text(eventName);
+            
+            var eventDesc = data.eventDetails.events_desc;
+            $("#eventDescription").text(eventDesc);
 
             // grab start date and format for display
             var startDate = new Date(data.eventDetails.events_start);  
