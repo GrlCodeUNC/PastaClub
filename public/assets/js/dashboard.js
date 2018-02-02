@@ -303,7 +303,8 @@
 // this disables the modal....??/
 $("#addNewEvent").on("click", function(event) {
 	event.preventDefault();
-	
+	location.reload();
+
 	// grab data needed to create new event record
 	var eventDate = $("#date").val().trim();
 	var startTime = $("#start-time").val().trim();
@@ -382,11 +383,6 @@ $("#addNewEvent").on("click", function(event) {
 
 			// alert("Adding new event...");
 	});
-	
-	$('#addNewEvent').click(function() {
-		location.reload();
-	});
-
  });
 
 // $.post("/api/newevent", newEvent)
