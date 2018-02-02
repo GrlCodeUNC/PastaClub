@@ -160,6 +160,7 @@
 	padding-top: 40px;*/
 	/*padding-bottom: 20px;*/
 	margin-bottom: 23px;
+	margin-top: 18px;
 }
 
 .attendees {
@@ -304,25 +305,27 @@ td, th {
 
 .eventName {
 	background-color: rgba(4, 17, 88, 0.65);
-	margin-top: 50px;
+	margin-top: 30px;
 	border-radius: 20px;
 }
 
 #eventDate {
-  background: #041259;
+  /*background-color: rgba(4, 17, 88, 0.9);*/
   height: auto;
+  border-right: 5px solid #ff4d03;
   margin-top: -20px;
-  color: #ffffff;
+  color: #424f84;
   font-family: 'Arya', sans-serif;
   border-radius: 20px 0px 0px 20px;
 }
 
+
 #eventDetails {
-  background: #959cbc;
+  /*background: rgba(149, 156, 188, 0.76);*/
   height: auto;
   margin-top: -20px;
 /*  margin-bottom: 50px;*/
-  color: #ffffff;
+  color: #041158e6;
   font-family: 'Arya', sans-serif;
   border-radius: 0px 20px 20px 0px;
 }
@@ -372,6 +375,7 @@ table, th, td {
     border: none;
     text-align: left;
     border-radius: 0px;
+    margin-bottom: 20px;
 }
 
 a {
