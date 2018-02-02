@@ -410,6 +410,11 @@ tr:nth-child(even) {
 	color: #041158cc;
 }
 
+#socialMediaIcons {
+    display: inline;
+    margin: 0px;
+}
+
 
 
 
