@@ -24,8 +24,8 @@ module.exports = function(app) {
 	var user_google_token = req.params.google;
 	var user_name = req.params.name;
 	
-	console.log(req.params);
-	console.log(req.body);
+	// console.log(req.params);
+	// console.log(req.body);
 
     // console.log("email = " + user_email);
     // console.log("name = " + user_name);
@@ -43,7 +43,7 @@ module.exports = function(app) {
 			}
 		}).then(function(result) {
 
-			console.log(result[0]);
+			// console.log(result[0]);
 			// check if update worked
 			if (result[0] === 0) {  // expect result to return # of rows affected by update query
 				// if it didn't then send back that the user must be added (client needs to call signup route)
@@ -58,12 +58,12 @@ module.exports = function(app) {
 					}).then(function(result) {
 	
 						console.log("create api signup added a new user");
-						console.log(result);
+						// console.log(result);
 						return res.json(result);
 	
 					});
-					return ("Google token ID updated in user table");
-					return ("Need to add user to pasta club app list");
+					// return ("Google token ID updated in user table");
+					// return ("Need to add user to pasta club app list");
 			}
 			else {
 				// if it did then nothing needed
@@ -131,7 +131,7 @@ module.exports = function(app) {
     
     var user_info = req.body;
 
-    console.log(req.body);
+    // console.log(req.body);
 
     console.log("email = " + req.body.email);
     console.log("name = " + user_info.name);
@@ -251,145 +251,147 @@ module.exports = function(app) {
 				console.log("no events being hosted by this user");
 			}
 
-		});
+			// // get attending events list
+			// Meetup.findAll({
+			// 	where: {
+			// 		userId: userID
+			// 	},
+			// 	include: [Events]
+			// see if this one works for the join w/ user id
+			Meetup.findAll({
+				where: {
+					userId: userID
+				},
+				include: [Events],
+				// order: [[{model: Events, as: 'event'}, 'events_start', 'DESC'],],
+				order: [[{model: Events, as: 'event'}, 'events_start'],],
+				group: Meetup.userId
+			}).then( function (eventData){
+				
+				console.log("events that are being attended");
 
-		// // get attending events list
-		// Meetup.findAll({
-		// 	where: {
-		// 		userId: userID
-		// 	},
-		// 	include: [Events]
-		// see if this one works for the join w/ user id
-		Meetup.findAll({
-			where: {
-				userId: userID
-			},
-			include: [Events],
-			// order: [[{model: Events, as: 'event'}, 'events_start', 'DESC'],],
-			order: [[{model: Events, as: 'event'}, 'events_start'],],
-			group: Meetup.userId
-		}).then( function (eventData){
-			
-			console.log("events that are being attended");
+				// log the length of the eventData result from the findAll query
+				console.log(eventData.length);
+				
+				// check if there was any information returned from the findAll query
+					// use length to find out if there is any data in the array
+				if (eventData.length > 0) {
 
-			// log the length of the eventData result from the findAll query
-			console.log(eventData.length);
-			
-			// check if there was any information returned from the findAll query
-				// use length to find out if there is any data in the array
-			if (eventData.length > 0) {
+					// the user is attending events
+					// console.log(eventData);
+					console.log(eventData.dataValues);
+					// console.log(eventData[0].dataValues.id);
+					// console.log(eventData[0].dataValues.comment_body);
 
-				// the user is attending events
-				// console.log(eventData);
-				console.log(eventData.dataValues);
-				// console.log(eventData[0].dataValues.id);
-				// console.log(eventData[0].dataValues.comment_body);
+					var currentEventId;
 
-				var currentEventId;
+					// Loop thru all the event Data that comes back from the query
+					for (var i = 0; i < eventData.length; i++) {
+						
+						// send only 1 of each event attending to the client (checking here)
+						if (eventData[i].dataValues.eventId != currentEventId) {
 
-				// Loop thru all the event Data that comes back from the query
-				for (var i = 0; i < eventData.length; i++) {
-					
-					// send only 1 of each event attending to the client (checking here)
-					if (eventData[i].dataValues.eventId != currentEventId) {
-
-						// add the eventData for attending events to the EventsInfo array
-						eventsInfo.attendingEvents.push(eventData[i].dataValues.event);
-						currentEventId = eventData[i].dataValues.eventId;
+							// add the eventData for attending events to the EventsInfo array
+							eventsInfo.attendingEvents.push(eventData[i].dataValues.event);
+							currentEventId = eventData[i].dataValues.eventId;
+						}
+						
 					}
 					
+					// console.log(eventsInfo.attendingEvents.length);
+					// console.log(eventsInfo.attendingEvents);
+					// Data being added to the Attending events array looks like this
+					// [ { id: 5,
+					// 	on_waitlist: false,
+					// 	comment_body: 'Looking forward to it, bringing a bottle of red wine',
+					// 	createdAt: 2018-01-26T22:39:17.000Z,
+					// 	updatedAt: 2018-01-26T22:39:17.000Z,
+					// 	eventId: 5,
+					// 	userId: 4 },
+					//   { id: 7,
+					// 	on_waitlist: false,
+					// 	comment_body: 'I love red wine! I will bring some merlot',
+					// 	createdAt: 2018-01-26T22:39:17.000Z,
+					// 	updatedAt: 2018-01-26T22:39:17.000Z,
+					// 	eventId: 8,
+					// 	userId: 4 } ]
 				}
-				
-				// console.log(eventsInfo.attendingEvents.length);
-				// console.log(eventsInfo.attendingEvents);
-				// Data being added to the Attending events array looks like this
-				// [ { id: 5,
-				// 	on_waitlist: false,
-				// 	comment_body: 'Looking forward to it, bringing a bottle of red wine',
-				// 	createdAt: 2018-01-26T22:39:17.000Z,
-				// 	updatedAt: 2018-01-26T22:39:17.000Z,
-				// 	eventId: 5,
-				// 	userId: 4 },
-				//   { id: 7,
-				// 	on_waitlist: false,
-				// 	comment_body: 'I love red wine! I will bring some merlot',
-				// 	createdAt: 2018-01-26T22:39:17.000Z,
-				// 	updatedAt: 2018-01-26T22:39:17.000Z,
-				// 	eventId: 8,
-				// 	userId: 4 } ]
-			}
-			else {
+				else {
 
-				// user does not have any events associated w/ their name in the meetup table
-				console.log("no events being attended by this user");
-				// return ("You are not signed up for any events currently");
-			}
+					// user does not have any events associated w/ their name in the meetup table
+					console.log("no events being attended by this user");
+					// return ("You are not signed up for any events currently");
+				}
+
+				// next 3 events available (where user is not attending or hosting??)
+				// see if this one works for the join w/ user id
+				// Meetup.findAll({
+				Events.findAll({
+					where: {
+						userId: {
+							ne: userID
+						}
+					},
+					order: ['events_start'],
+					limit: 3,
+					// include: [Events]
+				}).then( function (eventData){
+
+					// Let's see what we get back from this join query
+					// console.log(eventData);
+
+					// var currentEventId;
+
+					if (eventData.length > 0) {
+						
+						// console.log(eventData[0].dataValues.id);
+						// console.log(eventData[0].dataValues.comment_body);
+						
+
+						// Loop thru all the event Data that comes back from the query
+						for (var i = 0; i < eventData.length; i++) {
+
+							// send only 1 of each event attending to the client (checking here)
+							// if (eventData[i].dataValues.eventId !== currentEventId) {
+
+							// 	// add the eventData for attending events to the EventsInfo array
+							// 	eventsInfo.upcomingEvents.push(eventData[i].dataValues.event);
+							// 	currentEventId = eventData[i].dataValues.eventId;
+							// }
+							
+							// add the evenData for hosting events to the EventsInfo array
+							eventsInfo.upcomingEvents.push(eventData[i].dataValues);
+						}
+						
+						// console.log(eventData.upcomingEvents[0]);
+						console.log(eventsInfo.upcomingEvents.length);
+					}
+					else {
+
+						// no event data being returned from the query
+						console.log("no events available");
+						var response = {
+							error: "no events available",
+							code: -1
+						};
+
+						// client side should get error message if no events exist
+						return res.json(response);
+
+						// return ("There are currently no events scheduled");
+					}
+
+					console.log("Object being returned to the client")
+					return res.json(eventsInfo);
+
+				});
+
+
+			});
 
 		});
 
-		// next 3 events available (where user is not attending or hosting??)
-		// see if this one works for the join w/ user id
-		// Meetup.findAll({
-		Events.findAll({
-			where: {
-				userId: {
-					ne: userID
-				}
-			},
-			order: ['events_start'],
-			limit: 3,
-			// include: [Events]
-		}).then( function (eventData){
-
-			// Let's see what we get back from this join query
-			// console.log(eventData);
-
-			// var currentEventId;
-
-			if (eventData.length > 0) {
-				
-				// console.log(eventData[0].dataValues.id);
-				// console.log(eventData[0].dataValues.comment_body);
-				
-
-				// Loop thru all the event Data that comes back from the query
-				for (var i = 0; i < eventData.length; i++) {
-
-					// send only 1 of each event attending to the client (checking here)
-					// if (eventData[i].dataValues.eventId !== currentEventId) {
-
-					// 	// add the eventData for attending events to the EventsInfo array
-					// 	eventsInfo.upcomingEvents.push(eventData[i].dataValues.event);
-					// 	currentEventId = eventData[i].dataValues.eventId;
-					// }
-					
-					// add the evenData for hosting events to the EventsInfo array
-					eventsInfo.upcomingEvents.push(eventData[i].dataValues);
-				}
-				
-				// console.log(eventData.upcomingEvents[0]);
-				console.log(eventsInfo.upcomingEvents.length);
-			}
-			else {
-
-				// no event data being returned from the query
-				console.log("no events available");
-				var response = {
-					error: "no events available",
-					code: -1
-				};
-
-				// client side should get error message if no events exist
-				return res.json(response);
-
-				// return ("There are currently no events scheduled");
-			}
-
-			console.log("Object being returned to the client")
-			return res.json(eventsInfo);
-
-		});
-
+		
 		// console.log("Object being returned to the client")
 		// console.log(eventsInfo);
 		// return eventsInfo;
@@ -505,8 +507,8 @@ module.exports = function(app) {
 	app.post("/api/newevent", function(req, res) {
 
 		console.log("create new event api code started");
-		console.log("checking information from the client");
-		console.log(req.body);
+		// console.log("checking information from the client");
+		// console.log(req.body);
 
 		// use data from the client req.body JSON object
 		// dummy data to test create event below
@@ -525,7 +527,7 @@ module.exports = function(app) {
 		var created = new Date;
 		var updated = new Date;
 
-		console.log("dates = ", created, updated);
+		// console.log("dates = ", created, updated);
 
 		// data being used from the Postman app
 		var newEvent = {
@@ -546,7 +548,7 @@ module.exports = function(app) {
 			newEvent.end = new Date(req.body.End);
 		}
 
-		console.log(newEvent);
+		// console.log(newEvent);
 		
 		// call sequelize create function to add event to the database
 		Events.create({
@@ -596,7 +598,7 @@ module.exports = function(app) {
 	app.post("/api/RSVP", function(req, res) {
 
 		console.log("create new RSVP for api code started");
-		console.log(req.body);
+		// console.log(req.body);
 
 		// call sequelize create function to add meetup to the database
 		Meetup.create({
@@ -613,7 +615,7 @@ module.exports = function(app) {
 
 			console.log("meetup RSVP attendee added to the db");
 			// console.log(result);
-			console.log(result);
+			// console.log(result);
 
 			// get the latest comment that was posted to the DB for adding to the attendee list view on the current page
 			Meetup.findOne({
@@ -624,7 +626,7 @@ module.exports = function(app) {
 			}).then( function (eventData){
 
 				// Let's see what we get back from this query
-				console.log(eventData);
+				// console.log(eventData);
 
 				// check to see if any data comes back for this event id
 				if (eventData.dataValues.id > 0 || eventData.dataValues.id != undefined) {
@@ -688,7 +690,7 @@ module.exports = function(app) {
 				// if user found ... need to update google token id for that user
 				// return user profile information
 				console.log("result for api login route");
-				console.log(result);
+				// console.log(result);
 
 				// result looks like this ...
 				// {
