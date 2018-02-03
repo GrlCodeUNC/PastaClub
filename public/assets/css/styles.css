@@ -163,6 +163,16 @@
 	margin-top: 18px;
 }
 
+/* label focus color */
+.input-field input:focus + label {
+   color: white !important;
+}
+ /* label underline focus color */
+.row .input-field input:focus {
+   border-bottom: 1px solid white !important;
+   box-shadow: 0 1px 0 0 white !important
+}
+
 .attendees {
 	margin: 10px;
 	padding-bottom: 80px;
@@ -257,6 +267,7 @@ h5 {
    .input-field .prefix.active {
      color: #041259;
    }
+
 .modal {
    	background: #959cbc;
 }
@@ -414,6 +425,7 @@ tr:nth-child(even) {
 a.socialMediaIcons {
     float: right;
     padding-top: 10px;
+
 }
 
 #eventDescription {
