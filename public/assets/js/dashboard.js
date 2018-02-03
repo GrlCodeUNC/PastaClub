@@ -235,7 +235,7 @@
 				if (data.upcomingEvents.length > 0) {
 					
 					// loop through the 3 next events and add them to the images
-					for(i = 0; i < data.upcomingEvents.length || i < 3; i++) {
+					for(i = 0; i < data.upcomingEvents.length; i++) {
 						console.log("building upcoming event info now");
 						// console.log(data.upcomingEvents[i].event); // had .event in there when joined on the meetup table ... no longer joining on meetup in api_routes
 						console.log(data.upcomingEvents[i]);
