@@ -71,13 +71,13 @@
 #dashLogo {
 	position: relative;
 	left: 20px;
-	top: 40px;
+	top: 80px;
 }
 
 #userPic {
 	position: relative;
 	left: -20px;
-	top: 40px;
+	top: 80px;
 }
 
 #featured {
@@ -374,7 +374,7 @@ td, th {
 }
 
 footer.page-footer {
-    margin-top: 20px;
+    margin-top: 0px;
     padding-top: 20px;
     background-color: rgba(4, 17, 88, 0.81);
 }
