@@ -375,7 +375,6 @@ td, th {
 
 footer.page-footer {
     margin-top: 0px;
-    padding-top: 20px;
     background-color: rgba(4, 17, 88, 0.81);
 }
 
@@ -424,8 +423,7 @@ tr:nth-child(even) {
 
 a.socialMediaIcons {
     float: right;
-    padding-top: 10px;
-
+    padding-bottom: 25px;
 }
 
 #eventDescription {
