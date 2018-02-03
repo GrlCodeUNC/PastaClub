@@ -4,8 +4,9 @@
 }
 
 .floatingNoodle1 {
-	position: relative;
-    left: 100px;
+	position: absolute;
+	top: 400px;
+    left: 150px;
 }
 
 .floatingNoodle2 {
@@ -40,10 +41,42 @@
 }
 
 .floatingNoodle8 {
-	position: relative;
-    left: 150px;
-    top: 200px;
+	position: absolute;
+    right: 50px;
+    bottom: 20px;
 }
+
+.floatingNoodle9 {
+	position: absolute;
+    left: 60px;
+    top: 50px;
+}
+
+.floatingNoodle10 {
+	position: absolute;
+    right: 90px;
+    top: 90px;
+}
+
+.floatingNoodle11 {
+	position: absolute;
+    left: 200px;
+    top: 250px;
+}
+
+.floatingNoodle12 {
+	position: absolute;
+    right: 150px;
+    top: 400px;
+}
+
+.floatingNoodle13 {
+	position: absolute;
+    left: 100px;
+    top: 600px;
+}
+
+
 
 .arya {
 	font-family: 'Arya', sans-serif;
@@ -65,7 +98,7 @@
 }
 
 #about {
-	margin-top: -65px;
+	margin-top: -85px;
 }
 
 #dashLogo {
