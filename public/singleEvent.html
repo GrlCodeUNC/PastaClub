@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Pasta Club</title>
-
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
@@ -22,320 +21,115 @@
 </body>
 <nav>
     <div class="nav-wrapper">
-        <!-- <a href="#" class="brand-logo right">Logo</a> -->
         <ul id="nav-mobile" class="left hide-on-med-and-down">
-
             <li><a href="/dashboard">Plate</a></li>
             <li><a href="">Forum</a></li>
             <li><a href="">Events</a></li>
-             <a class="socialMediaIcons">
-                <li><img src="/assets/images/socialMediaIcons-02.png" alt="socialMediaIcon" height="30" width="30"></li>
-                <li><img src="/assets/images/socialMediaIcons-03.png" alt="socialMediaIcon" height="30" width="30"></li>
-                <li><img src="/assets/images/socialMediaIcons-04.png" alt="socialMediaIcon" height="30" width="30"></li>
-                <li><img href="#https://github.com/GrlCodeUNC/PastaClub" target="blank" src="/assets/images/socialMediaIcons-05.png" alt="socialMediaIcon" height="30" width="30"></li>
-             </a>
         </ul>
     </div>
 </nav>
 <div class="container center">
-    <!-- <div class="row left" id="dashLogo">
-        <img src="assets/images/pastaClublogo.png" alt="Pasta Club Logo" width="150">
-    </div> -->
     <div class="row right" id="userPic" data-userId="" data-eventId="">
-        <!-- <img src="/assets/images/dempsey-1987.jpg" alt="Patrick" width="80" class="circle"> -->
     </div>
     <div class="row center">
         <div class="eventName col s10">
             <span class="flow-text">
                 <div>
                     <h1><span id="eventName"></span></h1>
-                </div>
-            </span>
-            <!-- <div class="eventDescription col s10"> -->
-                <span class="flow-text">
+        </div>
+        </span>
+        <span class="flow-text">
                     <div>
                         <h6><span id="eventDescription"></span></h6>
-                    </div>
-                </span>
-        </div>
     </div>
+    </span>
 </div>
-
+</div>
+</div>
 <div class="container center">
-    
 </div>
-
 <div class="container center" id="featured">
-  <div class="row col s12">
-    <div id="eventName" id="featured">
-        <div class="row center">
-            <div class="row">
-                <div class="col s6 section" id="eventDate">
-                    <div>
-                        <!-- <h1>Month: <span id="month"></span></h1> -->
-                        <h2><span id="date"></span></h2>
+    <div class="row col s12">
+        <div id="eventName" id="featured">
+            <div class="row center">
+                <div class="row">
+                    <div class="col s6 section" id="eventDate">
+                        <div>
+                            <h2><span id="date"></span></h2>
+                        </div>
+                        <div>
+                            <h3><span id="startTime"></span><span id="endTime"></span></h3>
+                        </div>
                     </div>
-                    <div>
-                        <!-- <h1>Day: <span id="day"></span></h1> -->
-                        <h3><span id="startTime"></span><span id="endTime"></span></h3>
-                    </div>
-                </div>
-                <div class="col s6 section" id="eventDetails">
-                    <div>
-                        <h3>Host: <span id="host"></span></h3>
-                    </div>
-                    <!-- <div>
-                        <h5>Start Time: <span id="startTime"></span></h5>
-                    </div>
-                    <div>
-                        <h5>End Time: <span id="endTime"></span></h5>
-                    </div> -->
-                    <div>
-                        <h5>Location: <span id="location"></span></h5>
-                    </div>
-                    <div class="rsvp">
-                        <a class="waves-effect orange lighten-1 btn modal-trigger" id="rsvp" href="#modal1">RSVP</a>
-                        <div id="modal1" class="modal">
-                            <div class="modal-content">
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <input id="bringing" type="text" class="validate">
-                                        <label for="bringing">Item(s) you're bringing:</label>
+                    <div class="col s6 section" id="eventDetails">
+                        <div>
+                            <h3>Host: <span id="host"></span></h3>
+                        </div>
+                        <div>
+                            <h5>Location: <span id="location"></span></h5>
+                        </div>
+                        <div class="rsvp">
+                            <a class="waves-effect orange lighten-1 btn modal-trigger" id="rsvp" href="#modal1">RSVP</a>
+                            <div id="modal1" class="modal">
+                                <div class="modal-content">
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="bringing" type="text" class="validate">
+                                            <label for="bringing">Item(s) you're bringing:</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="comments" type="text" class="validate">
+                                            <label for="comments">Additional Comments:</label>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <input id="comments" type="text" class="validate">
-                                        <label for="comments">Additional Comments:</label>
-                                    </div>
+                                <div class="modal-footer">
+                                    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" id="rsvpButton">Submit RSVP</a>
+                                    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" id="close">Close</a>
                                 </div>
-                            </div>
-                            <div class="modal-footer">
-                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" id="rsvpButton">Submit RSVP</a>
-                           
-                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" id="close">Close</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!--    <div class="row"> 
-                <div class="section s6">
-                    <div id="hostUserInput">
-                        <p>Host: </p>
-                    </div>
-                    <div id="dateUserInput">
-                        <p>Date: </p>
-                    </div>
-                    <div id="timeUserInput">
-                        <p>Time: </p>
-                    </div>
-                    <div id="locationUserInput">
-                        <p>Location: </p>
-                    </div>
-                        <div class="rsvp">
-                         <a class="waves-effect orange lighten-1 btn">RSVP</a>
-                         </div>
-                </div>
-            </div> -->
         </div>
-    </div>
-
-<div class="row center">
-    <div class="table">
-    <table>
-        <thead>
-            <th id="attendee1">Attendee</th>
-            <th id="item1">Item</th>
-            <th id="comment1">Comment</th>
-        </thead>
-        <tbody id="rsvpList">
-            <!-- <tr>
-                <td>Alfreds Futterkiste</td>
-                <td>Maria Anders</td>
-                <td>Germany</td>
-            </tr>
-            <tr>
-                <td>Centro comercial Moctezuma</td>
-                <td>Francisco Chang</td>
-                <td>Mexico</td>
-            </tr>
-            <tr>
-                <td>Ernst Handel</td>
-                <td>Roland Mendel</td>
-                <td>Austria</td>
-            </tr>
-            <tr>
-                <td>Island Trading</td>
-                <td>Helen Bennett</td>
-                <td>UK</td>
-            </tr> -->
-        </tbody>
-    </table>
-    </div>
-    <!--  <div class="col s3 section" id="attendingDash">
-          <h5>Attending</h5>
-          <p>Miriam</p>
-        </div>
-
-        <div class="col s3 section" id="hostingDash">
-          <h5>Item </h5
-          <div id="hostUserInput">
-            <p>Tomato Sauce </p>
-          </div>
-        </div> -->
-</div>
-</div>
-</div>
-</div>
-<!--  <div class="row">
-      <div id="eventName" id="featured">
         <div class="row center">
-            <div class=" col s12"><span class="flow-text" id="plate">Event Name</span>
-            </div>
-            <br>
-
-            <div class="row">
-                <div class="section s6">
-                    <div id="hostUserInput">
-                        <p>Host: </p>
-                    </div>
-                    <div id="dateUserInput">
-                        <p>Date: </p>
-                    </div>
-                    <div id="timeUserInput">
-                        <p>Time: </p>
-                    </div>
-                    <div id="locationUserInput">
-                        <p>Location: </p>
-                    </div>
-                </div>
+            <div class="table">
+                <table>
+                    <thead>
+                        <th id="attendee1">Attendee</th>
+                        <th id="item1">Item</th>
+                        <th id="comment1">Comment</th>
+                    </thead>
+                    <tbody id="rsvpList">
+                    </tbody>
+                </table>
             </div>
         </div>
-      </div>
- </div> -->
-<!-- <div class="col s7 push-s5 container #ffffff white"><span class="date"><h5>Date of Event: </h5> </span>
-      </div> -->
-<!-- <div class="col s7 pull-s5"><span class="flow-text">
-       Date of Event: </span></div>
-      <div class="col s5 pull-s7"><span class="flow-text">5-columns wide pulled to the left by 7-columns.</span>
-      </div> -->
-<!--  <div class="row">
-
-      <div class="col s9">
-        <div class="date container #ff4d03">
-        <div id="date"><h6>Date of Event</h6></div>
-        <div id="dateUserInput"><p> </p></div>
     </div>
-
-    <div class="time container #ffffff white">
-        <div id="time"><h6>Time of Event</h6></div>
-        <div id="timeUserInput"><p> </p></div>
+</div>
+</div>
+<footer class="page-footer">
+    <div class="container">
     </div>
-
-    <div class="location container #ffffff white">
-        <div id="location"><h6>Location of Event</h6></div>
-        <div id="locationUserInput"><p> </p></div>
-    </div>
-
-    <div class="host container #ffffff white">
-        <div id="host"><h6>The Host</h6></div>
-        <div id="hostUserInput"><p> </p></div>
-    </div>
-
-    <div class="title container #ffffff white">
-        <div id="title"><h6>Title of Event</h6></div>
-        <div id="titleUserInput"><p> </p></div>
-    </div>
-
-    <div class="description container #ffffff white">
-        <div id="description"><h6>Description</h6></div>
-        <div id="descriptionUserInput"><p> </p></div>
-    </div>
-
-    <div class="attendees container #ffffff white">
-        <div id="attendees"><h6>List of Attendees</h6></div>
-        <div id="attendeesUserInput"><p> </p></div>
-    </div>
-
-    <div class="items container #ffffff white">
-        <div id="items"><h6>Items List</h6></div>
-        <div id="itemsUserInput"><p> </p></div>
-    </div>
-      </div>
-
-      <div class="col s3">
-        <div class="attendees container #ffffff white">
-        <div id="userAttendees"><h6>Attendees</h6></div>
-        <div id="attendeeName"><p> </p></div>
-    </div>
-      </div>
-
-    </div> -->
-<!-- <div class="col s6 second container">
-
-    <div class="date container #ff4d03">
-        <div id="date"><h6>Date of Event</h6></div>
-        <div id="dateUserInput"><p> </p></div>
-    </div>
-
-    <div class="time container #ffffff white">
-        <div id="time"><h6>Time of Event</h6></div>
-        <div id="timeUserInput"><p> </p></div>
-    </div>
-
-    <div class="location container #ffffff white">
-        <div id="location"><h6>Location of Event</h6></div>
-        <div id="locationUserInput"><p> </p></div>
-    </div>
-
-    <div class="host container #ffffff white">
-        <div id="host"><h6>The Host</h6></div>
-        <div id="hostUserInput"><p> </p></div>
-    </div>
-
-    <div class="title container #ffffff white">
-        <div id="title"><h6>Title of Event</h6></div>
-        <div id="titleUserInput"><p> </p></div>
-    </div>
-
-    <div class="description container #ffffff white">
-        <div id="description"><h6>Description</h6></div>
-        <div id="descriptionUserInput"><p> </p></div>
-    </div>
-
-    <div class="attendees container #ffffff white">
-        <div id="attendees"><h6>List of Attendees</h6></div>
-        <div id="attendeesUserInput"><p> </p></div>
-    </div>
-
-    <div class="items container #ffffff white">
-        <div id="items"><h6>Items List</h6></div>
-        <div id="itemsUserInput"><p> </p></div>
-    </div>
-
-    <div class="rsvp container center">
-        <a class="waves-effect orange lighten-1 btn">RSVP</a>
-    </div>
-
-</div> -->
-
-  <footer class="page-footer">
-         <div class="container">
-            
-          </div>
-          <div class="footer-copyright">
-            <div class="container">
-            © 2018 GRL Code 
-           
+    <div class="footer-copyright">
+        <div class="container">
             <ul>
-             
+                © 2018 GRL Code
+                <a class="socialMediaIcons">
+                    <li>
+                        <img src="/assets/images/socialMediaIcons-02.png" alt="socialMediaIcon" height="30" width="30" hspace="8">
+                        <img src="/assets/images/socialMediaIcons-03.png" alt="socialMediaIcon" height="30" width="30" hspace="8">
+                        <img src="/assets/images/socialMediaIcons-04.png" alt="socialMediaIcon" height="30" width="30" hspace="8">
+                        <img href="#https://github.com/GrlCodeUNC/PastaClub" target="blank" src="/assets/images/socialMediaIcons-05.png" alt="socialMediaIcon" height="30" width="30" hspace="8">
+                    </li>
+                </a>
             </ul>
-           
-            </div>
-          </div>
-   </footer>
-
+        </div>
+    </div>
+</footer>
 <!--js scripts-->
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <!-- <script src="js/materialize.js"></script> -->

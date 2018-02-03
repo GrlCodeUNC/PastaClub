@@ -349,13 +349,6 @@ td, th {
 	background: #ffa72e;
 }
 
-/*#my-signin2 {*/
-/*	float: center;*/
-/*	display: block;*/
-/*	margin-right: auto;
-	margin-left: 600px;
-}
-
 /* dashboard images for upcoming events */
 /* style the labels on the images the same */
 .image_labels
@@ -423,7 +416,7 @@ tr:nth-child(even) {
 
 a.socialMediaIcons {
     float: right;
-    padding-top: 10px;
+    padding-bottom: 15px;
 }
 
 #eventDescription {
