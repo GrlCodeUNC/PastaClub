@@ -38,16 +38,18 @@ Our application stands out because of many variables we have incorporated within
 ## Installation
 To get our application running on your personal computer
 <ul>
-<li>Git clone the repo</li>
-<ul>Create .env file in root
-    <li>DB_HOST=localhost</li>
-    <li>DB_PORT=3306</li>
-    <li>DB_USER=root</li>
-    <li>DB_PSWD="your password or null"</li>
-    <li>NODE_ENV=development</li>
-</ul>
-<li>NPM install should install everything you need from the package.json file we have within our MVC.</li>
-<li>Now move into your repo within your CLI and start the server, once that is done you should be able to see our page on you your browser using localhost://8080.
+ <li>Git clone the repo</li>
+ <li>Create .env file in root
+    <ul>
+       <li>DB_HOST=localhost</li>
+       <li>DB_PORT=3306</li>
+       <li>DB_USER=root</li>
+       <li>DB_PSWD="your password or null"</li>
+       <li>NODE_ENV=development</li>
+    </ul>
+ </li>
+ <li>NPM install should install everything you need from the package.json file we have within our MVC.</li>
+ <li>Now move into your repo within your CLI and start the server, once that is done you should be able to see our page on you your          browser using localhost://8080.</li>
 </ul>
 
 However, you may also feel free to visit the application deployed through Heroku at <a href="https://polar-inlet-79897.herokuapp.com/dashboard">Pasta Club!</a>
