@@ -9,24 +9,27 @@ To offer you a brief view into our application I have attached screenshots of ou
 
 Welcome Page:
 ![screenshot of welcome-page](./welcome-page.png)
+
+
 Dashboard Page:
 ![screenshot of dashboard](./dashboard.png)
 
 ## Tech/framework used
-<b>Built with
-    - HTML5
-    - CSS
-    - Materialize
-    - jQuery
-    - Google OAuth API
-    - JavaScript
-    - MySQL Database
-    - Node/Express
-    - Sequelize
-    - GitHub
-    - Heroku
-    - Modals
-</b> 
+<ul><b>Built with</b> 
+    <li>HTML5</li>
+    <li>CSS</li>
+    <li>Materialize</li>
+    <li>jQuery</li>
+    <li>Google OAuth API</li>
+    <li>JavaScript</li>
+    <li>MySQL Database</li>
+    <li>Node/Express</li>
+    <li>Sequelize</li>
+    <li>GitHub</li>
+    <li>Heroku</li>
+    <li>Modals</li>
+</ul>
+
 
 ## Features
 Our application stands out because of many variables we have incorporated within our website. However, we think it really stands out because of features suchs as a polished UI and UX, dynamic updates, Google OAuth enabled User sign-in, and an individualized dashboard page.
@@ -35,16 +38,16 @@ Our application stands out because of many variables we have incorporated within
 ## Installation
 To get our application running on your personal computer
 <ul>
-<li>Step 1. Git clone the repo</li>
-<li>Step 2. Create .env file in root
-    DB_HOST=localhost
-    DB_PORT=3306
-    DB_USER=root
-    DB_PSWD="your password or null"
-    NODE_ENV=development
-</li>
-<li>Step 3. NPM install should install everything you need from the package.json file we have within our MVC.</li>
-<li>Step 4. Now move into your repo within your CLI and start the server, once that is done you should be able to see our page on you your browser using localhost://8080.
+<li>Git clone the repo</li>
+<ul>Create .env file in root
+    <li>DB_HOST=localhost</li>
+    <li>DB_PORT=3306</li>
+    <li>DB_USER=root</li>
+    <li>DB_PSWD="your password or null"</li>
+    <li>NODE_ENV=development</li>
+</ul>
+<li>NPM install should install everything you need from the package.json file we have within our MVC.</li>
+<li>Now move into your repo within your CLI and start the server, once that is done you should be able to see our page on you your browser using localhost://8080.
 </ul>
 
 However, you may also feel free to visit the application deployed through Heroku at <a href="https://polar-inlet-79897.herokuapp.com/dashboard">Pasta Club!</a>
@@ -55,10 +58,11 @@ However, you may also feel free to visit the application deployed through Heroku
 
 
 ## Credits
-
-Brea Torres
-Miriam Bonano
-Saima Zia  
+<ul>
+<li><a href="https://github.com/abreaw">Brea Torres</a></li>
+<li><a href="https://github.com/weirichm">Miriam Bonano</a></li>
+<li><a href="https://github.com/snz1210">Saima Zia</a></li>
+</ul>
 
 
 
