@@ -5,7 +5,12 @@ A social media application for people within a community to meetup at a monthly 
 The motivation for this application was to have a median where a community could get together on a monthly basis in order to meet new people, learn basic cooking skills, and have a sense of belonging. 
  
 ## Screenshots
+To offer you a brief view into our application I have attached screenshots of our welcome and dashboard pages.
 
+Welcome Page:
+![screenshot of welcome-page](./welcome-page.png)
+Dashboard Page:
+![screenshot of dashboard](./dashboard.png)
 
 ## Tech/framework used
 <b>Built with
